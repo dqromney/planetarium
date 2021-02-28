@@ -42,7 +42,7 @@ public class Setup {
         Text timeLabel = new Text("Sidereal time"); // Time = 0-23, Minutes = 0-59, HH:MM
 
         //Label for Sidereal time of observation
-        TextField timeText = new TextField();15
+        TextField timeText = new TextField();
 
         //Label for horizon
         Text horizonLabel = new Text("Horizon"); // N = North, S = South
