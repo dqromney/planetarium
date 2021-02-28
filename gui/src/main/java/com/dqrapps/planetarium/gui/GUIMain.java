@@ -3,6 +3,8 @@ package com.dqrapps.planetarium.gui;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+// HYG Database: https://github.com/InfernoEmbedded/planetarium
+// https://github.com/astronexus/HYG-Database/tree/cb19d26a9910f5c0794a0dec72f29f2977eca2cc
 public class GUIMain extends Application {
 
     public static void main(String[] args){
