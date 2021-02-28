@@ -15,16 +15,16 @@ public class Setup {
 
     public void doSetupMenu(Stage pStage) {
         //Label for Longitude Degrees
-        Text longitudeDegLabel = new Text("Longitude (Deg)");
+        Text longitudeDegLabel = new Text("Longitude (Deg)"); // DEG = -180 to +180; -112
 
         //Text field for Longitude Degree
         TextField longitudeDegText = new TextField();
 
         //Label for Longitude Minutes
-        Text longitudeMinLabel = new Text("Minutes");
+        Text longitudeMinLabel = new Text("Minutes"); // Minutes = 0-59; 2
 
         //Text field for Longitude Minutes
-        TextField longitudeMinText = new TextField();
+        TextField longitudeMinText = new TextField(); // DEG = 0-90; 40
 
         //Label for Latitude Degrees
         Text latitudeDegLabel = new Text("Latitude (Deg)");
@@ -39,13 +39,13 @@ public class Setup {
         DatePicker datePicker = new DatePicker();
 
         //Label for Sidereal time of observation
-        Text timeLabel = new Text("Sidereal time");
+        Text timeLabel = new Text("Sidereal time"); // Time = 0-23, Minutes = 0-59, HH:MM
 
         //Label for Sidereal time of observation
-        TextField timeText = new TextField();
+        TextField timeText = new TextField();15
 
         //Label for horizon
-        Text horizonLabel = new Text("Horizon");
+        Text horizonLabel = new Text("Horizon"); // N = North, S = South
 
         //Toggle group of radio buttons
         ToggleGroup groupHorizon = new ToggleGroup();
