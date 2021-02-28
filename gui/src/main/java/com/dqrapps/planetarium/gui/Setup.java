@@ -124,9 +124,12 @@ public class Setup {
         gridPane.add(buttonload, 2, row);
 
         //Styling nodes
-        buttonExit.setStyle("-fx-background-color: #503B31; -fx-textfill: white;"); // Dark Liver Horses
-        buttonSave.setStyle("-fx-background-color: #705D56; -fx-textfill: white;"); // Umber
-        buttonload.setStyle("-fx-background-color: #9097C0; -fx-textfill: white;"); // Blue Bell
+//        buttonExit.setStyle("-fx-background-color: #503B31; -fx-textfill: white;"); // Dark Liver Horses
+//        buttonSave.setStyle("-fx-background-color: #705D56; -fx-textfill: white;"); // Umber
+//        buttonload.setStyle("-fx-background-color: #9097C0; -fx-textfill: white;"); // Blue Bell
+        buttonExit.setStyle("-fx-textfill: white;"); // Dark Liver Horses
+        buttonSave.setStyle("-fx-textfill: white;"); // Umber
+        buttonload.setStyle("-fx-textfill: white;"); // Blue Bell
 
         // Font Color: Rich Black FOGRA 39
         longitudeDegLabel.setStyle("-fx-font: normal bold 15px 'serif'; -fx-font-color: #020202;");
