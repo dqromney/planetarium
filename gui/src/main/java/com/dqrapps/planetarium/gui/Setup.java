@@ -96,30 +96,24 @@ public class Setup {
         gridPane.add(longitudeMinLabel, 2, row);
         gridPane.add(longitudeMinText, 3, row);
 
-        row ++;
-        gridPane.add(latitudeDegLabel, 0, row);
+        gridPane.add(latitudeDegLabel, 0, ++row);
         gridPane.add(latitudeDegText, 1, row);
 
-        row ++;
-        gridPane.add(dooLabel, 0, row);
+        gridPane.add(dooLabel, 0, ++row);
         gridPane.add(datePicker, 1, row);
 
-        row ++;
-        gridPane.add(timeLabel, 0, row);
+        gridPane.add(timeLabel, 0, ++row);
         gridPane.add(timeText, 1, row);
 
-        row ++;
-        gridPane.add(horizonLabel, 0, row);
+        gridPane.add(horizonLabel, 0, ++row);
         gridPane.add(northRadio, 1, row);
         gridPane.add(southRadio, 2, row);
 
-        row ++;
-        gridPane.add(plotModeLabel, 0, row);
+        gridPane.add(plotModeLabel, 0, ++row);
         gridPane.add(individual, 1, row);
         gridPane.add(continuous, 2, row);
 
-        row += 2;;
-        gridPane.add(buttonExit, 0, row);
+        gridPane.add(buttonExit, 0, row += 2);
         gridPane.add(buttonSave, 1, row);
         gridPane.add(buttonload, 2, row);
 
