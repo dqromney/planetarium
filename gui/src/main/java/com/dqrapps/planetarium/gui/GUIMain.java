@@ -14,8 +14,8 @@ public class GUIMain extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        // Splash splash = new Splash();
-        // splash.show();
+        Splash splash = new Splash();
+        splash.doSplash(stage);
 
         // StartUp startup = new Startup();
         // startup.doStartup();
@@ -23,9 +23,9 @@ public class GUIMain extends Application {
         // CalculateAndPlot calculateAndPlot = new CalclateAndPlot();
         // calculateAndPlot.show();
 
-        // Setup menu; edit existing or setup new observation
-        Setup setupMenu = new Setup();
-        setupMenu.doSetupMenu(stage);
+        // SetupForm menu; edit existing or setup new observation
+        SetupForm setupForm = new SetupForm();
+        setupForm.doSetupForm(stage);
 
     }
 }
