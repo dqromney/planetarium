@@ -23,174 +23,171 @@
         {"ra": 4.28, "dec":  15.5, "mag": 4, "name": "GAMMA TAURUS"},
         {"ra": 4.33, "dec":  17.4, "mag": 5, "name": "DELTA TAURUS"},
         {"ra": 4.43, "dec":  15.8, "mag": 4, "name": "THETA TAURUS"},
-
+        {"ra": 0.12, "dec": 28.9, "mag": 2.1, "name": "ALPHERATZ"},
+        {"ra": 0.12, "dec": 58.8, "mag": 2.4, "name": "CAPH"},
+        {"ra": 0.2, "dec": 15, "mag": 2.9, "name": "ALGENIB"},
+        {"ra": 0.42, "dec": -42.5, "mag": 2.4, "name": "ANKAA"},
+        {"ra": 0.65, "dec": 56.4, "mag": 2.3, "name": "SCHEDAR"},
+        {"ra": 0.7, "dec": -18.2, "mag": 2.2, "name": "OIPDA"},
+        {"ra": 0.91, "dec": 60.6, "mag": 2.3, "name": "GAMIdA CASSIOPEIA"},
+        {"ra": 1.13, "dec": 35.5, "mag": 2.4, "name": "MIRACH"},
+        {"ra": 1.4, "dec": 60.1, "mag": 2.8, "name": "RUCKBAH"},
+        {"ra": 1.62, "dec": 57.4, "mag": 0.6, "name": "ACHERNAR"},
+        {"ra": 1.87, "dec": 63.5, "mag": 3.5, "name": "SEGIN"},
+        {"ra": 1.88, "dec": 20.7, "mag": 2.7, "name": "SHERATAN"},
+        {"ra": 2.03, "dec": 42.2, "mag": 2.2, "name": "ALAMAK"},
+        {"ra": 2.04, "dec": 89.1, "mag": 2.1, "name": "POLARIS"},
+        {"ra": 2.08, "dec": 23.3, "mag": 2.2, "name": "HAMAL"},
+        {"ra": 3.02, "dec": 4.0, "mag": 2.8, "name": "MENKAR"},
+        {"ra": 3.1, "dec": 40.8, "mag": 2.8, "name": "ALGDL"},
+        {"ra": 3.37, "dec": 49.8, "mag": 1.9, "name": "MIRFAK"},
+        {"ra": 3.75, "dec": 24, "mag": 3, "name": "ALCVONE"},
+        {"ra": 3.87, "dec": 31.8, "mag": 2.9, "name": "MENKHIB"},
+        {"ra": 4.28, "dec": 15.5, "mag": 4, "name": "GAMMA TAURUS"},
+        {"ra": 4.33, "dec": 17 4, "mag": 5, "name": "DELTA TAURUS"},
+        {"ra": 4.43, "dec": 15.8, "mag": 4, "name": "THETA TAURUS"},
+        {"ra": 4.45, "dec": 19.1, "mag": 3.6, "name": "AIN"},
+        {"ra": 4.57, "dec": 16.4, "mag": 1.1, "name": "ALDEBARAN"},
+        {"ra": 4.92, "dec": 33.1, "mag": 2.9, "name": "HASSALEH"},
+        {"ra": 5.07, "dec": 41.2, "mag": 3.3, "name": "HOEDUS"},
+        {"ra": 5.1, "dec": 5.1, "mag": 2.9, "name": "CURSA"},
+        {"ra": 5.22, "dec": 8.2, "mag": 3, "name": "RIGEL"},
+        {"ra": 5.23, "dec": 46, "mag": 0.2, "name": "CAPELLA"},
+        {"ra": 5.4, "dec": 6.3, "mag": 1.7, "name": "BELLATRIX"},
+        {"ra": 5.45, "dec": -20.8, "mag": 3, "name": "NIHAL"},
+        {"ra": 5.4, "dec": 28.6, "mag": 1.8, "name": "ELNATH"},
+        {"ra": 5.5, "dec": -0.3, "mag": 2.5, "name": "MINTAKA"},
+        {"ra": 5.51, "dec": -17.9, "mag": 2.7, "name": "ARNEB"},
+        {"ra": 5.54, "dec": 9.9, "mag": 3.7, "name": "HEKA"},
+        {"ra": 5.57, "dec": -5.9, "mag": 2.9, "name": "HATSYA"},
+        {"ra": 5.58, "dec": -1.2, "mag": 1.7, "name": "ANILAId"},
+        {"ra": 5.65, "dec": -34.1, "mag": 2.7, "name": "PHACT"},
+        {"ra": 5.65, "dec": -2, "mag": 2, "name": "ALNITAK"},
+        {"ra": 5.77, "dec": -9.7, "mag": 2.2, "name": "SAIPH"},
+        {"ra": 5.9, "dec": 7.4, "mag": 0.0, "name": "BETELGEUSE"},
+        {"ra": 5.95, "dec": 45, "mag": 2.1, "name": "MENKALINAN"},
+        {"ra": 5.96, "dec": 37.2, "mag": 2.7, "name": "THETA AURIGA"},
+        {"ra": 6.22, "dec": 22.5, "mag": 3.4, "name": "TEJAT PRIOR"},
+        {"ra": 6.35, "dec": 22.5, "mag": 3.2, "name": "TEJAT POSTERIOR"},
+        {"ra": 6.35, "dec": -17.9, "mag": 2, "name": "MIRZAM"},
+        {"ra": 6 38, "dec": -52.7, "mag": -0.9, "name": "CANOPUS"},
+        {"ra": 6.6, "dec": 16.4, "mag": 1.9, "name": "ALHENA"},
+        {"ra": 6.7, "dec": 13.0, "mag": 4, "name": "XI GEMINI"},
+        {"ra": 6.7, "dec": 25.2, "mag": 3.2, "name": "MEBSUTA"},
+        {"ra": 6.73, "dec": -16.7, "mag": 1.6, "name": "SIRIUS"},
+        {"ra": 6.82, "dec": -50.6, "mag": 2.8, "name": "TAU PUPPIS"},
+        {"ra": 6.85, "dec": 33.9, "mag": 4, "name": "THETA GEIdINI"},
+        {"ra": 6 95, "dec": -28.9, "mag": 1.6, "name": "ADARA"},
+        {"ra": 7.03, "dec": 20.6, "mag": 4, "name": "MEKBUDA"},
+        {"ra": 7.12, "dec": -26.4, "mag": 2, "name": "WEZEN"},
+        {"ra": 7.27, "dec": 16.8, "mag": 4, "name": "LAId8DA GEMINI"},
+        {"ra": 7.26, "dec": 37.1, "mag": 2.7, "name": "PI PUPPIS"},
+        {"ra": 7.3, "dec": 22.0, "mag": 3.5, "name": "WASAT"},
+        {"ra": 7.38, "dec": -29.3, "mag": 2.4, "name": "ALUDRA"},
+        {"ra": 7.55, "dec": 32, "mag": 1.6, "name": "CASTOR"},
+        {"ra": 7.63, "dec": 5.3, "mag": 0.5, "name": "PROCYON"},
+        {"ra": 7.7, "dec": 24.6, "mag": 4, "name": "KAPPA GEMINI"},
+        {"ra": 7.72, "dec": 28.1, "mag": 1.2, "name": "POLLUX"},
+        {"ra": 8.05, "dec": -39.9, "mag": 2.3, "name": "ZETA PUPPIS"},
+        {"ra": 8.15, "dec": -47.3, "mag": 1.9, "name": "GAMMA VELA"},
+        {"ra": 8.37, "dec": -59.4, "mag": 1.7, "name": "AVIOR"},
+        {"ra": 8.73, "dec": -54 6, "mag": 2, "name": "DELTA VELA"},
+        {"ra": 9.12, "dec": -43.3, "mag": 2.2, "name": "SUHAIL"},
+        {"ra": 9.27, "dec": -59.2, "mag": 2.2, "name": "IOTA CARINA"},
+        {"ra": 9.35, "dec": -54.9, "mag": 2.6, "name": "KAPPA VELA"},
+        {"ra": 9.43, "dec": -8.5, "mag": 2.2, "name": "ALPHARD"},
+        {"ra": 9.73, "dec": 23.9, "mag": 3.1, "name": "RAS ELASED AUSTRALIS"},
+        {"ra": 9.85, "dec": 26.2, "mag": 4.1, "name": "RAS ELASED 80REALIS"},
+        {"ra": 10.07, "dec": 16.8, "mag": 4, "name": "ETA LEO"},
+        {"ra": 10.12, "dec": 12.1, "mag": 1.3, "name": "REGULUS"},
+        {"ra": 10.25, "dec": 23.6, "mag": 3.6, "name": "ADHAFERA"},
+        {"ra": 10.3, "dec": 20.2, "mag": 6, "name": "ALGEIBA"},
+        {"ra": 10.75, "dec": -49.3, "mag": 2.8, "name": "MU VELA"},
+        {"ra": 11, "dec": 56.5, "mag": 2.4, "name": "MERAK"},
+        {"ra": 11.03, "dec": 61.9, "mag": 1.9, "name": "DUBHE"},
+        {"ra": 11.22, "dec": 15.6, "mag": 3.4, "name": "COXA"},
+        {"ra": 11.22, "dec": 20.7, "mag": 2.6, "name": "ZOSMA"},
+        {"ra": 11.8, "dec": 14.7, "mag": 2.2, "name": "DENEBOLA"},
+        {"ra": 11.87, "dec": 53.9, "mag": 2.5, "name": "PHECDA"},
+        {"ra": 12.22, "dec": 57.3, "mag": 3.3, "name": "MEGREZ"},
+        {"ra": 12.23, "dec": -17.4, "mag": 2.8, "name": "GIENA"},
+        {"ra": 12.48, "dec": -57.1, "mag": 6, "name": "GACRUX"},
+        {"ra": 12.6, "dec": -23.2, "mag": 2.8, "name": "KRAZ"},
+        {"ra": 12.67, "dec": -1.3, "mag": 2.9, "name": "ARICH"},
+        {"ra": 12.67, "dec": 48.8, "mag": 2.4, "name": "MUHLIFAIN"},
+        {"ra": 12.76, "dec": -59.5, "mag": 1.5, "name": "MIMOSA"},
+        {"ra": 12.88, "dec": 56.1, "mag": 1.7, "name": "ALIOTH"},
+        {"ra": 12.92, "dec": 38.5, "mag": 2.9, "name": "COR CAROLI"},
+        {"ra": 13.02, "dec": 11.1, "mag": 2.9, "name": "VINDEMIATRIX"},
+        {"ra": 13.38, "dec": 55.1, "mag": 2.4, "name": "MIZAR"},
+        {"ra": 13.39, "dec": -11, "mag": 1.2, "name": "SPICA"},
+        {"ra": 13.63, "dec": -53.3, "mag": 2.6, "name": "EPSILON CENTAURUS"},
+        {"ra": 13.76, "dec": 49.5, "mag": 1.9, "name": "ALKAIO"},
+        {"ra": 13.88, "dec": 18.5, "mag": 2.8, "name": "ETA BOOTES"},
+        {"ra": 14.08, "dec": -36.2, "mag": 2.3, "name": "MENKENT"},
+        {"ra": 14.23, "dec": 19.3, "mag": 0.2, "name": "ARCTURUS"},
+        {"ra": 14.52, "dec": 38.4, "mag": 3, "name": "HARIS"},
+        {"ra": 14.57, "dec": 42, "mag": 2.6, "name": "ETA CENTAURUS"},
+        {"ra": 14.74, "dec": 27.2, "mag": 2.7, "name": "IZAR"},
+        {"ra": 14.82, "dec": -15.9, "mag": 2.8, "name": "ZUBEN-ELGENUBI"},
+        {"ra": 14.85, "dec": 74.3, "mag": 2.2, "name": "KOCHAB"},
+        {"ra": 14.95, "dec": -43, "mag": 2.8, "name": "BETA LUPUS"},
+        {"ra": 15.25, "dec": -9.3, "mag": 2.7, "name": "ZUBEN-ESCHAMALI"},
+        {"ra": 15.35, "dec": 72.0, "mag": 3.1, "name": "PHERKAD"},
+        {"ra": 15.55, "dec": 26.8, "mag": 2.3, "name": "ALPHECCA"},
+        {"ra": 15.72, "dec": 6.5, "mag": 2.7, "name": "UNUK"},
+        {"ra": 15.75, "dec": 77.7, "mag": 6, "name": "XI URSA MINOR"},
+        {"ra": 15.93, "dec": 25.9, "mag": 4, "name": "PI SCORPIO"},
+        {"ra": 15.98, "dec": -22.5, "mag": 2.5, "name": "DSCHUBBA"},
+        {"ra": 16.07, "dec": -19.7, "mag": 2.6, "name": "ACRA8"},
+        {"ra": 16.22, "dec": 3.6, "mag": 3, "name": "YED PRIOR"},
+        {"ra": 16.28, "dec": -25.3, "mag": 4, "name": "SIGMA SCORPIO"},
+        {"ra": 16.28, "dec": 75.8, "mag": 6, "name": "ETA URSA MINOR"},
+        {"ra": 16.47, "dec": -26.4, "mag": 1.2, "name": "ANTARES"},
+        {"ra": 16.48, "dec": 21.6, "mag": 2.8, "name": "KORNEPHORDS"},
+        {"ra": 16.55, "dec": -28, "mag": 4, "name": "TAU SCORPIO"},
+        {"ra": 16.6, "dec": -10.5, "mag": 1.9, "name": "ZETA OPHIUCUS"},
+        {"ra": 16.78, "dec": -38, "mag": 4, "name": "MU SCORPIO"},
+        {"ra": 16.8, "dec": -34 2, "mag": 2.4, "name": "EPSILON SCORPIUS"},
+        {"ra": 16.83, "dec": 81.9, "mag": 5, "name": "EPSILON URSA MINOR"},
+        {"ra": 17.12, "dec": -43.1, "mag": 5, "name": "ETA SCORPIO"},
+        {"ra": 17.15, "dec": -15.7, "mag": 2.6, "name": "SABIK"},
+        {"ra": 17.38, "dec": -55.5, "mag": 2.8, "name": "BETA ARA"},
+        {"ra": 17.48, "dec": 52.3, "mag": 3, "name": "ALWAID"},
+        {"ra": 17.48, "dec": -37.3, "mag": 2.8, "name": "UPSILON SCORPIUS"},
+        {"ra": 17.53, "dec": -37.1, "mag": 1.7, "name": "SHAULA"},
+        {"ra": 17.57, "dec": 12.6, "mag": 2.1, "name": "RASALHAGUE"},
+        {"ra": 17.58, "dec": 43, "mag": 2, "name": "THETA SCDRPIUS"},
+        {"ra": 17.67, "dec": -39, "mag": 2.5, "name": "KAPPA SCORPIUS"},
+        {"ra": 17.7, "dec": 4.6, "mag": 2.9, "name": "KELB ALRAI"},
+        {"ra": 17.7, "dec": 39.9, "mag": 4, "name": "IOTA SCORPIO"},
+        {"ra": 17.72, "dec": 86.6, "mag": 4 4, "name": "PHERKARD"},
+        {"ra": 17.93, "dec": 51.5, "mag": 2.4, "name": "ELTANIN"},
+        {"ra": 18.07, "dec": -30.4, "mag": 3.1, "name": "NUSHABA"},
+        {"ra": 18.32, "dec": -29.9, "mag": 2.8, "name": "KAUS MEDIUS"},
+        {"ra": 18.37, "dec": 34.4, "mag": 1.9, "name": "KAUS AUSTRALIS"},
+        {"ra": 18.43, "dec": -25.4, "mag": 2.8, "name": "KAUS BOREALIS"},
+        {"ra": 18.6, "dec": 38.8, "mag": 0.1, "name": "VEGA"},
+        {"ra": 18.73, "dec": -27, "mag": 4, "name": "PHI SAGITTARIUS"},
+        {"ra": 18.88, "dec": -26.3, "mag": 2.1, "name": "NUNKI"},
+        {"ra": 19.02, "dec": -29.9, "mag": 2.7, "name": "ASCELLA"},
+        {"ra": 19.05, "dec": -27.6, "mag": 4, "name": "TAU SAGITTARIUS"},
+        {"ra": 19.5, "dec": 27.9, "mag": 3.2, "name": "ALBIREOR"},
+        {"ra": 19.75, "dec": 10.5, "mag": 2.8, "name": "TARAZED"},
+        {"ra": 19.8, "dec": 45, "mag": 3, "name": "SADOR"},
+        {"ra": 19.82, "dec": 8.8, "mag": 0.9, "name": "ALTAIR"},
+        {"ra": 20.35, "dec": 40.2, "mag": 2.3, "name": "SADR"},
+        {"ra": 20.38, "dec": -56.8, "mag": 2.1, "name": "PEACOCK"},
+        {"ra": 20.67, "dec": 45.2, "mag": 1.3, "name": "DENEB"},
+        {"ra": 20.75, "dec": 33.9, "mag": 2.6, "name": "CIENAH"},
+        {"ra": 21.3, "dec": 62.5, "mag": 2.6, "name": "ALOERAUIN"},
+        {"ra": 21.72, "dec": 9.7, "mag": 2.5, "name": "ENIF"},
+        {"ra": 21.75, "dec": 16.3, "mag": 3, "name": "DENEB ALCEOI"},
+        {"ra": 22.95, "dec": -0.9, "mag": 2.9, "name": "SADAMELIK"},
+        {"ra": 22.1, "dec": -47.1, "mag": 2.2, "name": "ALNAIR"},
+        {"ra": 22.68, "dec": -47.2, "mag": 2.9, "name": "ETA CRUS"},
+        {"ra": 22.93, "dec": -29.8, "mag": 1.3, "name": "FOMALHAUT"},
+        {"ra": 23.03, "dec": 27.9, "mag": 2.6, "name": "SCHEAT"},
+        {"ra": 23.05, "dec": 15, "mag": 2.6, "name": "UARKAB"}
     ]
 }
-
-"ra": 0.12, "dec": 28.9, "mag": 2.1, "name": "ALPHERATZ
-"ra": 0.12, "dec": 58.8, "mag": 2.4, "name": "CAPH
-"ra": 0.2, "dec": 15, "mag": 2.9, "name": "ALGENIB
-"ra": 0.42, "dec": -42.5, "mag": 2.4, "name": "ANKAA
-"ra": 0.65, "dec": 56.4, "mag": 2.3, "name": "SCHEDAR
-"ra": 0.7, "dec": -18.2, "mag": 2.2, "name": "OIPDA
-"ra": 0.91, "dec": 60.6, "mag": 2.3, "name": "GAMIdA CASSIOPEIA
-"ra": 1.13, "dec": 35.5, "mag": 2.4, "name": "MIRACH
-"ra": 1.4, "dec": 60.1, "mag": 2.8, "name": "RUCKBAH
-"ra": 1.62, "dec": 57.4, "mag": 0.6, "name": "ACHERNAR
-"ra": 1.87, "dec": 63.5, "mag": 3.5, "name": "SEGIN
-"ra": 1.88, "dec": 20.7, "mag": 2.7, "name": "SHERATAN
-"ra": 2.03, "dec": 42.2, "mag": 2.2, "name": "ALAMAK
-"ra": 2.04, "dec": 89.1, "mag": 2.1, "name": "POLARIS
-"ra": 2.08, "dec": 23.3, "mag": 2.2, "name": "HAMAL
-"ra": 3.02, "dec": 4.0, "mag": 2.8, "name": "MENKAR
-"ra": 3.1, "dec": 40.8, "mag": 2.8, "name": "ALGDL
-"ra": 3.37, "dec": 49.8, "mag": 1.9, "name": "MIRFAK
-// Left off here; replace
-"ra": 3.75, "dec": 24, "mag": 3,ALCVONE
-"ra": 3.87, "dec": 31.8, "mag": 2.9,MENKHIB
-"ra": 4.28, "dec": 15.5, "mag": 4,GAMMA TAURUS
-"ra": 4.33, "dec": 17 4, "mag": 5,DELTA TAURUS
-"ra": 4.43, "dec": 15.8, "mag": 4,THETA TAURUS
-"ra": 4.45, "dec": 19.1, "mag": 3.6,AIN
-"ra": 4.57, "dec": 16.4, "mag": 1.1,ALDEBARAN
-"ra": 4.92, "dec": 33.1, "mag": 2.9,HASSALEH
-"ra": 5.07, "dec": 41.2, "mag": 3.3,HOEDUS
-"ra": 5.1, "dec": 5.1, "mag": 2.9,CURSA
-"ra": 5.22, "dec": 8.2, "mag": 3,RIGEL
-"ra": 5.23, "dec": 46, "mag": 0.2,CAPELLA
-"ra": 5.4, "dec": 6.3, "mag": 1.7,BELLATRIX
-"ra": 5.45, "dec": -20.8, "mag": 3,NIHAL
-"ra": 5.4, "dec": 28.6, "mag": 1.8,ELNATH
-"ra": 5.5, "dec": -0.3, "mag": 2.5,MINTAKA
-"ra": 5.51, "dec": -17.9, "mag": 2.7,ARNEB
-"ra": 5.54, "dec": 9.9, "mag": 3.7,HEKA
-"ra": 5.57, "dec": -5.9, "mag": 2.9,HATSYA
-"ra": 5.58, "dec": -1.2, "mag": 1.7,ANILAId
-"ra": 5.65, "dec": -34.1, "mag": 2.7,PHACT
-"ra": 5.65, "dec": -2, "mag": 2,ALNITAK
-"ra": 5.77, "dec": -9.7, "mag": 2.2,SAIPH
-"ra": 5.9, "dec": 7.4, "mag": 0.0,BETELGEUSE
-"ra": 5.95, "dec": 45, "mag": 2.1,MENKALINAN
-"ra": 5.96, "dec": 37.2, "mag": 2.7,THETA AURIGA
-"ra": 6.22, "dec": 22.5, "mag": 3.4,TEJAT PRIOR
-"ra": 6.35, "dec": 22.5, "mag": 3.2,TEJAT POSTERIOR
-"ra": 6.35, "dec": -17.9, "mag": 2,MIRZAM
-"ra": 6 38, "dec": -52.7, "mag": -0.9,CANOPUS
-"ra": 6.6, "dec": 16.4, "mag": 1.9,ALHENA
-"ra": 6.7, "dec": 13.0, "mag": 4,XI GEMINI
-"ra": 6.7, "dec": 25.2, "mag": 3.2,MEBSUTA
-"ra": 6.73, "dec": -16.7, "mag": 1.6,SIRIUS
-"ra": 6.82, "dec": -50.6, "mag": 2.8,TAU PUPPIS
-"ra": 6.85, "dec": 33.9, "mag": 4,THETA GEIdINI
-"ra": 6 95, "dec": -28.9, "mag": 1.6,ADARA
-"ra": 7.03, "dec": 20.6, "mag": 4,MEKBUDA
-"ra": 7.12, "dec": -26.4, "mag": 2,WEZEN
-"ra": 7.27, "dec": 16.8, "mag": 4,LAId8DA GEMINI
-"ra": 7.26, "dec": 37.1, "mag": 2.7,PI PUPPIS
-"ra": 7.3, "dec": 22.0, "mag": 3.5,WASAT
-"ra": 7.38, "dec": -29.3, "mag": 2.4,ALUDRA
-"ra": 7.55, "dec": 32, "mag": 1.6,CASTOR
-"ra": 7.63, "dec": 5.3, "mag": 0.5,PROCYON
-"ra": 7.7, "dec": 24.6, "mag": 4,KAPPA GEMINI
-"ra": 7.72, "dec": 28.1, "mag": 1.2,POLLUX
-"ra": 8.05, "dec": -39.9, "mag": 2.3,ZETA PUPPIS
-"ra": 8.15, "dec": -47.3, "mag": 1.9,GAMMA VELA
-"ra": 8.37, "dec": -59.4, "mag": 1.7,AVIOR
-"ra": 8.73, "dec": -54 6, "mag": 2,DELTA VELA
-"ra": 9.12, "dec": -43.3, "mag": 2.2,SUHAIL
-"ra": 9.27, "dec": -59.2, "mag": 2.2,IOTA CARINA
-"ra": 9.35, "dec": -54.9, "mag": 2.6,KAPPA VELA
-"ra": 9.43, "dec": -8.5, "mag": 2.2,ALPHARD
-"ra": 9.73, "dec": 23.9, "mag": 3.1,RAS ELASED AUSTRALIS
-"ra": 9.85, "dec": 26.2, "mag": 4.1,RAS ELASED 80REALIS
-"ra": 10.07, "dec": 16.8, "mag": 4,ETA LEO
-"ra": 10.12, "dec": 12.1, "mag": 1.3,REGULUS
-"ra": 10.25, "dec": 23.6, "mag": 3.6,ADHAFERA
-"ra": 10.3, "dec": 20.2, "mag": 6,ALGEIBA
-"ra": 10.75, "dec": -49.3, "mag": 2.8,MU VELA
-"ra": 11, "dec": 56.5, "mag": 2.4,MERAK
-"ra": 11.03, "dec": 61.9, "mag": 1.9,DUBHE
-"ra": 11.22, "dec": 15.6, "mag": 3.4,COXA
-"ra": 11.22, "dec": 20.7, "mag": 2.6,ZOSMA
-"ra": 11.8, "dec": 14.7, "mag": 2.2,DENEBOLA
-"ra": 11.87, "dec": 53.9, "mag": 2.5,PHECDA
-"ra": 12.22, "dec": 57.3, "mag": 3.3,MEGREZ
-"ra": 12.23, "dec": -17.4, "mag": 2.8,GIENA
-"ra": 12.48, "dec": -57.1, "mag": 6,GACRUX
-"ra": 12.6, "dec": -23.2, "mag": 2.8,KRAZ
-"ra": 12.67, "dec": -1.3, "mag": 2.9,ARICH
-"ra": 12.67, "dec": 48.8, "mag": 2.4,MUHLIFAIN
-"ra": 12.76, "dec": -59.5, "mag": 1.5,MIMOSA
-"ra": 12.88, "dec": 56.1, "mag": 1.7,ALIOTH
-"ra": 12.92, "dec": 38.5, "mag": 2.9,COR CAROLI
-"ra": 13.02, "dec": 11.1, "mag": 2.9,VINDEMIATRIX
-"ra": 13.38, "dec": 55.1, "mag": 2.4,MIZAR
-"ra": 13.39, "dec": -11, "mag": 1.2,SPICA
-"ra": 13.63, "dec": -53.3, "mag": 2.6,EPSILON CENTAURUS
-"ra": 13.76, "dec": 49.5, "mag": 1.9,ALKAIO
-"ra": 13.88, "dec": 18.5, "mag": 2.8,ETA BOOTES
-"ra": 14.08, "dec": -36.2, "mag": 2.3,MENKENT
-"ra": 14.23, "dec": 19.3, "mag": 0.2,ARCTURUS
-"ra": 14.52, "dec": 38.4, "mag": 3,HARIS
-"ra": 14.57, "dec": 42, "mag": 2.6,ETA CENTAURUS
-"ra": 14.74, "dec": 27.2, "mag": 2.7,IZAR
-"ra": 14.82, "dec": -15.9, "mag": 2.8,ZUBEN-ELGENUBI
-"ra": 14.85, "dec": 74.3, "mag": 2.2,KOCHAB
-"ra": 14.95, "dec": -43, "mag": 2.8,BETA LUPUS
-"ra": 15.25, "dec": -9.3, "mag": 2.7,ZUBEN-ESCHAMALI
-"ra": 15.35, "dec": 72.0, "mag": 3.1,PHERKAD
-"ra": 15.55, "dec": 26.8, "mag": 2.3,ALPHECCA
-"ra": 15.72, "dec": 6.5, "mag": 2.7,UNUK
-"ra": 15.75, "dec": 77.7, "mag": 6,XI URSA MINOR
-"ra": 15.93, "dec": 25.9, "mag": 4,PI SCORPIO
-"ra": 15.98, "dec": -22.5, "mag": 2.5,DSCHUBBA
-"ra": 16.07, "dec": -19.7, "mag": 2.6,ACRA8
-"ra": 16.22, "dec": 3.6, "mag": 3,YED PRIOR
-"ra": 16.28, "dec": -25.3, "mag": 4,SIGMA SCORPIO
-"ra": 16.28, "dec": 75.8, "mag": 6,ETA URSA MINOR
-"ra": 16.47, "dec": -26.4, "mag": 1.2,ANTARES
-"ra": 16.48, "dec": 21.6, "mag": 2.8,KORNEPHORDS
-"ra": 16.55, "dec": -28.4, "mag": TAU SCORPIO
-"ra": 16.6, "dec": -10.5,1.9, "mag": ZETA OPHIUCUS
-"ra": 16.78, "dec": -38, "mag": 4,MU SCORPIO
-"ra": 16.8, "dec": -34 2, "mag": 2.4,EPSILON SCORPIUS
-"ra": 16.83, "dec": 81.9, "mag": 5,EPSILON URSA MINOR
-"ra": 17.12, "dec": -43.1, "mag": 5,ETA SCORPIO
-"ra": 17.15, "dec": -15.7, "mag": 2.6,SABIK
-"ra": 17.38, "dec": -55.5, "mag": 2.8,BETA ARA
-"ra": 17.48, "dec": 52.3, "mag": 3,ALWAID
-"ra": 17.48, "dec": -37.3, "mag": 2.8,UPSILON SCORPIUS
-"ra": 17.53, "dec": -37.1, "mag": 1.7,SHAULA
-"ra": 17.57, "dec": 12.6, "mag": 2.1,RASALHAGUE
-"ra": 17.58, "dec": 43, "mag": 2,THETA SCDRPIUS
-"ra": 17.67, "dec": -39, "mag": 2.5,KAPPA SCORPIUS
-"ra": 17.7, "dec": 4.6, "mag": 2.9,KELB ALRAI
-"ra": 17.7, "dec": 39.9, "mag": 4,IOTA SCORPIO
-"ra": 17.72, "dec": 86.6, "mag": 4 4,PHERKARD
-"ra": 17.93, "dec": 51.5, "mag": 2.4,ELTANIN
-"ra": 18.07, "dec": -30.4, "mag": 3.1,NUSHABA
-"ra": 18.32, "dec": -29.9, "mag": 2.8,KAUS MEDIUS
-"ra": 18.37, "dec": 34.4, "mag": 1.9,KAUS AUSTRALIS
-"ra": 18.43, "dec": -25.4, "mag": 2.8,KAUS BOREALIS
-"ra": 18.6, "dec": 38.8, "mag": 0.1,VEGA
-"ra": 18.73, "dec": -27, "mag": 4,PHI SAGITTARIUS
-"ra": 18.88, "dec": -26.3, "mag": 2.1,NUNKI
-"ra": 19.02, "dec": -29.9, "mag": 2.7,ASCELLA
-"ra": 19.05, "dec": -27.6, "mag": 4,TAU SAGITTARIUS
-"ra": 19.5, "dec": 27.9, "mag": 3.2,ALBIREOR
-"ra": 19.75, "dec": 10.5, "mag": 2.8,TARAZED
-"ra": 19.8, "dec": 45, "mag": 3,SADOR
-"ra": 19.82, "dec": 8.8, "mag": 0.9,ALTAIR
-"ra": 20.35, "dec": 40.2, "mag": 2.3,SADR
-"ra": 20.38, "dec": -56.8, "mag": 2.1,PEACOCK
-"ra": 20.67, "dec": 45.2, "mag": 1.3,DENEB
-"ra": 20.75, "dec": 33.9, "mag": 2.6,CIENAH
-"ra": 21.3, "dec": 62.5, "mag": 2.6,ALOERAUIN
-"ra": 21.72, "dec": 9.7, "mag": 2.5,ENIF
-"ra": 21.75, "dec": 16.3, "mag": 3,DENEB ALCEOI
-"ra": 22.95, "dec": -0.9, "mag": 2.9,SADAMELIK
-"ra": 22.1, "dec": -47.1, "mag": 2.2,ALNAIR
-"ra": 22.68, "dec": -47.2, "mag": 2.9,ETA CRUS
-"ra": 22.93, "dec": -29.8, "mag": 1.3,FOMALHAUT
-"ra": 23.03, "dec": 27.9, "mag": 2.6,SCHEAT
-"ra": 23.05, "dec": 15, "mag": 2.6,UARKAB
