@@ -25,8 +25,8 @@ public class GUIMain extends Application {
         // calculateAndPlot.show();
 
         // SetupForm menu; edit existing or setup new observation
-        SetupForm setupForm = new SetupForm();
-        setupForm.doSetupForm(stage);
+        ConfigForm configForm = new ConfigForm();
+        configForm.doConfigForm(stage);
 
     }
 }

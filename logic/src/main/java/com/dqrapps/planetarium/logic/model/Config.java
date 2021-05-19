@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Setup {
-
+public class Config {
     private String longitudeDegrees;
     private String longitudeMinutes;
     private String latitudeDegrees;

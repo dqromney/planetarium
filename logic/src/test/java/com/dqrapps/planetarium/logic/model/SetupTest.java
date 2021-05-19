@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SetupTest {
 
-    private Setup setupUnderTest;
+    private Config configUnderTest;
 
     @BeforeEach
-    void setUp() {
-        setupUnderTest = new Setup("longitudeDegrees", "longitudeMinutes",
+    void init() {
+        configUnderTest = new Config("longitudeDegrees", "longitudeMinutes",
                 "latitudeDegrees", "dateOfObservation", "siderealTime",
                 "horizon", "plotMode");
     }
@@ -20,7 +20,7 @@ class SetupTest {
     @Test
     void testEquals() {
         // Setup
-        Setup setup = Setup
+        Config config = Config
                 .builder()
                 .longitudeDegrees("longitudeDegrees")
                 .longitudeMinutes("longitudeMinutes")
@@ -32,7 +32,7 @@ class SetupTest {
                 .build();
 
         // Run the test
-        final boolean result = setupUnderTest.equals(setup);
+        final boolean result = configUnderTest.equals(config);
 
         // Verify the results
         assertTrue(result);
@@ -43,7 +43,7 @@ class SetupTest {
         // Setup
 
         // Run the test
-        final int result = setupUnderTest.hashCode();
+        final int result = configUnderTest.hashCode();
 
         // Verify the results
         assertEquals(311957962, result);
@@ -54,7 +54,7 @@ class SetupTest {
         // Setup
 
         // Run the test
-        final String result = setupUnderTest.toString();
+        final String result = configUnderTest.toString();
 
         // Verify the results
         assertEquals("Setup(longitudeDegrees=longitudeDegrees, longitudeMinutes=longitudeMinutes, latitudeDegrees=latitudeDegrees, dateOfObservation=dateOfObservation, siderealTime=siderealTime, horizon=horizon, plotMode=plotMode)", result);
@@ -63,7 +63,7 @@ class SetupTest {
     @Test
     void testCanEqual() {
         // Setup
-        Setup setup = Setup
+        Config config = Config
                 .builder()
                 .longitudeDegrees("longitudeDegrees")
                 .longitudeMinutes("longitudeMinutes")
@@ -75,7 +75,7 @@ class SetupTest {
                 .build();
 
         // Run the test
-        final boolean result = setupUnderTest.canEqual(setup);
+        final boolean result = configUnderTest.canEqual(config);
 
         // Verify the results
         assertTrue(result);
@@ -86,7 +86,7 @@ class SetupTest {
         // Setup
 
         // Run the test
-        final Setup.SetupBuilder result = Setup.builder();
+        final Config.ConfigBuilder result = Config.builder();
 
         // Verify the results
     }

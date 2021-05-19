@@ -1,11 +1,9 @@
 package com.dqrapps.planetarium.gui;
 
-import com.dqrapps.planetarium.logic.model.Setup;
+import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.service.SetupService;
 import com.dqrapps.planetarium.logic.type.Horizon;
 import com.dqrapps.planetarium.logic.type.PlotMode;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -19,19 +17,19 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class SetupForm {
+public class ConfigForm {
 
-    private Setup setup;
+    private Config config;
     private String setupFilename;
     private final SetupService setupService;
 
-    public SetupForm() throws IOException {
+    public ConfigForm() throws IOException {
         setupService = new SetupService();
         if (!setupService.defaultSetupExists()) {
             // Default setup
             LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
             String siderealTime = String.format("%1$02d:%2$02d", now.getHour(), now.getMinute());
-            setup = Setup.builder()
+            config = Config.builder()
                     .longitudeDegrees("-112")
                     .longitudeMinutes("2")
                     .latitudeDegrees("40")
@@ -40,27 +38,27 @@ public class SetupForm {
                     .horizon(Horizon.NORTH.getToken())
                     .plotMode(PlotMode.INDIVIDUAL.getMode())
                     .build();
-            setupService.saveSetup("default.json", setup);
+            setupService.saveConfig("default.json", config);
         } else {
-            setup = setupService.loadSetup("default.json");
+            config = setupService.loadConfig("default.json");
         }
     }
 
-    public void doSetupForm(Stage pStage) {
+    public void doConfigForm(Stage pStage) {
         Text longitudeDegLabel = new Text("Longitude (Deg)"); // DEG = -180 to +180; -112
-        TextField longitudeDegText = new TextField(setup.getLongitudeDegrees());
+        TextField longitudeDegText = new TextField(config.getLongitudeDegrees());
 
         Text longitudeMinLabel = new Text("Minutes"); // Minutes = 0-59; 2
-        TextField longitudeMinText = new TextField(setup.getLongitudeMinutes()); // DEG = 0-90; 40
+        TextField longitudeMinText = new TextField(config.getLongitudeMinutes()); // DEG = 0-90; 40
 
         Text latitudeDegLabel = new Text("Latitude (Deg)");
-        TextField latitudeDegText = new TextField(setup.getLatitudeDegrees());
+        TextField latitudeDegText = new TextField(config.getLatitudeDegrees());
 
         Text dateOfObservation = new Text("Date of observation");
-        DatePicker datePicker = new DatePicker(LocalDate.parse(setup.getDateOfObservation()));
+        DatePicker datePicker = new DatePicker(LocalDate.parse(config.getDateOfObservation()));
 
         Text timeLabel = new Text("Sidereal time"); // Time = 0-23, Minutes = 0-59, HH:MM
-        TextField timeText = new TextField(setup.getSiderealTime());
+        TextField timeText = new TextField(config.getSiderealTime());
 
         Text horizonLabel = new Text("Horizon"); // N = North, S = South
         ToggleGroup groupHorizon = new ToggleGroup();
@@ -68,13 +66,13 @@ public class SetupForm {
         northRadio.setToggleGroup(groupHorizon);
         RadioButton southRadio = new RadioButton("South");
         southRadio.setToggleGroup(groupHorizon);
-        if ("North".equalsIgnoreCase(setup.getHorizon())) {
+        if ("North".equalsIgnoreCase(config.getHorizon())) {
             northRadio.fire();
         } else {
             southRadio.fire();
         }
-        northRadio.setOnAction(actionEvent -> setup.setHorizon(Horizon.NORTH.getToken()));
-        southRadio.setOnAction(actionEvent -> setup.setHorizon(Horizon.SOUTH.getToken()));
+        northRadio.setOnAction(actionEvent -> config.setHorizon(Horizon.NORTH.getToken()));
+        southRadio.setOnAction(actionEvent -> config.setHorizon(Horizon.SOUTH.getToken()));
 
         Text plotModeLabel = new Text("Plot Mode");
         ToggleButton individualBtn = new ToggleButton("Individual");
@@ -82,26 +80,26 @@ public class SetupForm {
         ToggleGroup groupPlotMode = new ToggleGroup();
         individualBtn.setToggleGroup(groupPlotMode);
         continuousBtn.setToggleGroup(groupPlotMode);
-        if ("Individual".equalsIgnoreCase(setup.getPlotMode())) {
+        if ("Individual".equalsIgnoreCase(config.getPlotMode())) {
             individualBtn.fire();
         } else {
             continuousBtn.fire();
         }
-        individualBtn.setOnAction(actionEvent -> setup.setPlotMode(PlotMode.INDIVIDUAL.getMode()));
-        continuousBtn.setOnAction(actionEvent -> setup.setPlotMode(PlotMode.CONTINUOUS.getMode()));
+        individualBtn.setOnAction(actionEvent -> config.setPlotMode(PlotMode.INDIVIDUAL.getMode()));
+        continuousBtn.setOnAction(actionEvent -> config.setPlotMode(PlotMode.CONTINUOUS.getMode()));
 
         // Action Buttons
         Button saveBtn = new Button("Save");
-        saveBtn.setOnAction(actionEvent ->  {
+        saveBtn.setOnAction(actionEvent -> {
             try {
                 // Capture updated form data
-                setup.setLongitudeDegrees(longitudeDegText.getText());
-                setup.setLongitudeMinutes(longitudeMinText.getText());
-                setup.setLatitudeDegrees(latitudeDegText.getText());
-                setup.setDateOfObservation(datePicker.getValue().toString());
-                setup.setSiderealTime(timeText.getText());
+                config.setLongitudeDegrees(longitudeDegText.getText());
+                config.setLongitudeMinutes(longitudeMinText.getText());
+                config.setLatitudeDegrees(latitudeDegText.getText());
+                config.setDateOfObservation(datePicker.getValue().toString());
+                config.setSiderealTime(timeText.getText());
                 // Horizon and PlotMode are set with events
-                setupService.saveSetup("default.json", setup);
+                setupService.saveConfig("default.json", config);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -110,19 +108,21 @@ public class SetupForm {
         Button loadBtn = new Button("Load");
         loadBtn.setOnAction(actionEvent -> {
             try {
-                setup = setupService.loadSetup("default.json");
-                longitudeDegText.setText(setup.getLongitudeDegrees());
-                longitudeMinText.setText(setup.getLongitudeMinutes());
-                latitudeDegText.setText(setup.getLatitudeDegrees());
-                datePicker.setValue(LocalDate.parse(setup.getDateOfObservation()));
-                timeText.setText(setup.getSiderealTime());
+                config = setupService.loadConfig("default.json");
+                longitudeDegText.setText(config.getLongitudeDegrees());
+                longitudeMinText.setText(config.getLongitudeMinutes());
+                latitudeDegText.setText(config.getLatitudeDegrees());
+                datePicker.setValue(LocalDate.parse(config.getDateOfObservation()));
+                timeText.setText(config.getSiderealTime());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
         Button exitBtn = new Button("Exit");
-        exitBtn.setOnAction(actionEvent -> {System.exit(0);});
+        exitBtn.setOnAction(actionEvent -> {
+            System.exit(0);
+        });
 
         //Creating a Grid Pane
         GridPane gridPane = new GridPane();

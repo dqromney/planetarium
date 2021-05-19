@@ -1,6 +1,6 @@
 package com.dqrapps.planetarium.logic.service;
 
-import com.dqrapps.planetarium.logic.model.Setup;
+import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.type.Horizon;
 import com.dqrapps.planetarium.logic.type.PlotMode;
 import org.junit.After;
@@ -16,7 +16,7 @@ import java.time.ZoneId;
 public class SetupServiceTest {
 
     private SetupService setupService;
-    private Setup setup;
+    private Config config;
     private String filename;
 
     @Before
@@ -25,7 +25,7 @@ public class SetupServiceTest {
         setupService = new SetupService();
         LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
         String siderealTime = String.format("%1$02d:%2$02d", now.getHour(), now.getMinute());
-        setup = Setup.builder()
+        config = Config.builder()
                 .longitudeDegrees("-112")
                 .longitudeMinutes("2")
                 .latitudeDegrees("40")
@@ -46,17 +46,17 @@ public class SetupServiceTest {
 
     @Test
     public void saveSetupTest() throws IOException {
-        setupService.saveSetup(filename, setup);
+        setupService.saveConfig(filename, config);
         Assert.assertTrue("file does not exist", new File(filename).exists());
     }
 
     @Test
     public void loadSetupTest() throws IOException {
-        setupService.saveSetup(filename, setup);
+        setupService.saveConfig(filename, config);
         Assert.assertTrue("file does not exist", new File(filename).exists());
 
-        setup = setupService.loadSetup(filename);
-        assert ("-112".equalsIgnoreCase(setup.getLongitudeDegrees()));
-        assert ("2".equalsIgnoreCase(setup.getLongitudeMinutes()));
+        config = setupService.loadConfig(filename);
+        assert ("-112".equalsIgnoreCase(config.getLongitudeDegrees()));
+        assert ("2".equalsIgnoreCase(config.getLongitudeMinutes()));
     }
 }
