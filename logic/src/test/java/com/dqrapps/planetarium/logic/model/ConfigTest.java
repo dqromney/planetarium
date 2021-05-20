@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SetupTest {
+class ConfigTest {
 
     private Config configUnderTest;
 
     @BeforeEach
     void init() {
-        configUnderTest = new Config("longitudeDegrees", "longitudeMinutes",
+        configUnderTest = new Config("default","longitudeDegrees", "longitudeMinutes",
                 "latitudeDegrees", "dateOfObservation", "siderealTime",
                 "horizon", "plotMode");
     }
@@ -22,6 +22,7 @@ class SetupTest {
         // Setup
         Config config = Config
                 .builder()
+                .name("default")
                 .longitudeDegrees("longitudeDegrees")
                 .longitudeMinutes("longitudeMinutes")
                 .latitudeDegrees("latitudeDegrees")
@@ -46,7 +47,7 @@ class SetupTest {
         final int result = configUnderTest.hashCode();
 
         // Verify the results
-        assertEquals(311957962, result);
+        assertEquals(-1815675797, result);
     }
 
     @Test
@@ -57,7 +58,7 @@ class SetupTest {
         final String result = configUnderTest.toString();
 
         // Verify the results
-        assertEquals("Setup(longitudeDegrees=longitudeDegrees, longitudeMinutes=longitudeMinutes, latitudeDegrees=latitudeDegrees, dateOfObservation=dateOfObservation, siderealTime=siderealTime, horizon=horizon, plotMode=plotMode)", result);
+        assertEquals("Config(name=default, longitudeDegrees=longitudeDegrees, longitudeMinutes=longitudeMinutes, latitudeDegrees=latitudeDegrees, dateOfObservation=dateOfObservation, siderealTime=siderealTime, horizon=horizon, plotMode=plotMode)", result);
     }
 
     @Test
@@ -65,6 +66,7 @@ class SetupTest {
         // Setup
         Config config = Config
                 .builder()
+                .name("default")
                 .longitudeDegrees("longitudeDegrees")
                 .longitudeMinutes("longitudeMinutes")
                 .latitudeDegrees("latitudeDegrees")

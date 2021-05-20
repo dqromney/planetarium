@@ -1,7 +1,7 @@
 package com.dqrapps.planetarium.gui;
 
 import com.dqrapps.planetarium.logic.model.Config;
-import com.dqrapps.planetarium.logic.service.SetupService;
+import com.dqrapps.planetarium.logic.service.ConfigService;
 import com.dqrapps.planetarium.logic.type.Horizon;
 import com.dqrapps.planetarium.logic.type.PlotMode;
 import javafx.geometry.Insets;
@@ -20,16 +20,16 @@ import java.time.ZoneId;
 public class ConfigForm {
 
     private Config config;
-    private String setupFilename;
-    private final SetupService setupService;
+    private final ConfigService configService;
 
     public ConfigForm() throws IOException {
-        setupService = new SetupService();
-        if (!setupService.defaultSetupExists()) {
+        configService = new ConfigService();
+        if (!configService.defaultSetupExists()) {
             // Default setup
             LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
             String siderealTime = String.format("%1$02d:%2$02d", now.getHour(), now.getMinute());
             config = Config.builder()
+                    .name("default")
                     .longitudeDegrees("-112")
                     .longitudeMinutes("2")
                     .latitudeDegrees("40")
@@ -38,13 +38,16 @@ public class ConfigForm {
                     .horizon(Horizon.NORTH.getToken())
                     .plotMode(PlotMode.INDIVIDUAL.getMode())
                     .build();
-            setupService.saveConfig("default.json", config);
+            configService.saveConfig("configs.json", config);
         } else {
-            config = setupService.loadConfig("default.json");
+            config = configService.loadConfig("configs.json");
         }
     }
 
     public void doConfigForm(Stage pStage) {
+        Text configNameLabel = new Text("Name");
+        TextField configNameText = new TextField(config.getName());
+
         Text longitudeDegLabel = new Text("Longitude (Deg)"); // DEG = -180 to +180; -112
         TextField longitudeDegText = new TextField(config.getLongitudeDegrees());
 
@@ -93,13 +96,14 @@ public class ConfigForm {
         saveBtn.setOnAction(actionEvent -> {
             try {
                 // Capture updated form data
+                config.setName(configNameText.getText());
                 config.setLongitudeDegrees(longitudeDegText.getText());
                 config.setLongitudeMinutes(longitudeMinText.getText());
                 config.setLatitudeDegrees(latitudeDegText.getText());
                 config.setDateOfObservation(datePicker.getValue().toString());
                 config.setSiderealTime(timeText.getText());
                 // Horizon and PlotMode are set with events
-                setupService.saveConfig("default.json", config);
+                configService.saveConfig("configs.json", config);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -108,7 +112,8 @@ public class ConfigForm {
         Button loadBtn = new Button("Load");
         loadBtn.setOnAction(actionEvent -> {
             try {
-                config = setupService.loadConfig("default.json");
+                config = configService.loadConfig("configs.json");
+                configNameText.setText(config.getName());
                 longitudeDegText.setText(config.getLongitudeDegrees());
                 longitudeMinText.setText(config.getLongitudeMinutes());
                 latitudeDegText.setText(config.getLatitudeDegrees());
@@ -142,7 +147,9 @@ public class ConfigForm {
 
         //Arranging all the nodes in the grid
         var row = 0;
-        gridPane.add(longitudeDegLabel, 0, row);
+        gridPane.add(configNameLabel, 0, row);
+        gridPane.add(configNameText, 1, row);
+        gridPane.add(longitudeDegLabel, 0, ++row);
         gridPane.add(longitudeDegText, 1, row);
         gridPane.add(longitudeMinLabel, 2, row);
         gridPane.add(longitudeMinText, 3, row);

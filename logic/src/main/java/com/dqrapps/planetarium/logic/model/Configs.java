@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Configurations {
+public class Configs {
     @JsonProperty("configurations")
     private List<Config> configList;
 }

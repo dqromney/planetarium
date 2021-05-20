@@ -13,16 +13,16 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class SetupServiceTest {
+public class ConfigServiceTest {
 
-    private SetupService setupService;
+    private ConfigService configService;
     private Config config;
     private String filename;
 
     @Before
     public void doBefore() {
         filename = "test.json";
-        setupService = new SetupService();
+        configService = new ConfigService();
         LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
         String siderealTime = String.format("%1$02d:%2$02d", now.getHour(), now.getMinute());
         config = Config.builder()
@@ -45,17 +45,17 @@ public class SetupServiceTest {
     }
 
     @Test
-    public void saveSetupTest() throws IOException {
-        setupService.saveConfig(filename, config);
+    public void saveConfigTest() throws IOException {
+        configService.saveConfig(filename, config);
         Assert.assertTrue("file does not exist", new File(filename).exists());
     }
 
     @Test
-    public void loadSetupTest() throws IOException {
-        setupService.saveConfig(filename, config);
+    public void loadConfigTest() throws IOException {
+        configService.saveConfig(filename, config);
         Assert.assertTrue("file does not exist", new File(filename).exists());
 
-        config = setupService.loadConfig(filename);
+        config = configService.loadConfig(filename);
         assert ("-112".equalsIgnoreCase(config.getLongitudeDegrees()));
         assert ("2".equalsIgnoreCase(config.getLongitudeMinutes()));
     }
