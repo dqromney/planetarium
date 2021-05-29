@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Stars {
+
     @JsonProperty("objects")
     private List<Star> starList;
 }

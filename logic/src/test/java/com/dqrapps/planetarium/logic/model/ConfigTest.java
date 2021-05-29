@@ -3,6 +3,8 @@ package com.dqrapps.planetarium.logic.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,8 +21,8 @@ class ConfigTest {
 
     @Test
     void testEquals() {
-        // Setup
-        Config config = Config
+        // Config
+        Config testConfig = Config
                 .builder()
                 .name("default")
                 .longitudeDegrees("longitudeDegrees")
@@ -31,9 +33,8 @@ class ConfigTest {
                 .horizon("horizon")
                 .plotMode("plotMode")
                 .build();
-
         // Run the test
-        final boolean result = configUnderTest.equals(config);
+        final boolean result = configUnderTest.equals(testConfig);
 
         // Verify the results
         assertTrue(result);
@@ -58,7 +59,9 @@ class ConfigTest {
         final String result = configUnderTest.toString();
 
         // Verify the results
-        assertEquals("Config(name=default, longitudeDegrees=longitudeDegrees, longitudeMinutes=longitudeMinutes, latitudeDegrees=latitudeDegrees, dateOfObservation=dateOfObservation, siderealTime=siderealTime, horizon=horizon, plotMode=plotMode)", result);
+        assertEquals("Config(name=default, longitudeDegrees=longitudeDegrees, longitudeMinutes=longitudeMinutes, " +
+                "latitudeDegrees=latitudeDegrees, dateOfObservation=dateOfObservation, siderealTime=siderealTime, " +
+                "horizon=horizon, plotMode=plotMode)", result);
     }
 
     @Test

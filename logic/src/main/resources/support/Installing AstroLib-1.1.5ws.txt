@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=C:\Users\dqrom\bin\libraries\AstroLib-1.1.5ws\AstroLib-1.1.5ws\dist\lib\AstroLib.jar -DgroupId=com.mhuss -DartifactId=AstroLib -Dversion=1.1.5ws -Dpackaging=jar

@@ -48,7 +48,7 @@ public class StarServiceTest {
 
     @Test
     public void loadStarTest() throws IOException {
-        Stars stars = Stars.builder().starList(Arrays.asList(star)).build();
+        stars = Stars.builder().starList(Arrays.asList(star)).build();
         starService.saveStars(filename, stars);
 
         stars = starService.loadStars(filename);

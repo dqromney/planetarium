@@ -22,11 +22,12 @@ public class GUIMain extends Application {
         // startup.doStartup();
 
         // SetupForm menu; edit existing or setup new observation
-//        ConfigForm configForm = new ConfigForm();
-//        configForm.doConfigForm(stage);
+        ConfigForm configForm = new ConfigForm();
+        configForm.doConfigForm(stage);
 
         CalculateAndPlot calculateAndPlot = new CalculateAndPlot();
         calculateAndPlot.show();
+        calculateAndPlot.doStarChart(stage);
 
     }
 }

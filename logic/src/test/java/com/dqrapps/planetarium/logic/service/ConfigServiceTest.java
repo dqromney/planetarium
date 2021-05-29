@@ -26,6 +26,7 @@ public class ConfigServiceTest {
         LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
         String siderealTime = String.format("%1$02d:%2$02d", now.getHour(), now.getMinute());
         config = Config.builder()
+                .name("default")
                 .longitudeDegrees("-112")
                 .longitudeMinutes("2")
                 .latitudeDegrees("40")
