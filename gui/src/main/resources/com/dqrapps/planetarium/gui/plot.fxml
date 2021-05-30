@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dqrapps.planetarium.gui.plot.PlotController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0" />
+      <ToolBar layoutY="600.0" prefHeight="47.0" prefWidth="800.0" style="-fx-background-color: lightblue;">
+        <items>
+          <Button fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onMouseReleased="#switchToConfig" text="Config" />
+          <Button fx:id="exitButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="Exit" />
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

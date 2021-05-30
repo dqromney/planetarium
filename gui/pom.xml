@@ -13,6 +13,10 @@
     <artifactId>gui</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <javafx.version>16</javafx.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.dqrapps</groupId>
@@ -22,7 +26,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>16-ea+1</version>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
