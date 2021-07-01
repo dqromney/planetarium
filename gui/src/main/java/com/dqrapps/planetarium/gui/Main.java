@@ -42,10 +42,12 @@ public class Main extends Application {
 //        }
     }
 
+    // TODO Move these into a utility
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
+    // TODO Move these into a utility
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();

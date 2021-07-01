@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+// TODO Not sure how this works yet; ultimate use is for load progress on splash screen
 public class SplashPreloader extends Preloader {
 
     private Stage preLoaderStage;
