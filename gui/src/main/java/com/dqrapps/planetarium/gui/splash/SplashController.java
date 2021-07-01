@@ -25,7 +25,7 @@ public class SplashController implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-
+        System.out.println(event.getEventType().getName());
     }
 
     @Override
@@ -46,6 +46,7 @@ public class SplashController implements Initializable {
         @Override
         public void run() {
             try {
+                // Show Splash Screen for 5 seconds, then show config dialogue
                 Thread.sleep(5000);
 
                 Platform.runLater(new Runnable() {
