@@ -6,7 +6,9 @@ import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -26,6 +28,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         scene = new Scene(loadFXML("splash"));
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
