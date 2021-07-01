@@ -1,6 +1,6 @@
 package com.dqrapps.planetarium.gui.config;
 
-import com.dqrapps.planetarium.gui.App;
+import com.dqrapps.planetarium.gui.Main;
 import com.dqrapps.planetarium.logic.type.Horizon;
 import com.dqrapps.planetarium.logic.type.PlotMode;
 import javafx.collections.FXCollections;
@@ -32,6 +32,6 @@ public class ConfigController {
 
     @FXML
     private void switchToPlot() throws IOException {
-        App.setRoot("plot");
+        Main.setRoot("plot");
     }
 }

@@ -1,6 +1,8 @@
 package com.dqrapps.planetarium.gui;
 
+import com.dqrapps.planetarium.gui.splash.SplashPreloader;
 import javafx.application.Application;
+import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,28 +13,38 @@ import java.io.IOException;
 // HYG Database: https://github.com/InfernoEmbedded/planetarium
 // https://github.com/astronexus/HYG-Database/tree/cb19d26a9910f5c0794a0dec72f29f2977eca2cc
 // http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=I/239/hip_main
-public class App extends Application {
+public class Main extends Application {
 
     private static Scene scene;
+    private static final int COUNT_LIMIT = 500000;
 
     public static void main(String[] args){
-        Application.launch(args);
+        launch(args);
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
         scene = new Scene(loadFXML("splash"));
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @Override
+    public void init() throws Exception {
+//        for(int i = 0; i < COUNT_LIMIT; i++) {
+//            double progress = (100 * i) / COUNT_LIMIT;
+//            notifyPreloader(new Preloader.ProgressNotification(progress));
+//            System.out.println(progress);
+//        }
     }
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+    public static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 

@@ -1,9 +1,15 @@
 package com.dqrapps.planetarium.gui.splash;
 
-import com.dqrapps.planetarium.gui.App;
+import com.dqrapps.planetarium.gui.Main;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,15 +19,58 @@ import java.util.ResourceBundle;
 public class SplashController implements Initializable {
 
     @FXML
-    private StackPane rootPane;
+    private static Label progress;
+
+    public static Label label;
 
     @FXML
-    private void switchToConfig() throws IOException {
-        App.setRoot("config");
+    private void handleButtonAction(ActionEvent event) {
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        new SplashScreen().start();
+        label = progress;
     }
+
+    @FXML
+    private StackPane splashScreen;
+
+    @FXML
+    private void switchToConfig() throws IOException {
+        Main.setRoot("config");
+    }
+
+    class SplashScreen extends Thread {
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(5000);
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        Scene scene;
+                        Stage stage = new Stage();
+                        try {
+                            scene = new Scene(Main.loadFXML("config"));
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        splashScreen.getScene().getWindow().hide();
+                    }
+                });
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+//    @Override
+//    public void initialize(URL url, ResourceBundle rb) {
+//
+//    }
 }
