@@ -1,6 +1,9 @@
 package com.dqrapps.planetarium.gui.splash;
 
 import com.dqrapps.planetarium.gui.Main;
+import com.dqrapps.planetarium.logic.model.Config;
+import com.dqrapps.planetarium.logic.model.Configs;
+import com.dqrapps.planetarium.logic.service.ConfigService;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,59 +22,18 @@ import java.util.ResourceBundle;
 public class SplashController implements Initializable {
 
     @FXML
-    private static Label progress;
+    private static Label progress = new Label("Loading ...");
 
     public static Label label;
 
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println(event.getEventType().getName());
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        new SplashScreen().start();
         label = progress;
     }
-
-    @FXML
-    private StackPane splashScreen;
 
     @FXML
     private void switchToConfig() throws IOException {
         Main.setRoot("config");
     }
 
-    class SplashScreen extends Thread {
-        @Override
-        public void run() {
-            try {
-                // Show Splash Screen for 5 seconds, then show config dialogue
-                Thread.sleep(5000);
-
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        Scene scene;
-                        Stage stage = new Stage();
-                        try {
-                            scene = new Scene(Main.loadFXML("config"));
-                            stage.setScene(scene);
-                            stage.show();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        splashScreen.getScene().getWindow().hide();
-                    }
-                });
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-//    @Override
-//    public void initialize(URL url, ResourceBundle rb) {
-//
-//    }
 }

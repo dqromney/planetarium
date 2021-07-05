@@ -35,7 +35,7 @@
       <StackPane fx:id="splashScreen" prefHeight="400.0" prefWidth="600.0" />
       <Pane onMousePressed="#switchToConfig" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ImageView fx:id="loadingId" fitHeight="400.0" fitWidth="600.0" nodeOrientation="INHERIT" pickOnBounds="true">
+            <ImageView id="loadingLabelId" fitHeight="400.0" fitWidth="600.0" nodeOrientation="INHERIT" pickOnBounds="true">
                <image>
                   <Image url="@splash.jpg" />
                </image>
@@ -45,7 +45,7 @@
                   <Font name="System Font" size="64.0" />
                </font>
             </Text>
-            <Label fx:id="progress" layoutX="470.0" layoutY="366.0" prefHeight="20.0" prefWidth="116.0" text="Loading">
+            <Label fx:id="progress" layoutX="496.0" layoutY="366.0" opacity="0.78" prefHeight="20.0" prefWidth="90.0" text="Loading ...">
                <font>
                   <Font size="14.0" />
                </font>

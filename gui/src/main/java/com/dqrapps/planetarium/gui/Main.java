@@ -2,11 +2,16 @@ package com.dqrapps.planetarium.gui;
 
 import com.dqrapps.planetarium.gui.splash.SplashPreloader;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -17,34 +22,45 @@ import java.io.IOException;
 // http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=I/239/hip_main
 public class Main extends Application {
 
-    private static Scene scene;
-    private static final int COUNT_LIMIT = 500000;
+    private static Scene staticScene;
+    private static final int COUNT_LIMIT = 50000;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        System.setProperty("javafx.preloader", SplashPreloader.class.getCanonicalName());
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        scene = new Scene(loadFXML("splash"));
-        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.setOnCloseRequest(e -> {
+            Platform.exit();
+            System.exit(0);}
+        );
+        doSplashScreen(primaryStage);
     }
 
     @Override
     public void init() throws Exception {
-//        for(int i = 0; i < COUNT_LIMIT; i++) {
-//            double progress = (100 * i) / COUNT_LIMIT;
-//            notifyPreloader(new Preloader.ProgressNotification(progress));
-//            System.out.println(progress);
-//        }
+        for(int i = 0; i < COUNT_LIMIT; i++) {
+            double progress = (100 * i) / COUNT_LIMIT;
+            // https://stackoverflow.com/questions/59957047/why-launcherimpl-launchapplication-javafx-launcher-in-the-main-class-are-lau
+            notifyPreloader(new Preloader.ProgressNotification(progress));
+            System.out.println(progress);
+        }
+    }
+
+    private void doSplashScreen(Stage primaryStage) throws IOException {
+        staticScene = new Scene(loadFXML("plot"));
+        staticScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+        // primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setScene(staticScene);
+        primaryStage.show();
     }
 
     // TODO Move these into a utility
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        // Your FXML defines the root to be an AnchorPane (and you can't set the root twice, which is why you are getting the error).
+        staticScene.setRoot(loadFXML(fxml));
     }
 
     // TODO Move these into a utility

@@ -7,11 +7,11 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dqrapps.planetarium.gui.plot.PlotController">
    <children>
-      <Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: rgb(0, 0, 35);" />
-      <ToolBar layoutY="600.0" prefHeight="47.0" prefWidth="800.0" style="-fx-background-color: midnightblue;">
+      <Pane prefHeight="647.0" prefWidth="800.0" style="-fx-background-color: rgb(0, 0, 35);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ToolBar id="plotToolbar" layoutY="600.0" prefHeight="47.0" prefWidth="800.0" style="-fx-background-color: midnightblue;">
         <items>
-          <Button fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onMouseReleased="#switchToConfig" text="Config" />
-          <Button fx:id="exitButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="Exit" />
+          <Button id="configBtnId" fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToConfig" text="Config" />
+          <Button id="exitBtnId" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="50.0" text="Exit" />
         </items>
       </ToolBar>
    </children>
