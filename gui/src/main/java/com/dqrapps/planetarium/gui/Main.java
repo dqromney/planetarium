@@ -4,10 +4,13 @@ import com.dqrapps.planetarium.gui.splash.SplashPreloader;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.application.Preloader;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -33,8 +36,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setOnCloseRequest(e -> {
-            Platform.exit();
-            System.exit(0);}
+            e.consume();
+            exit(primaryStage);}
         );
         doSplashScreen(primaryStage);
     }
@@ -55,6 +58,18 @@ public class Main extends Application {
         // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(staticScene);
         primaryStage.show();
+    }
+
+    private void exit(Stage stage) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Exit application");
+        alert.setContentText("Do you want to exit application?");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            System.out.println("Exiting application.");
+            stage.close();
+        }
     }
 
     // TODO Move these into a utility
