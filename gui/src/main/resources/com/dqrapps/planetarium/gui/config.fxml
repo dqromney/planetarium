@@ -59,7 +59,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextField id="longHoursId" promptText="hours">
+                              <TextField id="longHoursId" fx:id="longHours" promptText="hours">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -67,7 +67,7 @@
                                     <Insets />
                                  </opaqueInsets>
                               </TextField>
-                              <TextField id="longMinsId" promptText="minutes" GridPane.columnIndex="2">
+                              <TextField id="longMinsId" fx:id="longMinutes" promptText="minutes" GridPane.columnIndex="2">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -86,8 +86,8 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker id="viewDateId" prefHeight="26.0" prefWidth="139.0" promptText="pick a date" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField id="latHoursId" promptText="hours" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <DatePicker id="viewDateId" fx:id="viewDate" prefHeight="26.0" prefWidth="139.0" promptText="pick a date" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField id="latHoursId" fx:id="latHours" promptText="hours" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField id="siderealTimeId" promptText="14:00" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField id="siderealTimeId" fx:id="siderealTime" promptText="14:00" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font>

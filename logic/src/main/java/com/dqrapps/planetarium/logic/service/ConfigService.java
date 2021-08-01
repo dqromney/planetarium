@@ -19,6 +19,10 @@ public class ConfigService {
     }
 
     public Config loadConfig(String fileName) throws IOException {
+        String defaultFilename = "configs.json";
+        if (fileName == null) {
+            fileName = defaultFilename;
+        }
         return om.readerFor(Config.class).readValue(new File(fileName));
     }
 
