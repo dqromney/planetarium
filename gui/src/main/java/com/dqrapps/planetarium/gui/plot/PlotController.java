@@ -45,7 +45,7 @@ public class PlotController {
 
     private void showConfigAndStars() {
         System.out.println(config.toString());
-        this.stars.getStarList().stream().forEach(s -> System.out.println(s) );
+        this.stars.getStarList().forEach(s -> System.out.println(s) );
     }
 
     // -----------------------------------------------------------------------------------------------------------------

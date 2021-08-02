@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -52,34 +51,11 @@ public class ConfigController {
     @SneakyThrows
     @FXML
     private void initialize() {
-        LocalDateTime localDateTime = LocalDateTime.now();
         configService = new ConfigService();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern ( "yyyy-MM-dd HH:mm" );
-        // Creating an object of this class
-        DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder();
-        DateTimeFormatter formatter = builder
-                .appendValue(HOUR_OF_DAY, 2)
-                .appendLiteral(':')
-                .appendValue(MINUTE_OF_HOUR, 2)
-                .toFormatter();
-
-        horizonBox.setValue(Horizon.NORTH.getToken());
-        horizonBox.setItems(horizonList);
-        plotModeBox.setValue(PlotMode.INDIVIDUAL.getMode());
-        plotModeBox.setItems(plotModeList);
         if (configService.defaultSetupExists()) {
             this.config = configService.loadConfig(null); // Get Default filename
-            localDateTime = LocalDateTime.parse(
-                    config.getDateOfObservation() + " " + config.getSiderealTime(), dateTimeFormatter);
         }
-        longHours.setText(config.getLongitudeDegrees());
-        longMinutes.setText(config.getLongitudeMinutes());
-        latHours.setText(config.getLatitudeDegrees());
-        viewDate.setValue(localDateTime.toLocalDate());
-        System.out.println(localDateTime.toLocalTime().format(formatter));
-        siderealTime.setText(localDateTime.toLocalTime().format(formatter));
-        horizonBox.setValue(config.getHorizon());
-        plotModeBox.setValue(config.getPlotMode());
+        populateConfig(config);
     }
 
     @FXML
@@ -87,5 +63,24 @@ public class ConfigController {
         Main.setRoot("plot");
     }
 
+    private void populateConfig(Config config) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        // Creating an object of this class
+        DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder();
+        DateTimeFormatter timeFormatter = builder
+                .appendValue(HOUR_OF_DAY, 2)
+                .appendLiteral(':')
+                .appendValue(MINUTE_OF_HOUR, 2)
+                .toFormatter();
+        LocalDateTime localDateTime = LocalDateTime.parse(
+                config.getDateOfObservation() + " " + config.getSiderealTime(), dateTimeFormatter);
+        longHours.setText(config.getLongitudeDegrees());
+        longMinutes.setText(config.getLongitudeMinutes());
+        latHours.setText(config.getLatitudeDegrees());
+        viewDate.setValue(localDateTime.toLocalDate());
+        siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
+        horizonBox.setValue(config.getHorizon());
+        plotModeBox.setValue(config.getPlotMode());
+    }
 
 }
