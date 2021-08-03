@@ -78,6 +78,10 @@ public class Main extends Application {
         staticScene.setRoot(loadFXML(fxml));
     }
 
+    public static Scene getCurrentScene() {
+        return staticScene;
+    }
+
     // TODO Move these into a utility
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));

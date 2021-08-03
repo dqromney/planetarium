@@ -8,6 +8,7 @@ import com.dqrapps.planetarium.logic.service.StarService;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -27,6 +28,9 @@ public class PlotController {
     @FXML
     public void switchToConfig() throws IOException {
         Main.setRoot("config");
+        Scene scene = Main.getCurrentScene();
+        scene.getWindow().setHeight(450);
+        scene.getWindow().setWidth(525);
     }
 
     @FXML

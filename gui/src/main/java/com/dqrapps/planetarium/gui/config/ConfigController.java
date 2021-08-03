@@ -8,6 +8,7 @@ import com.dqrapps.planetarium.logic.type.PlotMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -61,6 +62,10 @@ public class ConfigController {
     @FXML
     private void switchToPlot() throws IOException {
         Main.setRoot("plot");
+        Scene scene = Main.getCurrentScene();
+        scene.getWindow().setHeight(685);
+        scene.getWindow().setWidth(800);
+
     }
 
     private void populateConfig(Config config) {
