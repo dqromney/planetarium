@@ -27,10 +27,17 @@ public class PlotController {
 
     @FXML
     public void switchToConfig() throws IOException {
+        Scene priorScene = Main.getCurrentScene();
+        System.out.println("plot width/height:");
+        System.out.println(priorScene.getWidth());
+        System.out.println(priorScene.getHeight());
         Main.setRoot("config");
-        Scene scene = Main.getCurrentScene();
-        scene.getWindow().setHeight(450);
-        scene.getWindow().setWidth(525);
+        Scene currentScene = Main.getCurrentScene();
+        System.out.println("config width/height:");
+        System.out.println(currentScene.getWidth());
+        System.out.println(currentScene.getHeight());
+        currentScene.getWindow().setHeight(450);
+        currentScene.getWindow().setWidth(525);
     }
 
     @FXML

@@ -46,12 +46,17 @@ public class ConfigController {
     private DatePicker viewDate;
     @FXML
     private TextField siderealTime;
+    @FXML
+    private TextField configName;
 
     private Config config;
 
     @SneakyThrows
     @FXML
     private void initialize() {
+        horizonBox.setItems(horizonList);
+        plotModeBox.setItems(plotModeList);
+
         configService = new ConfigService();
         if (configService.defaultSetupExists()) {
             this.config = configService.loadConfig(null); // Get Default filename
@@ -61,10 +66,17 @@ public class ConfigController {
 
     @FXML
     private void switchToPlot() throws IOException {
+        Scene priorScene = Main.getCurrentScene();
+        System.out.println("config width/height:");
+        System.out.println(priorScene.getWidth());
+        System.out.println(priorScene.getHeight());
         Main.setRoot("plot");
-        Scene scene = Main.getCurrentScene();
-        scene.getWindow().setHeight(685);
-        scene.getWindow().setWidth(800);
+        Scene currentScene = Main.getCurrentScene();
+        System.out.println("plot width/height:");
+        System.out.println(currentScene.getWidth());
+        System.out.println(currentScene.getHeight());
+        currentScene.getWindow().setHeight(685);
+        currentScene.getWindow().setWidth(800);
 
     }
 
@@ -79,6 +91,7 @@ public class ConfigController {
                 .toFormatter();
         LocalDateTime localDateTime = LocalDateTime.parse(
                 config.getDateOfObservation() + " " + config.getSiderealTime(), dateTimeFormatter);
+
         longHours.setText(config.getLongitudeDegrees());
         longMinutes.setText(config.getLongitudeMinutes());
         latHours.setText(config.getLatitudeDegrees());
@@ -86,6 +99,8 @@ public class ConfigController {
         siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
         horizonBox.setValue(config.getHorizon());
         plotModeBox.setValue(config.getPlotMode());
+        configName.setText(config.getName());
+
     }
 
 }
