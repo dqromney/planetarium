@@ -1,17 +1,16 @@
 package com.dqrapps.planetarium.gui.config;
 
 import com.dqrapps.planetarium.gui.Main;
-import com.dqrapps.planetarium.logic.model.Config;
+import com.dqrapps.planetarium.logic.model.Configs;
 import com.dqrapps.planetarium.logic.service.ConfigService;
 import com.dqrapps.planetarium.logic.type.Horizon;
 import com.dqrapps.planetarium.logic.type.PlotMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
@@ -35,6 +34,8 @@ public class ConfigController {
     private ComboBox horizonBox;
     @FXML
     private ComboBox plotModeBox;
+    @FXML
+    private MenuButton loadConfigMenu;
 
     @FXML
     private TextField longHours;
@@ -49,19 +50,34 @@ public class ConfigController {
     @FXML
     private TextField configName;
 
-    private Config config;
+    private Configs configs;
 
+    /**
+     * Initialize page each time it is opened.
+     */
     @SneakyThrows
     @FXML
     private void initialize() {
+        this.configService = ConfigService.getInstance();
+
         horizonBox.setItems(horizonList);
         plotModeBox.setItems(plotModeList);
 
-        configService = new ConfigService();
-        if (configService.defaultSetupExists()) {
-            this.config = configService.loadConfig(null); // Get Default filename
-        }
-        populateConfig(config);
+        this.configs = configService.getConfigs();
+        // Populate Load Button Menu items
+        configs.getConfigList().forEach(c -> {
+            if (!c.getName().equalsIgnoreCase("Default")) {
+                loadConfigMenu.getItems().add(new MenuItem(c.getName()));
+            }
+        });
+        // Add event handler for each Load button menu item
+        loadConfigMenu.getItems().forEach(menuItem -> {
+            menuItem.addEventHandler(EventType.ROOT, actionEvent -> {
+                populateConfigForm(menuItem.getText());
+            });
+        });
+        // Set default configuration
+        populateConfigForm(configService.getCurrentConfig().getName());
     }
 
     @FXML
@@ -80,7 +96,8 @@ public class ConfigController {
 
     }
 
-    private void populateConfig(Config config) {
+    private void populateConfigForm(String name) {
+        configs = configService.getConfigs();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         // Creating an object of this class
         DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder();
@@ -89,18 +106,23 @@ public class ConfigController {
                 .appendLiteral(':')
                 .appendValue(MINUTE_OF_HOUR, 2)
                 .toFormatter();
-        LocalDateTime localDateTime = LocalDateTime.parse(
-                config.getDateOfObservation() + " " + config.getSiderealTime(), dateTimeFormatter);
-
-        longHours.setText(config.getLongitudeDegrees());
-        longMinutes.setText(config.getLongitudeMinutes());
-        latHours.setText(config.getLatitudeDegrees());
-        viewDate.setValue(localDateTime.toLocalDate());
-        siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
-        horizonBox.setValue(config.getHorizon());
-        plotModeBox.setValue(config.getPlotMode());
-        configName.setText(config.getName());
-
+        configs.getConfigList().forEach(c -> {
+            if (c.getName().equalsIgnoreCase(name)) {
+                // Set form field values
+                configName.setText(c.getName());
+                LocalDateTime localDateTime = LocalDateTime.parse(
+                        c.getDateOfObservation() + " " + c.getSiderealTime(), dateTimeFormatter);
+                longHours.setText(c.getLongitudeDegrees());
+                longMinutes.setText(c.getLongitudeMinutes());
+                latHours.setText(c.getLatitudeDegrees());
+                viewDate.setValue(localDateTime.toLocalDate());
+                siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
+                horizonBox.setValue(c.getHorizon());
+                plotModeBox.setValue(c.getPlotMode());
+                // Set current config to configuration service
+                configService.setCurrentConfig(c);
+            }
+        });
     }
 
 }

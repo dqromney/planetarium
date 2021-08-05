@@ -1,6 +1,7 @@
 package com.dqrapps.planetarium.gui.plot;
 
 import com.dqrapps.planetarium.gui.Main;
+import com.dqrapps.planetarium.gui.config.ConfigController;
 import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Stars;
 import com.dqrapps.planetarium.logic.service.ConfigService;
@@ -11,18 +12,26 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 
 public class PlotController {
 
+    private ConfigService configService;
+    private StarService starService;
     private Config config;
     private Stars stars;
 
-    public PlotController() throws IOException {
-//        this.config = new ConfigService().loadConfig("./configs.json");
-//        this.stars = new StarService().loadStars("./data/stars.json");
-//        this.showConfigAndStars();
+    @SneakyThrows
+    @FXML
+    private void initialize() {
+        configService = ConfigService.getInstance();
+        config = configService.getCurrentConfig();
+        starService = StarService.getInstance();
+        if (starService.defaultStarsExists()) {
+            stars = starService.getStars();
+        }
     }
 
     @FXML
@@ -54,19 +63,8 @@ public class PlotController {
         }
     }
 
-    private void showConfigAndStars() {
-        System.out.println(config.toString());
-        this.stars.getStarList().forEach(s -> System.out.println(s) );
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
     // Access methods
     // -----------------------------------------------------------------------------------------------------------------
-    public Config getConfig() {
-        return config;
-    }
 
-    public void setConfig(Config config) {
-        this.config = config;
-    }
 }

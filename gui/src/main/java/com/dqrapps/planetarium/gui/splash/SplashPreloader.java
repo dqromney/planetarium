@@ -1,13 +1,13 @@
 package com.dqrapps.planetarium.gui.splash;
 
 import com.dqrapps.planetarium.gui.Main;
+import com.dqrapps.planetarium.logic.service.ConfigService;
 import javafx.application.Preloader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.SneakyThrows;
 
-// TODO Not sure how this works yet; ultimate use is for load progress on splash screen
 public class SplashPreloader extends Preloader {
 
     private Stage preLoaderStage;

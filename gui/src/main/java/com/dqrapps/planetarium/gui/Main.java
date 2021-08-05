@@ -1,6 +1,10 @@
 package com.dqrapps.planetarium.gui;
 
 import com.dqrapps.planetarium.gui.splash.SplashPreloader;
+import com.dqrapps.planetarium.logic.model.Config;
+import com.dqrapps.planetarium.logic.model.Configs;
+import com.dqrapps.planetarium.logic.service.ConfigService;
+import com.dqrapps.planetarium.logic.service.StarService;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.application.Preloader;
@@ -27,6 +31,10 @@ public class Main extends Application {
 
     private static Scene staticScene;
     private static final int COUNT_LIMIT = 50000;
+    private ConfigService configService;
+    private StarService starService;
+    private Configs configs;
+    private Config defaultConfig;
 
     public static void main(String[] args) {
         System.setProperty("javafx.preloader", SplashPreloader.class.getCanonicalName());
@@ -42,14 +50,32 @@ public class Main extends Application {
         doSplashScreen(primaryStage);
     }
 
+    /**
+     * Application initialization.
+     *
+     * @See https://stackoverflow.com/questions/59957047/why-launcherimpl-launchapplication-javafx-launcher-in-the-main-class-are-lau
+     *
+     * @throws IOException
+     */
     @Override
-    public void init() throws Exception {
-        for(int i = 0; i < COUNT_LIMIT; i++) {
-            double progress = (100 * i) / COUNT_LIMIT;
-            // https://stackoverflow.com/questions/59957047/why-launcherimpl-launchapplication-javafx-launcher-in-the-main-class-are-lau
-            notifyPreloader(new Preloader.ProgressNotification(progress));
-            System.out.println(progress);
-        }
+    public void init() throws IOException {
+        this.configService = ConfigService.getInstance();
+        double progress = 25;
+        notifyPreloader(new Preloader.ProgressNotification(progress));
+        System.out.println(progress);
+        this.starService = StarService.getInstance();
+        progress += 74;
+        notifyPreloader(new Preloader.ProgressNotification(progress));
+        System.out.println(progress);
+        showConfigAndStars();
+        progress += 1;
+        notifyPreloader(new Preloader.ProgressNotification(progress));
+        System.out.println(progress);
+    }
+
+    private void showConfigAndStars() {
+        System.out.println(configService.getCurrentConfig().toString());
+        starService.getStars().getStarList().forEach(s -> System.out.println(s) );
     }
 
     private void doSplashScreen(Stage primaryStage) throws IOException {
@@ -88,23 +114,12 @@ public class Main extends Application {
         return fxmlLoader.load();
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // Access methods
+    // -----------------------------------------------------------------------------------------------------------------
 
-//    @Override
-//    public void start(Stage stage) throws Exception {
-//
-//        Splash splash = new Splash();
-//        splash.doSplash(stage);
-//
-//        // StartUp startup = new Startup();
-//        // startup.doStartup();
-//
-//        // SetupForm menu; edit existing or setup new observation
-////        ConfigForm configForm = new ConfigForm();
-////        configForm.doConfigForm(stage);
-//
-//        CalculateAndPlot calculateAndPlot = new CalculateAndPlot();
-//        calculateAndPlot.show();
-//        calculateAndPlot.doStarChart(stage);
-//
-//    }
+    public Config getDefaultConfig() {
+        return defaultConfig;
+    }
+
 }

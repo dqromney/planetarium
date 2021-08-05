@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -97,7 +98,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker id="viewDateId" fx:id="viewDate" prefHeight="26.0" prefWidth="139.0" promptText="pick a date" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker id="viewDateId" fx:id="viewDate" prefHeight="26.0" prefWidth="139.0" promptText="mm/dd/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField id="latHoursId" fx:id="latHours" promptText="hours" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
@@ -130,15 +131,29 @@
             <Separator />
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
                <buttons>
-                  <Button mnemonicParsing="false" text="Save" />
-                  <Button mnemonicParsing="false" text="New" />
-                  <MenuButton mnemonicParsing="false" text="Load">
+                  <Button mnemonicParsing="false" text="Save">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button mnemonicParsing="false" text="New">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <MenuButton fx:id="loadConfigMenu" mnemonicParsing="false" text="Load">
                      <items>
                         <MenuItem mnemonicParsing="false" text="default" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
                      </items>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
-                  <Button fx:id="ExitButton" onAction="#switchToPlot" text="Cancel" />
+                  <Button fx:id="ExitButton" onAction="#switchToPlot" text="Return to Plot">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </buttons>
             </ButtonBar>
          </children>

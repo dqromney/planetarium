@@ -1,0 +1,2 @@
+<!--Turn off the complaints about not finding logback.groovy, etc-->
+<statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
