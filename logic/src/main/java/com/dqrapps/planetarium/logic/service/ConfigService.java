@@ -8,6 +8,7 @@ import lombok.SneakyThrows;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 /**
@@ -39,8 +40,20 @@ public class ConfigService {
     }
 
     // TODO Refactor for config(s)
-    public void saveConfig(String fileName, Config config) throws IOException {
-        om.writerFor(Config.class).writeValue(new File(fileName), config);
+    public void saveConfig(Config config) throws IOException {
+//        AtomicBoolean isUpdate = new AtomicBoolean(false);
+//        List<Config> configs = getConfigs().getConfigList();
+//        getConfigs().getConfigList().forEach(c -> {
+//            if (config.getName().equalsIgnoreCase(c.getName())) {
+//                // Replace config
+//                isUpdate.set(true);
+//                configs.set(configs.indexOf(c), config);
+//            }
+//        });
+//        if (!isUpdate.get()) {
+//            configs.add(config);
+//        }
+//        om.writerFor(Configs.class).writeValue(new File(defaultFileName), configs);
     }
 
     public void loadConfigs(String fileName) throws IOException {

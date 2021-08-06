@@ -98,7 +98,7 @@ public class ConfigController {
     }
 
     @FXML
-    private void saveAction() {
+    private void saveAction() throws IOException {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         Config config = Config
                 .builder()
@@ -112,6 +112,7 @@ public class ConfigController {
                 .plotMode(plotModeBox.getValue().toString())
                 .build();
         System.out.println("Save file: " + config);
+        // configService.saveConfig(config);
     }
 
     private void populateConfigForm(String name) {
