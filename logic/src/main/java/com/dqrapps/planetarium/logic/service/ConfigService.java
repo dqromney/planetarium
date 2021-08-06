@@ -7,8 +7,6 @@ import lombok.SneakyThrows;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,10 +51,10 @@ public class ConfigService {
     }
 
     public Config loadConfig(String configName) throws IOException {
-        if (null == configs) {
+        if (null == this.configs) {
             this.loadConfigs(null);
         }
-        configs.getConfigList().forEach(c -> {
+        this.configs.getConfigList().forEach(c -> {
             if (c.getName().equalsIgnoreCase(configName)) {
                 currentConfig = c;
             }

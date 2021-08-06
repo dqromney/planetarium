@@ -131,7 +131,7 @@
             <Separator />
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
                <buttons>
-                  <Button mnemonicParsing="false" text="Save">
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" text="Save">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>

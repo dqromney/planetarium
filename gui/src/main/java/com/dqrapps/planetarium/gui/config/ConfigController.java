@@ -1,6 +1,7 @@
 package com.dqrapps.planetarium.gui.config;
 
 import com.dqrapps.planetarium.gui.Main;
+import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Configs;
 import com.dqrapps.planetarium.logic.service.ConfigService;
 import com.dqrapps.planetarium.logic.type.Horizon;
@@ -94,6 +95,23 @@ public class ConfigController {
         currentScene.getWindow().setHeight(685);
         currentScene.getWindow().setWidth(800);
 
+    }
+
+    @FXML
+    private void saveAction() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        Config config = Config
+                .builder()
+                .name(configName.getText())
+                .longitudeDegrees(longHours.getText())
+                .longitudeMinutes(longMinutes.getText())
+                .latitudeDegrees(latHours.getText())
+                .dateOfObservation(viewDate.getValue().format(dateTimeFormatter))
+                .siderealTime(siderealTime.getText())
+                .horizon(horizonBox.getValue().toString())
+                .plotMode(plotModeBox.getValue().toString())
+                .build();
+        System.out.println("Save file: " + config);
     }
 
     private void populateConfigForm(String name) {

@@ -1,7 +1,6 @@
 package com.dqrapps.planetarium.gui.plot;
 
 import com.dqrapps.planetarium.gui.Main;
-import com.dqrapps.planetarium.gui.config.ConfigController;
 import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Stars;
 import com.dqrapps.planetarium.logic.service.ConfigService;
