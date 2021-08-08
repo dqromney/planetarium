@@ -14,10 +14,11 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-../planetarium_od/.idea
+../planetarium/.idea
 *.iws
 *.iml
 *.ipr
+*.idea
 
 ### NetBeans ###
 /nbproject/private/

@@ -12,9 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import lombok.SneakyThrows;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 
+@Log
 public class PlotController {
 
     private ConfigService configService;
@@ -36,14 +39,10 @@ public class PlotController {
     @FXML
     public void switchToConfig() throws IOException {
         Scene priorScene = Main.getCurrentScene();
-        System.out.println("plot width/height:");
-        System.out.println(priorScene.getWidth());
-        System.out.println(priorScene.getHeight());
+        log.info(String.format("plot width/height: %1$.0f/%2$.0f", priorScene.getWidth(), priorScene.getHeight()));
         Main.setRoot("config");
         Scene currentScene = Main.getCurrentScene();
-        System.out.println("config width/height:");
-        System.out.println(currentScene.getWidth());
-        System.out.println(currentScene.getHeight());
+        log.info(String.format("config width/height: %1$.0f/%2$.0f", currentScene.getWidth(), currentScene.getHeight()));
         currentScene.getWindow().setHeight(450);
         currentScene.getWindow().setWidth(525);
     }

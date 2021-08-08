@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import lombok.SneakyThrows;
+import lombok.extern.java.Log;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -22,7 +23,10 @@ import java.time.format.DateTimeFormatterBuilder;
 import static java.time.temporal.ChronoField.HOUR_OF_DAY;
 import static java.time.temporal.ChronoField.MINUTE_OF_HOUR;
 
+@Log
 public class ConfigController {
+
+    //private static final Logger logger = LoggerFactory.getLogger(ConfigController.class);
 
     ConfigService configService;
 
@@ -53,6 +57,8 @@ public class ConfigController {
 
     private Configs configs;
 
+    private DateTimeFormatter timeFormatter;
+
     /**
      * Initialize page each time it is opened.
      */
@@ -61,22 +67,18 @@ public class ConfigController {
     private void initialize() {
         this.configService = ConfigService.getInstance();
 
+        DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder();
+        timeFormatter = builder
+                .appendValue(HOUR_OF_DAY, 2)
+                .appendLiteral(':')
+                .appendValue(MINUTE_OF_HOUR, 2)
+                .toFormatter();
+
         horizonBox.setItems(horizonList);
         plotModeBox.setItems(plotModeList);
 
-        this.configs = configService.getConfigs();
-        // Populate Load Button Menu items
-        configs.getConfigList().forEach(c -> {
-            if (!c.getName().equalsIgnoreCase("Default")) {
-                loadConfigMenu.getItems().add(new MenuItem(c.getName()));
-            }
-        });
-        // Add event handler for each Load button menu item
-        loadConfigMenu.getItems().forEach(menuItem -> {
-            menuItem.addEventHandler(EventType.ROOT, actionEvent -> {
-                populateConfigForm(menuItem.getText());
-            });
-        });
+        updateConfigs();
+
         // Set default configuration
         populateConfigForm(configService.getCurrentConfig().getName());
     }
@@ -84,22 +86,19 @@ public class ConfigController {
     @FXML
     private void switchToPlot() throws IOException {
         Scene priorScene = Main.getCurrentScene();
-        System.out.println("config width/height:");
-        System.out.println(priorScene.getWidth());
-        System.out.println(priorScene.getHeight());
+        log.info(String.format("config width/height: %1$.0f/%2$.0f", priorScene.getWidth(), priorScene.getHeight()));
         Main.setRoot("plot");
         Scene currentScene = Main.getCurrentScene();
-        System.out.println("plot width/height:");
-        System.out.println(currentScene.getWidth());
-        System.out.println(currentScene.getHeight());
+        log.info(String.format("plot width/height: %1$.0f/%2$.0f", currentScene.getWidth(), currentScene.getHeight()));
         currentScene.getWindow().setHeight(685);
         currentScene.getWindow().setWidth(800);
 
     }
 
     @FXML
-    private void saveAction() throws IOException {
+    private void saveAction() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        configName.setEditable(false);
         Config config = Config
                 .builder()
                 .name(configName.getText())
@@ -111,8 +110,41 @@ public class ConfigController {
                 .horizon(horizonBox.getValue().toString())
                 .plotMode(plotModeBox.getValue().toString())
                 .build();
-        System.out.println("Save file: " + config);
-        // configService.saveConfig(config);
+        boolean doesExist = configService.doesConfigExist(config.getName());
+        if (configService.save(config)) {
+            log.info("Save file: " + config);
+            if (!doesExist) {
+                loadConfigMenu.getItems().add(new MenuItem(config.getName()));
+            }
+        } else {
+            log.info("Error saving config");
+        }
+    }
+
+    @FXML
+    private void deleteAction() {
+        Config config = configService.getCurrentConfig();
+        configService.delete(config);
+    }
+
+    @FXML
+    private void loadAction() {
+        loadConfigMenu.getItems().clear();
+        updateConfigs();
+    }
+
+    @FXML
+    private void clearConfigForm() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        configName.setEditable(true);
+        configName.setText("");
+        longHours.setText("");
+        longMinutes.setText("");
+        latHours.setText("");
+        viewDate.setValue(localDateTime.toLocalDate());
+        siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
+        horizonBox.setValue(Horizon.NORTH);
+        plotModeBox.setValue(PlotMode.INDIVIDUAL);
     }
 
     private void populateConfigForm(String name) {
@@ -141,6 +173,22 @@ public class ConfigController {
                 // Set current config to configuration service
                 configService.setCurrentConfig(c);
             }
+        });
+    }
+
+    private void updateConfigs() {
+        this.configs = configService.getConfigs();
+        // Populate Load Button Menu items
+        configs.getConfigList().forEach(c -> {
+            //if (!c.getName().equalsIgnoreCase("Default")) {
+                loadConfigMenu.getItems().add(new MenuItem(c.getName()));
+            //}
+        });
+        // Add event handler for each Load button menu item
+        loadConfigMenu.getItems().forEach(menuItem -> {
+            menuItem.addEventHandler(EventType.ROOT, actionEvent -> {
+                populateConfigForm(menuItem.getText());
+            });
         });
     }
 

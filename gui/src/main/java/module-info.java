@@ -6,6 +6,7 @@ module gui {
     requires javafx.fxml;
     requires logic;
     requires static lombok;
+    requires java.logging;
 
     opens com.dqrapps.planetarium.gui to javafx.fxml, javafx.graphics;
 

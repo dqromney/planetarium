@@ -3,7 +3,7 @@ package com.dqrapps.planetarium.logic.service;
 import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Configs;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
+import lombok.extern.java.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,72 +32,131 @@ public class ConfigService {
         if (null == instance) {
             instance = new ConfigService();
             if (instance.defaultSetupExists()) {
-                instance.loadConfigs(defaultFileName);
-                instance.currentConfig = instance.loadConfig(defaultConfig);
+                instance.getConfigs();
+                instance.currentConfig = instance.read(defaultConfig);
             }
         }
         return instance;
     }
 
-    // TODO Refactor for config(s)
-    public void saveConfig(Config config) throws IOException {
-//        AtomicBoolean isUpdate = new AtomicBoolean(false);
-//        List<Config> configs = getConfigs().getConfigList();
-//        getConfigs().getConfigList().forEach(c -> {
-//            if (config.getName().equalsIgnoreCase(c.getName())) {
-//                // Replace config
-//                isUpdate.set(true);
-//                configs.set(configs.indexOf(c), config);
-//            }
-//        });
-//        if (!isUpdate.get()) {
-//            configs.add(config);
-//        }
-//        om.writerFor(Configs.class).writeValue(new File(defaultFileName), configs);
+    public boolean save(Config config) {
+        boolean result = false;
+        if (doesConfigExist(config.getName())) {
+            this.update(config);
+            result = true;
+        } else {
+            result = this.create(config);
+        }
+        return result;
     }
 
-    public void loadConfigs(String fileName) throws IOException {
-        if (fileName == null) {
-            fileName = defaultFileName;
+    public boolean create(Config config) {
+        boolean result = false;
+        if (!doesConfigExist(config.getName())) {
+            this.configs.getConfigList().add(config);
+            this.configs = this.saveConfigs();
+            this.saveConfigs();
+            result = true;
+        } else {
+            // log.info(String.format("Config [%1$s] already exists", config.getName()));
+            System.out.println(String.format("Config [%1$s] already exists", config.getName()));
         }
-        this.configs = om.readerFor(Configs.class).readValue(new File(fileName));
+        return result;
     }
 
-    public Config loadConfig(String configName) throws IOException {
-        if (null == this.configs) {
-            this.loadConfigs(null);
-        }
+    public Config read(String name) {
         this.configs.getConfigList().forEach(c -> {
-            if (c.getName().equalsIgnoreCase(configName)) {
+            if (c.getName().equalsIgnoreCase(name)) {
                 currentConfig = c;
             }
         });
         return currentConfig;
     }
 
-    @SneakyThrows
-    public List<String> configList(String fileName) {
-        if (fileName == null) {
-            fileName = defaultFileName;
+    public void update(Config config) {
+        this.configs.getConfigList().forEach(c -> {
+            if (c.getName().equalsIgnoreCase(config.getName())) {
+                deepCopy(config, c);
+                currentConfig = c;
+                this.configs = this.saveConfigs();
+            }
+        });
+    }
+
+    public boolean delete(Config config) {
+        if (doesConfigExist(config.getName())) {
+            this.configs.getConfigList().remove(config);
+            this.configs = this.saveConfigs();
         }
-        this.loadConfigs(fileName);
+        return true;
+    }
+
+    public Configs getConfigs() {
+        return this.loadConfigs();
+    }
+
+    public List<String> getConfigNameList() {
+        this.getConfigs();
         return configs.getConfigList().stream()
                 .map(c -> c.getName())
                 .collect(Collectors.toList());
     }
 
+    public boolean doesConfigExist(String name) {
+        AtomicBoolean exist = new AtomicBoolean(false);
+        this.configs.getConfigList().forEach(c -> {
+            if (c.getName().equalsIgnoreCase(name)) {
+                exist.set(true);
+            }
+        });
+        return exist.get();
+    }
 
-    public boolean defaultSetupExists() {
+    // -----------------------------------------------------------------------------------------------------------------
+    // Helper methods
+    // -----------------------------------------------------------------------------------------------------------------
+
+
+    private Configs saveConfigs() {
+        try {
+            om.writerFor(Configs.class).writeValue(new File(defaultFileName), configs);
+        } catch (IOException e) {
+            System.out.println("Error saving configs");
+            // log.throwing(this.getClass().getName(), "saveConfigs", e);
+        }
+        return this.getConfigs();
+    }
+
+    private Configs loadConfigs() {
+        if (null == this.configs) {
+            try {
+                this.configs = om.readerFor(Configs.class).readValue(new File(defaultFileName));
+            } catch (IOException e) {
+                System.out.println("Error loading configs");
+                // log.throwing(this.getClass().getName(), "loadConfigs", e);
+            }
+        }
+        return this.configs;
+    }
+
+    private boolean defaultSetupExists() {
         return new File(defaultFileName).exists();
+    }
+
+    private void deepCopy(Config from, Config to) {
+        to.setName(from.getName());
+        to.setLongitudeDegrees(from.getLongitudeDegrees());
+        to.setLongitudeMinutes(from.getLongitudeMinutes());
+        to.setLatitudeDegrees(from.getLatitudeDegrees());
+        to.setDateOfObservation(from.getDateOfObservation());
+        to.setSiderealTime(from.getSiderealTime());
+        to.setHorizon(from.getHorizon());
+        to.setPlotMode(from.getPlotMode());
     }
 
     // -----------------------------------------------------------------------------------------------------------------
     // Access methods
     // -----------------------------------------------------------------------------------------------------------------
-
-    public Configs getConfigs() {
-        return configs;
-    }
 
     public Config getCurrentConfig() {
         return currentConfig;

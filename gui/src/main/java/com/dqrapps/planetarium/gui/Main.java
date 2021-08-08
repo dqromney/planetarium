@@ -6,27 +6,21 @@ import com.dqrapps.planetarium.logic.model.Configs;
 import com.dqrapps.planetarium.logic.service.ConfigService;
 import com.dqrapps.planetarium.logic.service.StarService;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.application.Preloader;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseButton;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import lombok.Getter;
 
 import java.io.IOException;
 
 // HYG Database: https://github.com/InfernoEmbedded/planetarium
 // https://github.com/astronexus/HYG-Database/tree/cb19d26a9910f5c0794a0dec72f29f2977eca2cc
 // http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=I/239/hip_main
+@Getter
 public class Main extends Application {
 
     private static Scene staticScene;
