@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,5 +16,5 @@ import java.util.List;
 public class Stars {
 
     @JsonProperty("objects")
-    private List<Star> starList;
+    private List<Star> starList = new ArrayList<>();
 }

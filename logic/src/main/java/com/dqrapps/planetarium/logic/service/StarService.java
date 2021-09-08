@@ -9,14 +9,16 @@ import java.io.IOException;
 
 public class StarService {
 
-    private ObjectMapper om;
+    private final ObjectMapper om;
     private Stars stars;
+    private final File file;
 
     private static StarService instance = null;
-    private static final String defaultStarsFilename = "stars.json";
+    private static final String resourceName = "/data/stars.json";
 
     private StarService() {
         om = new ObjectMapper();
+        file = new File(this.getClass().getResource(resourceName).getFile());
     }
 
     @SneakyThrows
@@ -34,13 +36,13 @@ public class StarService {
 
     public Stars loadStars(String fileName) throws IOException {
         if (null == fileName) {
-            fileName = defaultStarsFilename;
+            fileName = file.getAbsolutePath(); //resourceName;
         }
         return om.readerFor(Stars.class).readValue(new File(fileName));
     }
 
     public boolean defaultStarsExists() {
-        return new File(defaultStarsFilename).exists();
+        return new File(resourceName).exists();
     }
 
     // -----------------------------------------------------------------------------------------------------------------

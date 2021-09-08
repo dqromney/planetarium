@@ -3,7 +3,6 @@ package com.dqrapps.planetarium.logic.service;
 import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Configs;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.java.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,15 +16,18 @@ import java.util.stream.Collectors;
 public class ConfigService {
 
     private static ConfigService instance = null;
-    private static final String defaultFileName = "configs.json";
+    private static final String resourceName = "/data/configs.json";
+
     private static final String defaultConfig = "default";
 
     ObjectMapper om;
     Configs configs;
+    private final File file;
     Config currentConfig;
 
     private ConfigService() {
         om = new ObjectMapper();
+        file = new File(this.getClass().getResource(resourceName).getFile());
     }
 
     public static ConfigService getInstance() throws IOException {
@@ -119,7 +121,7 @@ public class ConfigService {
 
     private Configs saveConfigs() {
         try {
-            om.writerFor(Configs.class).writeValue(new File(defaultFileName), configs);
+            om.writerFor(Configs.class).writeValue(new File(resourceName), configs);
         } catch (IOException e) {
             System.out.println("Error saving configs");
             // log.throwing(this.getClass().getName(), "saveConfigs", e);
@@ -130,7 +132,7 @@ public class ConfigService {
     private Configs loadConfigs() {
         if (null == this.configs) {
             try {
-                this.configs = om.readerFor(Configs.class).readValue(new File(defaultFileName));
+                this.configs = om.readerFor(Configs.class).readValue(file);
             } catch (IOException e) {
                 System.out.println("Error loading configs");
                 // log.throwing(this.getClass().getName(), "loadConfigs", e);
@@ -140,7 +142,7 @@ public class ConfigService {
     }
 
     private boolean defaultSetupExists() {
-        return new File(defaultFileName).exists();
+        return this.file.exists();
     }
 
     private void deepCopy(Config from, Config to) {
