@@ -18,6 +18,10 @@ public class AstroService {
     private static double DAYS_PER_HOUR = 1.0 / 24.0;
     private static double SIXTY = 60.0;
     private static double THIRTY_SIX_HUNDRED = 3600.0;
+    private static double SCREEN_RATIO = 279.0 / 191.0;
+    public static double X_FACTOR = 160; //(800.0/SCREEN_RATIO); // 160.0
+    public static double Y_FACTOR = 140; //(600.0/SCREEN_RATIO); // 140.0
+    // 600/X = 1.28 -> 600/1.28 = X
 
 /*
 780  REM  CIRCUMPOLARS IN N. SKY
@@ -85,15 +89,18 @@ LT = Latitude (DEG 0 - 90)
         }
         // Allows 12 Hours of Right Ascension
         xp = 140 + xp * 23.33;
+        //xp = Y_FACTOR + xp * 23.33;
         if (xp > 279 || xp < 0.0) {
+        //if (xp > X_FACTOR || xp < 0.0) {
             return null;
         }
         // Allow 90 Degree of Declination
         yp = 1.78 * (lt - yp);
-        if (yp < 0 || yp > 159) {
+        // if (yp < 0 || yp > 159) {
+        if (yp < 0 || yp > X_FACTOR-1) {
             return null;
         }
-        return new Coordinate(xp, yp);
+        return new Coordinate(xp, yp, star.getMag());
     }
 
     // Line 910
@@ -112,17 +119,21 @@ LT = Latitude (DEG 0 - 90)
         }
         xp = xp - lst;
         yp = yp * Math.PI / ONE_EIGHTY; // Convert DEC to Radians
-        xp = (xp * 15 * Math.PI / 180) - Math.PI/2.0; // Convert RA to Radians and Rotate 90 Degrees CounterClockwise
-        double f = 140 / HALF_PI; // Map Scale Factor
+        xp = (xp * 15 * Math.PI / ONE_EIGHTY) - HALF_PI; // Convert RA to Radians and Rotate 90 Degrees CounterClockwise
+        // double f = 140 / HALF_PI; // Map Scale Factor
+        double f = Y_FACTOR / HALF_PI; // Map Scale Factor
         double r1 = f * (HALF_PI - Math.abs(yp));
-        double x = r1 * Math.cos(xp) + 140.0;
-        double y = r1 * Math.sin(xp) + 160.0 - (1.78 * lt);
+        // double x = r1 * Math.cos(xp) + 140.0;
+        double x = r1 * Math.cos(xp) + Y_FACTOR;
+        // double y = r1 * Math.sin(xp) + 160.0 - (1.78 * lt);
+        double y = r1 * Math.sin(xp) + X_FACTOR - (1.78 * lt);
         xp = x;
         yp = y;
         if (xp > 279.0 || xp < 0.0 || yp > 159.0 || yp < 0.0) {
+        //if (xp > X_FACTOR || xp < 0.0 || yp > Y_FACTOR || yp < 0.0) {
             return null;
         }
-        return new Coordinate(xp, yp);
+        return new Coordinate(xp, yp, star.getMag());
     }
 
     public double fromHMStoDegrees(double hours, double minute, double second) {

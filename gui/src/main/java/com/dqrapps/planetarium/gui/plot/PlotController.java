@@ -80,7 +80,15 @@ public class PlotController {
         gc.setStroke(Color.GRAY);
         gc.setFill(Color.GRAY);
         this.coordinateList.forEach(item -> {
-            gc.fillOval(item.getX(), item.getY(), 2, 2);
+            if (item.getMag() > 3.0) {
+                gc.fillOval(item.getX(), item.getY(), 1, 1);
+            } else if (item.getMag() > 1.5 && item.getMag() <= 3.0) {
+                gc.fillOval(item.getX(), item.getY(), 2, 2);
+            } else if (item.getMag() > -0.5 && item.getMag() <= 1.5) {
+                gc.fillOval(item.getX(), item.getY(), 3, 3);
+            } else {
+                gc.fillOval(item.getX(), item.getY(), 4, 4);
+            }
         });
     }
 
