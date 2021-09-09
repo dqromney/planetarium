@@ -42,7 +42,7 @@ public class StarService {
     }
 
     public boolean defaultStarsExists() {
-        return new File(resourceName).exists();
+        return new File(this.getClass().getResource(resourceName).getFile()).exists();
     }
 
     // -----------------------------------------------------------------------------------------------------------------

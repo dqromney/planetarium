@@ -6,22 +6,13 @@ import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Coordinate;
 import com.dqrapps.planetarium.logic.model.Hemisphere;
 import com.dqrapps.planetarium.logic.model.Star;
-import com.mhuss.AstroLib.TimeOps;
-
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDateTime;
-import java.time.temporal.ChronoField;
-import java.time.temporal.TemporalField;
-import java.util.Locale;
 
 public class AstroService {
     private static double THREE_SIXTY = 360.0;
     private static double ONE_EIGHTY = THREE_SIXTY / 2.0;
     private static double NINTY = ONE_EIGHTY / 2.0;
     private static double FORTY_FIVE = NINTY / 2.0;
+    private static double HALF_PI = Math.PI / 2.0;;
     private static double TWELVE_HOURS = 12.0;
     private static double NEGATIVE_ONE = -1.0;
     private static double DAYS_PER_HOUR = 1.0 / 24.0;
@@ -56,51 +47,6 @@ LM = Longitude Minutes (MIN 0 to 59), set to LGH
 LT = Latitude (DEG 0 - 90)
 */
 
-    /**
-     *
-     */
-    // TODO Not sure this is working yet
-    // public boolean isVisible(Hemisphere hemisphere, double decDegsYP, double latDegsLT) {
-    public boolean isVisible(Hemisphere hemisphere, Config config, Star star) {
-        String[] siderealTimeArray = config.getSiderealTime().split(":");
-        boolean isVisible = false;
-        double yp = star.getDec();
-        double lt = Double.valueOf(config.getLatitudeDegrees());
-        double lst = Double.valueOf(siderealTimeArray[0]) + Double.valueOf(siderealTimeArray[1]) / 60.0;
-        double xp = star.getRa();
-        double l,d,h;
-        boolean hasRisen;
-        int hourOfDay = LocalDateTime.now().getHour();
-        boolean isNorthern = hemisphere.equals(Hemisphere.NORTH);
-
-//        if ((yp > lt)) {
-//            System.out.println("Check 1 - Northern star");
-//            isVisible = isNorthern;
-//        } else {
-//            System.out.println("Check 1 - Southern star");
-//            isVisible = !isNorthern;
-//        }
-//        if ((yp < (lt - 90))) {
-//            System.out.println("Check 2 - Northern star");
-//            isVisible = isNorthern;
-//        } else {
-//            System.out.println("Check 2 - Southern star");
-//            isVisible = !isNorthern;
-//        }
-        l = lt * Math.PI / ONE_EIGHTY;
-        d = yp * Math.PI / ONE_EIGHTY;
-        h = (Math.PI * (hourOfDay - xp)) / TWELVE_HOURS;
-        hasRisen = Math.cos(l) * Math.cos(d) * Math.cos(h) < (NEGATIVE_ONE * Math.sin(l)) * Math.sin(d);
-        if (hasRisen) {
-            System.out.println("Check 3 - Northern star");
-            isVisible = isNorthern;
-        } else {
-            System.out.println("Check 3 - Southern star");
-            isVisible = !isNorthern;
-        }
-        return isVisible;
-    }
-
     // Apple II Plus - Plot hires point/line (x=0...279, y=0...191)
     public Coordinate getCoordinate(Hemisphere hemisphere, Config config, Star star) {
         Coordinate coordinate;
@@ -119,8 +65,6 @@ LT = Latitude (DEG 0 - 90)
         double lt = Double.valueOf(config.getLatitudeDegrees());
         double lst = Double.valueOf(siderealTimeArray[0]) + Double.valueOf(siderealTimeArray[1]) / 60.0;
         double xp = star.getRa();
-        double l,d,h;
-        int hourOfDay = LocalDateTime.now().getHour();
 
         if ((yp > lt)) {
             return null;
@@ -128,11 +72,7 @@ LT = Latitude (DEG 0 - 90)
         if ((yp < (lt - 90))) {
             return null;
         }
-        l = lt * Math.PI / ONE_EIGHTY;
-        d = yp * Math.PI / ONE_EIGHTY;
-        h = (Math.PI * (lst - xp)) / TWELVE_HOURS;
-        // Has Risen?.
-        if (Math.cos(l) * Math.cos(d) * Math.cos(h) < (NEGATIVE_ONE * Math.sin(l)) * Math.sin(d)) {
+        if (this.hasRisen(xp, yp, lt, lst)) {
             return null;
         }
         // XP = LST - XP: IF XP <  - 12 THEN XP = XP + 24
@@ -143,7 +83,7 @@ LT = Latitude (DEG 0 - 90)
         if (xp > 12.0) {
             xp = xp - 24.0;
         }
-        // Allows 12 Hours of Right Ascention
+        // Allows 12 Hours of Right Ascension
         xp = 140 + xp * 23.33;
         if (xp > 279 || xp < 0.0) {
             return null;
@@ -163,24 +103,18 @@ LT = Latitude (DEG 0 - 90)
         double lt = Double.valueOf(config.getLatitudeDegrees());
         double lst = Double.valueOf(siderealTimeArray[0]) + Double.valueOf(siderealTimeArray[1]) / 60.0;
         double xp = star.getRa();
-        double l,d,h;
-        int hourOfDay = LocalDateTime.now().getHour();
 
         if ((yp < 0.0)) {
             return null;
         }
-        l = lt * Math.PI / ONE_EIGHTY;
-        d = yp * Math.PI / ONE_EIGHTY;
-        h = (Math.PI * (lst - xp)) / TWELVE_HOURS;
-        // Has Risen?.
-        if (Math.cos(l) * Math.cos(d) * Math.cos(h) < (NEGATIVE_ONE * Math.sin(l)) * Math.sin(d)) {
+        if (this.hasRisen(xp, yp, lt, lst)) {
             return null;
         }
         xp = xp - lst;
         yp = yp * Math.PI / ONE_EIGHTY; // Convert DEC to Radians
         xp = (xp * 15 * Math.PI / 180) - Math.PI/2.0; // Convert RA to Radians and Rotate 90 Degrees CounterClockwise
-        double f = 140 / (Math.PI / 2.0); // Map Scale Factor
-        double r1 = f * ((Math.PI/2.0) - Math.abs(yp));
+        double f = 140 / HALF_PI; // Map Scale Factor
+        double r1 = f * (HALF_PI - Math.abs(yp));
         double x = r1 * Math.cos(xp) + 140.0;
         double y = r1 * Math.sin(xp) + 160.0 - (1.78 * lt);
         xp = x;
@@ -191,31 +125,19 @@ LT = Latitude (DEG 0 - 90)
         return new Coordinate(xp, yp);
     }
 
-    /**
-     *
-     * @param decDegsYP
-     * @param latDegsLT
-     * @return
-     */
-        public Hemisphere getHemisphere(double decDegsYP, double latDegsLT) {
-//    public Hemisphere getHemisphere(double latDegsLT, double decDegsYP) {
-        Hemisphere cp = Hemisphere.SOUTH;
-        boolean isNorth = (decDegsYP > latDegsLT) || (decDegsYP < (latDegsLT - 90.0));
-        if (isNorth) {
-            cp = Hemisphere.NORTH;
-        }
-        return cp;
-    }
-
-    /**
-     * From Hours, Minutes, and Seconds to Degrees.
-     * @param hours
-     * @param minute
-     * @param second
-     * @return
-     */
     public double fromHMStoDegrees(double hours, double minute, double second) {
         return hours + ((NEGATIVE_ONE * minute) / SIXTY) + ((NEGATIVE_ONE * second) / THIRTY_SIX_HUNDRED);
     }
 
+    private boolean hasRisen(double xp, double yp, double lt, double lst) {
+        boolean hasRisen = false;
+        double l = lt * Math.PI / ONE_EIGHTY;
+        double d = yp * Math.PI / ONE_EIGHTY;
+        double h = (Math.PI * (lst - xp)) / TWELVE_HOURS;
+        // Has Risen?
+        if (Math.cos(l) * Math.cos(d) * Math.cos(h) < (NEGATIVE_ONE * Math.sin(l)) * Math.sin(d)) {
+            hasRisen = true;
+        }
+        return hasRisen;
+    }
 }
