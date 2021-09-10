@@ -1,7 +1,8 @@
 package com.dqrapps.planetarium.logic.service;
 
 import com.dqrapps.planetarium.logic.model.Coordinate;
-import com.dqrapps.planetarium.logic.model.Hemisphere;
+import com.dqrapps.planetarium.logic.model.Horizon;
+import com.dqrapps.planetarium.logic.model.Screen;
 import com.dqrapps.planetarium.logic.model.Stars;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,16 +17,16 @@ public class AstroServiceTest {
 
     @Before
     public void doBefore() throws IOException {
-        astroService = new AstroService();
+        astroService = new AstroService(new Screen(800, 600));
         stars = StarService.getInstance().getStars();
         configService = ConfigService.getInstance();
     }
 
     @Test
     public void getCoordinateTest() {
-        Hemisphere hemisphere = Hemisphere.valueOf(configService.getCurrentConfig().getHorizon().toUpperCase());
+        Horizon horizon = Horizon.valueOf(configService.getCurrentConfig().getHorizon().toUpperCase());
         stars.getStarList().forEach(s -> {
-            Coordinate coordinate = astroService.getCoordinate(hemisphere, configService.getCurrentConfig(), s);
+            Coordinate coordinate = astroService.getCoordinate(horizon, configService.getCurrentConfig(), s);
             if (coordinate != null) {
                 System.out.println(coordinate);
             }

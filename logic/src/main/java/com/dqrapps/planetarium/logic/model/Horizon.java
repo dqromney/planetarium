@@ -1,13 +1,13 @@
 package com.dqrapps.planetarium.logic.model;
 
-public enum Hemisphere {
+public enum Horizon {
     NORTH("Northern"),
     SOUTH("Southern"),
     UNDEFINED("Undefined");
 
     private String name;
 
-    Hemisphere(String name) {
+    Horizon(String name) {
         this.name = name;
     }
 }

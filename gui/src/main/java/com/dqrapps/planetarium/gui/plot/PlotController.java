@@ -1,10 +1,7 @@
 package com.dqrapps.planetarium.gui.plot;
 
 import com.dqrapps.planetarium.gui.Main;
-import com.dqrapps.planetarium.logic.model.Config;
-import com.dqrapps.planetarium.logic.model.Coordinate;
-import com.dqrapps.planetarium.logic.model.Hemisphere;
-import com.dqrapps.planetarium.logic.model.Stars;
+import com.dqrapps.planetarium.logic.model.*;
 import com.dqrapps.planetarium.logic.service.AstroService;
 import com.dqrapps.planetarium.logic.service.ConfigService;
 import com.dqrapps.planetarium.logic.service.StarService;
@@ -16,12 +13,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +35,7 @@ public class PlotController {
 
     private List<Coordinate> coordinateList;
 
+    // Called each time window is opened; will use current config.
     @SneakyThrows
     @FXML
     private void initialize() {
@@ -50,11 +45,11 @@ public class PlotController {
         if (starService.defaultStarsExists()) {
             stars = starService.getStars();
         }
-        astroService = new AstroService();
-        Hemisphere hemisphere = Hemisphere.valueOf(config.getHorizon().toUpperCase());
+        astroService = new AstroService(new Screen(canvas.getWidth(), canvas.getHeight()));
+        Horizon horizon = Horizon.valueOf(config.getHorizon().toUpperCase());
         coordinateList = new ArrayList<>();
         stars.getStarList().forEach(star -> {
-            Coordinate coordinate = astroService.getCoordinate(hemisphere, config, star);
+            Coordinate coordinate = astroService.getCoordinate(horizon, config, star);
             if (coordinate != null) {
                 this.coordinateList.add(coordinate);
             }
@@ -78,7 +73,7 @@ public class PlotController {
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
         gc.setLineWidth(2.0);
         gc.setStroke(Color.GRAY);
-        gc.setFill(Color.GRAY);
+        gc.setFill(Color.WHITE);
         this.coordinateList.forEach(item -> {
             if (item.getMag() > 3.0) {
                 gc.fillOval(item.getX(), item.getY(), 1, 1);
@@ -110,4 +105,11 @@ public class PlotController {
     // Access methods
     // -----------------------------------------------------------------------------------------------------------------
 
+    public Canvas getCanvas() {
+        return canvas;
+    }
+
+    public void setCanvas(Canvas canvas) {
+        this.canvas = canvas;
+    }
 }

@@ -2,11 +2,13 @@ package com.dqrapps.planetarium.logic.model;
 
 public class Coordinate {
     double x, y, mag;
+    String name;
 
-    public Coordinate(double x, double y, double mag) {
+    public Coordinate(double x, double y, double mag, String name) {
         this.x = x;
         this.y = y;
         this.mag = mag;
+        this.name = name;
     }
 
     public double getX() {
@@ -33,12 +35,21 @@ public class Coordinate {
         this.mag = mag;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Coordinate{" +
                 "x=" + x +
                 ", y=" + y +
                 ", mag=" + mag +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

@@ -2,10 +2,7 @@ package com.dqrapps.planetarium.logic.service;
 
 //import static com.mhuss.AstroLib.Astro.DAYS_PER_HOUR;
 
-import com.dqrapps.planetarium.logic.model.Config;
-import com.dqrapps.planetarium.logic.model.Coordinate;
-import com.dqrapps.planetarium.logic.model.Hemisphere;
-import com.dqrapps.planetarium.logic.model.Star;
+import com.dqrapps.planetarium.logic.model.*;
 
 public class AstroService {
     private static double THREE_SIXTY = 360.0;
@@ -19,9 +16,14 @@ public class AstroService {
     private static double SIXTY = 60.0;
     private static double THIRTY_SIX_HUNDRED = 3600.0;
     private static double SCREEN_RATIO = 279.0 / 191.0;
-    public static double X_FACTOR = 160; //(800.0/SCREEN_RATIO); // 160.0
-    public static double Y_FACTOR = 140; //(600.0/SCREEN_RATIO); // 140.0
+    private static double X_FACTOR = 450; //(800.0/SCREEN_RATIO); // 160.0
+    private static double Y_FACTOR = X_FACTOR * (140.0 / 160.0); //(600.0/SCREEN_RATIO); // 140.0
     // 600/X = 1.28 -> 600/1.28 = X
+    // Original 1.78 Seems that is shows more of the upper part of the sky. The higher the number the less of the horizon is
+    // shown, the lower the more is shown.
+    private static double VIEW_HORIZON_HEIGHT_RATIO = 5.00;
+
+    private Screen screen;
 
 /*
 780  REM  CIRCUMPOLARS IN N. SKY
@@ -51,10 +53,14 @@ LM = Longitude Minutes (MIN 0 to 59), set to LGH
 LT = Latitude (DEG 0 - 90)
 */
 
+    public AstroService(Screen screen) {
+        this.screen = screen;
+    }
+
     // Apple II Plus - Plot hires point/line (x=0...279, y=0...191)
-    public Coordinate getCoordinate(Hemisphere hemisphere, Config config, Star star) {
+    public Coordinate getCoordinate(Horizon horizon, Config config, Star star) {
         Coordinate coordinate;
-        if (Hemisphere.NORTH.equals(hemisphere)) {
+        if (Horizon.NORTH.equals(horizon)) {
             coordinate = getNorthernCoordinate(config, star);
         } else {
             coordinate = getSouthernCoordinate(config, star);
@@ -90,17 +96,17 @@ LT = Latitude (DEG 0 - 90)
         // Allows 12 Hours of Right Ascension
         xp = 140 + xp * 23.33;
         //xp = Y_FACTOR + xp * 23.33;
-        if (xp > 279 || xp < 0.0) {
+        if (xp > screen.getWidth() || xp < 0.0) {
         //if (xp > X_FACTOR || xp < 0.0) {
             return null;
         }
         // Allow 90 Degree of Declination
-        yp = 1.78 * (lt - yp);
+        yp = VIEW_HORIZON_HEIGHT_RATIO * (lt - yp);
         // if (yp < 0 || yp > 159) {
         if (yp < 0 || yp > X_FACTOR-1) {
             return null;
         }
-        return new Coordinate(xp, yp, star.getMag());
+        return new Coordinate(xp, yp, star.getMag(), star.getName());
     }
 
     // Line 910
@@ -126,14 +132,14 @@ LT = Latitude (DEG 0 - 90)
         // double x = r1 * Math.cos(xp) + 140.0;
         double x = r1 * Math.cos(xp) + Y_FACTOR;
         // double y = r1 * Math.sin(xp) + 160.0 - (1.78 * lt);
-        double y = r1 * Math.sin(xp) + X_FACTOR - (1.78 * lt);
+        double y = r1 * Math.sin(xp) + X_FACTOR - (VIEW_HORIZON_HEIGHT_RATIO * lt);
         xp = x;
         yp = y;
-        if (xp > 279.0 || xp < 0.0 || yp > 159.0 || yp < 0.0) {
+        if (xp > screen.getWidth() || xp < 0.0 || yp > screen.getHeight() || yp < 0.0) {
         //if (xp > X_FACTOR || xp < 0.0 || yp > Y_FACTOR || yp < 0.0) {
             return null;
         }
-        return new Coordinate(xp, yp, star.getMag());
+        return new Coordinate(xp, yp, star.getMag(), star.getName());
     }
 
     public double fromHMStoDegrees(double hours, double minute, double second) {
@@ -150,5 +156,16 @@ LT = Latitude (DEG 0 - 90)
             hasRisen = true;
         }
         return hasRisen;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Helper methods
+    // -----------------------------------------------------------------------------------------------------------------
+    public Screen getScreen() {
+        return screen;
+    }
+
+    public void setScreen(Screen screen) {
+        this.screen = screen;
     }
 }
