@@ -26,12 +26,6 @@ public class AstroService {
     private Screen screen;
 
 /*
-780  REM  CIRCUMPOLARS IN N. SKY
-790  IF YP > LT THEN RC = 1: RETURN
-800  IF YP < LT - 90 THEN RC = 1: RETURN
-810  REM  SOUTHERN CUTOFF
-820  LET L = LT * 3.14 / 180: LET D = YP * 3.14 / 180
-
 Legend:
 XP - X-Polar: Right Ascension or RA(I) where I is the index for the stars (Radians: 1 degree = 0.01745329252)
 YP - Y-Polar: Declination or DEC(I) where I is the index for the stars (I think Degrees) -90 to 90
