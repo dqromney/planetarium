@@ -16,13 +16,22 @@ public class AstroService {
     private static double SIXTY = 60.0;
     private static double THIRTY_SIX_HUNDRED = 3600.0;
     private static double SCREEN_RATIO = 279.0 / 191.0;
-    private static double X_FACTOR = 450; //(800.0/SCREEN_RATIO); // 160.0
+    private static double X_FACTOR = 536.5; //450; //(800.0/SCREEN_RATIO); // 160.0
     private static double Y_FACTOR = X_FACTOR * (140.0 / 160.0); //(600.0/SCREEN_RATIO); // 140.0
     // 600/X = 1.28 -> 600/1.28 = X
     // Original 1.78 Seems that is shows more of the upper part of the sky. The higher the number the less of the horizon is
     // shown, the lower the more is shown.
-    private static double VIEW_HORIZON_HEIGHT_RATIO = 5.00;
-
+    private static double VIEW_HORIZON_HEIGHT_RATIO = 6.00;
+    /*
+        1.78   5.00       x(1.78)  5.00            5.0 x 191
+        ---- = ----  ==>  ------ = -----   ==> x = --------- = 536.516854
+        191     x           191      1               1.78
+     */
+    /*
+        191   600      w(191)      600          279*600
+        --- = ---  ==> ------ = ------- ==> w = ------- = 876.439 Width, 600 Height Canvas
+        279    w        279        1              191
+     */
     private Screen screen;
 
 /*
