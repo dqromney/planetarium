@@ -90,7 +90,7 @@ public class ConfigController {
         Main.setRoot("plot");
         Scene currentScene = Main.getCurrentScene();
         log.info(String.format("plot width/height: %1$.0f/%2$.0f", currentScene.getWidth(), currentScene.getHeight()));
-        currentScene.getWindow().setHeight(647.0);
+        currentScene.getWindow().setHeight(682.0);
         currentScene.getWindow().setWidth(882.0);
     }
 
