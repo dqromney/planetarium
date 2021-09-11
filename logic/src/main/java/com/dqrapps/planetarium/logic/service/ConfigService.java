@@ -121,7 +121,7 @@ public class ConfigService {
 
     private Configs saveConfigs() {
         try {
-            om.writerFor(Configs.class).writeValue(new File(resourceName), configs);
+            om.writerFor(Configs.class).writeValue(this.file, configs);
         } catch (IOException e) {
             System.out.println("Error saving configs");
             // log.throwing(this.getClass().getName(), "saveConfigs", e);
