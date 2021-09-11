@@ -132,7 +132,7 @@ public class ConfigService {
     private Configs loadConfigs() {
         if (null == this.configs) {
             try {
-                this.configs = om.readerFor(Configs.class).readValue(file);
+                this.configs = om.readerFor(Configs.class).readValue(this.file);
             } catch (IOException e) {
                 System.out.println("Error loading configs");
                 // log.throwing(this.getClass().getName(), "loadConfigs", e);
