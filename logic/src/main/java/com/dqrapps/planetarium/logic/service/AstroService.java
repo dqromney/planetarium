@@ -17,11 +17,13 @@ public class AstroService {
     private static double THIRTY_SIX_HUNDRED = 3600.0;
     private static double SCREEN_RATIO = 279.0 / 191.0;
     private static double X_FACTOR = 536.5; //450; //(800.0/SCREEN_RATIO); // 160.0
-    private static double Y_FACTOR = X_FACTOR * (140.0 / 160.0); //(600.0/SCREEN_RATIO); // 140.0
+    private static double Y_FACTOR = X_FACTOR * (140.0 / 160.0); //(600.0/SCREEN_RATIO); // 140.0 This may not work for south
     // 600/X = 1.28 -> 600/1.28 = X
     // Original 1.78 Seems that is shows more of the upper part of the sky. The higher the number the less of the horizon is
     // shown, the lower the more is shown.
-    private static double VIEW_HORIZON_HEIGHT_RATIO = 6.00;
+    private static double VIEW_HORIZON_HEIGHT_RATIO = 6.00;;
+    private static double MAGIC_NUMBER_1 = 7.50; // 1.73;
+    private static double MAGIC_NUMBER_2 = 23.33 * 2.75; // 23.33;
     /*
         1.78   5.00       x(1.78)  5.00            5.0 x 191
         ---- = ----  ==>  ------ = -----   ==> x = --------- = 536.516854
@@ -82,7 +84,7 @@ LT = Latitude (DEG 0 - 90)
         if ((yp > lt)) {
             return null;
         }
-        if ((yp < (lt - 90))) {
+        if ((yp < (lt - NINTY))) {
             return null;
         }
         if (this.hasRisen(xp, yp, lt, lst)) {
@@ -97,14 +99,15 @@ LT = Latitude (DEG 0 - 90)
             xp = xp - 24.0;
         }
         // Allows 12 Hours of Right Ascension
-        xp = 140 + xp * 23.33;
-        //xp = Y_FACTOR + xp * 23.33;
+        // xp = 140 + xp * 23.33;
+        xp = Y_FACTOR + xp * MAGIC_NUMBER_2;
         if (xp > screen.getWidth() || xp < 0.0) {
         //if (xp > X_FACTOR || xp < 0.0) {
             return null;
         }
         // Allow 90 Degree of Declination
-        yp = VIEW_HORIZON_HEIGHT_RATIO * (lt - yp);
+        // yp = 1.73 * (lt - yp);
+        yp = MAGIC_NUMBER_1 * (lt - yp);
         // if (yp < 0 || yp > 159) {
         if (yp < 0 || yp > X_FACTOR-1) {
             return null;
