@@ -53,7 +53,7 @@
         {"ra": 6.7, "dec": 25.2, "mag": 3.2, "name": "MEBSUTA"},
         {"ra": 6.73, "dec": -16.7, "mag": -1.6, "name": "SIRIUS"},
         {"ra": 6.82, "dec": -50.6, "mag": 2.8, "name": "TAU PUPPIS"},
-        {"ra": 6.85, "dec": 33.9, "mag": 4, "name": "THETA GEIdINI"},
+        {"ra": 6.85, "dec": 33.9, "mag": 4, "name": "THETA GEMINI"},
         {"ra": 6.95, "dec": -28.9, "mag": 1.6, "name": "ADARA"},
         {"ra": 7.03, "dec": 20.6, "mag": 4, "name": "MEKBUDA"},
         {"ra": 7.12, "dec": -26.4, "mag": 2, "name": "WEZEN"},
