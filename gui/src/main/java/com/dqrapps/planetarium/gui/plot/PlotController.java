@@ -13,6 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
@@ -32,6 +33,8 @@ public class PlotController {
 
     @FXML
     private Canvas canvas;
+    @FXML
+    private Slider slider;
 
     private List<Coordinate> coordinateList;
 
