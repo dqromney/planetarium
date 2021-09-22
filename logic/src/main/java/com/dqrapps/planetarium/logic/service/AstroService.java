@@ -22,8 +22,8 @@ public class AstroService {
     // Original 1.78 Seems that is shows more of the upper part of the sky. The higher the number the less of the horizon is
     // shown, the lower the more is shown.
     private static double VIEW_HORIZON_HEIGHT_RATIO = 6.00;;
-    private static double MAGIC_NUMBER_1 = 7.50; // 1.73;
-    private static double MAGIC_NUMBER_2 = 23.33 * 2.75; // 23.33;
+    private static double MAGIC_NUMBER_VERTICAL = 1.73 * 3.50; // 7.50; // 1.73;
+    private static double MAGIC_NUMBER_HORIZONTAL = 23.33 * 3.50; // 23.33 * 2.75; // 23.33;
     /*
         1.78   5.00       x(1.78)  5.00            5.0 x 191
         ---- = ----  ==>  ------ = -----   ==> x = --------- = 536.516854
@@ -100,14 +100,14 @@ LT = Latitude (DEG 0 - 90)
         }
         // Allows 12 Hours of Right Ascension
         // xp = 140 + xp * 23.33;
-        xp = Y_FACTOR + xp * MAGIC_NUMBER_2;
+        xp = Y_FACTOR + xp * MAGIC_NUMBER_HORIZONTAL;
         if (xp > screen.getWidth() || xp < 0.0) {
         //if (xp > X_FACTOR || xp < 0.0) {
             return null;
         }
         // Allow 90 Degree of Declination
         // yp = 1.73 * (lt - yp);
-        yp = MAGIC_NUMBER_1 * (lt - yp);
+        yp = MAGIC_NUMBER_VERTICAL * (lt - yp);
         // if (yp < 0 || yp > 159) {
         if (yp < 0 || yp > X_FACTOR-1) {
             return null;
