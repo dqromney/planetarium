@@ -111,7 +111,7 @@ public class PlotController {
         gc.setStroke(Color.GRAY);
         gc.setFill(Color.GRAY);
         gc.setFont(Font.getDefault());
-        if (horizon.equals(Horizon.NORTH.name())) {
+        if (horizon.equals(Horizon.NORTH)) {
             gc.fillText("W", 5, this.canvas.getHeight() / 2.0);
             gc.fillText("E", canvas.getWidth() - 15.0, this.canvas.getHeight() / 2.0, 100);
             gc.fillText("N", this.canvas.getWidth() / 2.0, canvas.getHeight() - 10.0, 100);
