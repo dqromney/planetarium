@@ -4,6 +4,9 @@ package com.dqrapps.planetarium.logic.service;
 
 import com.dqrapps.planetarium.logic.model.*;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
+
 public class AstroService {
     private static double THREE_SIXTY = 360.0;
     private static double ONE_EIGHTY = THREE_SIXTY / 2.0;
@@ -27,14 +30,17 @@ public class AstroService {
     // Original 1.78 Seems that is shows more of the upper part of the sky. The higher the number the less of the horizon is
     // shown, the lower the more is shown.
     private static double VIEW_HORIZON_HEIGHT_RATIO = 5.75;
-    private static double MAGIC_NUMBER_VERTICAL = 1.73 * 3.50; // 7.50; // 1.73;
-    private static double MAGIC_NUMBER_HORIZONTAL = 23.33 * 3.50; // 23.33 * 2.75; // 23.33;
+    private static double SOUTHERN_DEFAULT_FACTOR = 3.28; //3.50;
+    private static double SOUTHERN_MAGIC_NUMBER_VERTICAL = 1.73 * SOUTHERN_DEFAULT_FACTOR; // 7.50; // 1.73;
+    private static double SOUTHERN_MAGIC_NUMBER_HORIZONTAL = 23.33 * SOUTHERN_DEFAULT_FACTOR; // 23.33 * 2.75; // 23.33;
     /*
         191   600      w(191)      600          279*600
         --- = ---  ==> ------ = ------- ==> w = ------- = 876.439 Width, 600 Height Canvas
         279    w        279        1              191
      */
     private Screen screen;
+    private LocalDateTime now;
+    private double southernDefaultFactor = SOUTHERN_DEFAULT_FACTOR;
 
 /*
 Legend:
@@ -75,10 +81,15 @@ LT = Latitude (DEG 0 - 90)
 
     // Line 780
     private Coordinate getSouthernCoordinate(Config config, Star star) {
+        now = LocalDateTime.now();
         String[] siderealTimeArray = config.getSiderealTime().split(":");
         double yp = star.getDec();
         double lt = Double.valueOf(config.getLatitudeDegrees());
-        double lst = Double.valueOf(siderealTimeArray[0]) + Double.valueOf(siderealTimeArray[1]) / 60.0;
+        // double lst = Double.valueOf(siderealTimeArray[0]) + Double.valueOf(siderealTimeArray[1]) / SIXTY;
+        // LST = HR + (MIN / 60) + (SEC / 1800)
+        double lst = Double.valueOf(now.getLong(ChronoField.CLOCK_HOUR_OF_DAY)) +
+                Double.valueOf(now.getLong(ChronoField.MINUTE_OF_HOUR) / SIXTY) +
+                Double.valueOf(now.getLong(ChronoField.SECOND_OF_MINUTE) / 1800.0) / 60.0;
         double xp = star.getRa();
 
         if ((yp > lt)) {
@@ -100,14 +111,14 @@ LT = Latitude (DEG 0 - 90)
         }
         // Allows 12 Hours of Right Ascension
         // xp = 140 + xp * 23.33;
-        xp = Y_FACTOR + xp * MAGIC_NUMBER_HORIZONTAL;
+        xp = Y_FACTOR + xp * (23.33 * this.southernDefaultFactor);
         if (xp > screen.getWidth() || xp < 0.0) {
         //if (xp > X_FACTOR || xp < 0.0) {
             return null;
         }
         // Allow 90 Degree of Declination
         // yp = 1.73 * (lt - yp);
-        yp = MAGIC_NUMBER_VERTICAL * (lt - yp);
+        yp = (1.73 * this.southernDefaultFactor) * (lt - yp);
         // if (yp < 0 || yp > 159) {
         if (yp < 0 || yp > X_FACTOR-1) {
             return null;
@@ -162,6 +173,20 @@ LT = Latitude (DEG 0 - 90)
             hasRisen = true;
         }
         return hasRisen;
+    }
+
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Access methods
+    // -----------------------------------------------------------------------------------------------------------------
+
+
+    public double getSouthernDefaultFactor() {
+        return southernDefaultFactor;
+    }
+
+    public void setSouthernDefaultFactor(double southernDefaultFactor) {
+        this.southernDefaultFactor = southernDefaultFactor;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

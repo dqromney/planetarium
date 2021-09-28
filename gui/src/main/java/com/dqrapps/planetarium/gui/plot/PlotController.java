@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 
@@ -49,6 +50,11 @@ public class PlotController {
             stars = starService.getStars();
         }
         astroService = new AstroService(new Screen(canvas.getWidth(), canvas.getHeight()));
+        calculate();
+        this.renderStars();
+    }
+
+    private void calculate() {
         Horizon horizon = Horizon.valueOf(config.getHorizon().toUpperCase());
         coordinateList = new ArrayList<>();
         stars.getStarList().forEach(star -> {
@@ -57,7 +63,6 @@ public class PlotController {
                 this.coordinateList.add(coordinate);
             }
         });
-        this.renderStars();
     }
 
     @FXML
@@ -73,7 +78,17 @@ public class PlotController {
 
     @FXML
     public void renderStars() {
+        calculate();
+        astroService.setSouthernDefaultFactor(slider.getValue());
+        System.out.println("slider value: " + slider.getValue());
+
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, this.canvas.getWidth(), this.getCanvas().getHeight());
+        setDirectionLabels(gc, config);
+        plotStars(gc);
+    }
+
+    private void plotStars(GraphicsContext gc) {
         gc.setLineWidth(2.0);
         gc.setStroke(Color.GRAY);
         gc.setFill(Color.WHITE);
@@ -83,11 +98,28 @@ public class PlotController {
             } else if (item.getMag() > 1.5 && item.getMag() <= 3.0) {
                 gc.fillOval(item.getX(), item.getY(), 2, 2);
             } else if (item.getMag() > -0.5 && item.getMag() <= 1.5) {
-                gc.fillOval(item.getX(), item.getY(), 3, 3);
-            } else {
                 gc.fillOval(item.getX(), item.getY(), 4, 4);
+            } else {
+                gc.fillOval(item.getX(), item.getY(), 8, 8);
             }
         });
+    }
+
+    private void setDirectionLabels(GraphicsContext gc, Config config) {
+        Horizon horizon = Horizon.valueOf(config.getHorizon().toUpperCase());
+        gc.setLineWidth(1.0);
+        gc.setStroke(Color.GRAY);
+        gc.setFill(Color.GRAY);
+        gc.setFont(Font.getDefault());
+        if (horizon.equals(Horizon.NORTH.name())) {
+            gc.fillText("W", 5, this.canvas.getHeight() / 2.0);
+            gc.fillText("E", canvas.getWidth() - 15.0, this.canvas.getHeight() / 2.0, 100);
+            gc.fillText("N", this.canvas.getWidth() / 2.0, canvas.getHeight() - 10.0, 100);
+        } else {
+            gc.fillText("E", 5, this.canvas.getHeight() / 2.0);
+            gc.fillText("W", canvas.getWidth() - 15.0, this.canvas.getHeight() / 2.0, 100);
+            gc.fillText("S", this.canvas.getWidth() / 2.0, canvas.getHeight() - 10.0, 100);
+        }
     }
 
     @FXML
