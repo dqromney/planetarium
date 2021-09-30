@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+// http://cdsarc.u-strasbg.fr/viz-bin/Cat?I/239
+// http://simbad.u-strasbg.fr/simbad/sim-tap
 @Data
 @Builder
 @NoArgsConstructor

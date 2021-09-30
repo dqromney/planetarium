@@ -20,7 +20,7 @@
           <Button id="configBtnId" fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToConfig" text="Config" />
           <Button id="exitBtnId" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="50.0" text="Exit" />
             <Button id="exitBtnId" fx:id="exitButton1" layoutX="65.0" layoutY="16.0" mnemonicParsing="false" onAction="#renderStars" prefHeight="26.0" prefWidth="83.0" text="Re-Render" />
-            <Slider fx:id="slider" majorTickUnit="1" max="10.0" min="1.73" minorTickCount="1" prefHeight="38.0" prefWidth="272.0" showTickLabels="true" showTickMarks="true" value="3.28">
+            <Slider fx:id="slider" majorTickUnit="1" max="10.0" min="1.00" minorTickCount="1" prefHeight="38.0" prefWidth="272.0" showTickLabels="true" showTickMarks="true" value="3.28">
                <padding>
                   <Insets left="10.0" />
                </padding>
