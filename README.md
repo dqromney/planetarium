@@ -47,6 +47,10 @@ The application supports two star data formats:
    - Dec range: -90° to +90°
    - Includes proper names and spectral classifications
 
+## Screenshots 11/05/2025
+
+![New Version](logic/src/main/resources/support/Screenshot-2025-11-05.png)
+
 ## Screenshots 11/04/2025
 
 ![New Version](logic/src/main/resources/support/Screenshot-2025-11-04.png)
