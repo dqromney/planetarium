@@ -1,6 +1,6 @@
 # planetarium
 
-Planetarium Running JavaFX on JDK 11+ with Maven
+Planetarium Running JavaFX on JDK 21 with Maven
 
 ## Description
 
