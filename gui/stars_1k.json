@@ -1,0 +1,7004 @@
+{
+  "objects": [
+    {
+      "ra": 22.5722,
+      "dec": -12.93,
+      "mag": -0.8,
+      "name": "Star 430",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.8086,
+      "dec": 11.99,
+      "mag": -0.7,
+      "name": "Star 632",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.0532,
+      "dec": -36.19,
+      "mag": -0.6,
+      "name": "Star 83",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.4873,
+      "dec": 48.17,
+      "mag": -0.2,
+      "name": "Gamma Centauri 602",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 14.6212,
+      "dec": 65.7,
+      "mag": -0.0,
+      "name": "Star 531",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 0.7078,
+      "dec": -51.59,
+      "mag": -0.0,
+      "name": "Star 890",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.2529,
+      "dec": -74.56,
+      "mag": -0.0,
+      "name": "Iota Leonis 901",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 11.8458,
+      "dec": 17.96,
+      "mag": 0.1,
+      "name": "Kappa Librae 830",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.1621,
+      "dec": -33.36,
+      "mag": 0.3,
+      "name": "Star 853",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.2439,
+      "dec": 56.49,
+      "mag": 0.3,
+      "name": "Beta Ceti 946",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.7544,
+      "dec": 73.69,
+      "mag": 0.4,
+      "name": "Eta Ursae Majoris 269",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.4231,
+      "dec": 34.47,
+      "mag": 0.6,
+      "name": "Star 115",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.9088,
+      "dec": -39.22,
+      "mag": 0.7,
+      "name": "Star 41",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.8351,
+      "dec": 27.85,
+      "mag": 0.8,
+      "name": "Star 170",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.1765,
+      "dec": -18.86,
+      "mag": 0.8,
+      "name": "Star 512",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 19.8702,
+      "dec": -40.43,
+      "mag": 0.8,
+      "name": "Star 639",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.9062,
+      "dec": -45.87,
+      "mag": 0.9,
+      "name": "Star 323",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.3695,
+      "dec": 62.1,
+      "mag": 0.9,
+      "name": "Alpha Cephei 817",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 22.9603,
+      "dec": 4.71,
+      "mag": 0.9,
+      "name": "Star 899",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.7866,
+      "dec": 1.54,
+      "mag": 0.9,
+      "name": "Pi Ursae Majoris 906",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.6062,
+      "dec": -71.62,
+      "mag": 1.0,
+      "name": "Star 4",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.4095,
+      "dec": 42.18,
+      "mag": 1.0,
+      "name": "Star 153",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.2252,
+      "dec": -2.62,
+      "mag": 1.0,
+      "name": "Star 418",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.3444,
+      "dec": 62.98,
+      "mag": 1.1,
+      "name": "Star 361",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.5234,
+      "dec": -78.16,
+      "mag": 1.1,
+      "name": "Star 837",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3811,
+      "dec": -48.89,
+      "mag": 1.1,
+      "name": "Mu Capricorni 869",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.5072,
+      "dec": -9.09,
+      "mag": 1.1,
+      "name": "Zeta Pegasi 977",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.409,
+      "dec": 34.97,
+      "mag": 1.2,
+      "name": "Star 126",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.7736,
+      "dec": -32.6,
+      "mag": 1.2,
+      "name": "Star 206",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.3019,
+      "dec": 6.65,
+      "mag": 1.2,
+      "name": "Delta Lyrae 254",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.5214,
+      "dec": -15.53,
+      "mag": 1.2,
+      "name": "Star 564",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.3035,
+      "dec": -65.18,
+      "mag": 1.2,
+      "name": "Star 703",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 23.9212,
+      "dec": 1.32,
+      "mag": 1.2,
+      "name": "Iota Centauri 708",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.1202,
+      "dec": 30.33,
+      "mag": 1.2,
+      "name": "Star 827",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.1872,
+      "dec": 1.92,
+      "mag": 1.3,
+      "name": "Star 24",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 4.4018,
+      "dec": -20.61,
+      "mag": 1.3,
+      "name": "Star 164",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 19.372,
+      "dec": 48.94,
+      "mag": 1.3,
+      "name": "Zeta Ursae Minoris 324",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.2649,
+      "dec": -57.55,
+      "mag": 1.3,
+      "name": "Star 454",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.7965,
+      "dec": -6.92,
+      "mag": 1.3,
+      "name": "Kappa Sagittarii 658",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.3015,
+      "dec": -44.05,
+      "mag": 1.3,
+      "name": "Star 764",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.2249,
+      "dec": -16.09,
+      "mag": 1.3,
+      "name": "Star 785",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.3342,
+      "dec": 57.52,
+      "mag": 1.3,
+      "name": "Star 974",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.8805,
+      "dec": 46.57,
+      "mag": 1.4,
+      "name": "Star 56",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.4562,
+      "dec": 35.04,
+      "mag": 1.4,
+      "name": "Star 363",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.037,
+      "dec": -25.11,
+      "mag": 1.4,
+      "name": "Star 603",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.5224,
+      "dec": 84.52,
+      "mag": 1.4,
+      "name": "Star 723",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.0786,
+      "dec": -24.83,
+      "mag": 1.4,
+      "name": "Iota Cassiopeiae 739",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.3871,
+      "dec": 50.69,
+      "mag": 1.4,
+      "name": "Star 849",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.4107,
+      "dec": 83.76,
+      "mag": 1.5,
+      "name": "Star 32",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.8624,
+      "dec": -10.11,
+      "mag": 1.5,
+      "name": "Zeta Lyrae 99",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.0399,
+      "dec": 63.98,
+      "mag": 1.5,
+      "name": "Pi Ceti 101",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.7639,
+      "dec": -59.87,
+      "mag": 1.5,
+      "name": "Star 178",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.2033,
+      "dec": 16.51,
+      "mag": 1.5,
+      "name": "Star 204",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.5782,
+      "dec": 11.21,
+      "mag": 1.5,
+      "name": "Star 227",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.1382,
+      "dec": 28.24,
+      "mag": 1.5,
+      "name": "Gamma Ursae Majoris 435",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.613,
+      "dec": -37.92,
+      "mag": 1.5,
+      "name": "Star 476",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.7704,
+      "dec": 46.88,
+      "mag": 1.5,
+      "name": "Star 534",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.7975,
+      "dec": 9.74,
+      "mag": 1.5,
+      "name": "Star 550",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.2059,
+      "dec": 24.24,
+      "mag": 1.5,
+      "name": "Xi Capricorni 551",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.6328,
+      "dec": 3.97,
+      "mag": 1.5,
+      "name": "Star 566",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.4483,
+      "dec": 80.79,
+      "mag": 1.5,
+      "name": "Star 742",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.3817,
+      "dec": 53.34,
+      "mag": 1.5,
+      "name": "Star 836",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.4266,
+      "dec": -11.53,
+      "mag": 1.5,
+      "name": "Star 954",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.1675,
+      "dec": -23.43,
+      "mag": 1.6,
+      "name": "Xi Aquarii 132",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.2856,
+      "dec": -49.87,
+      "mag": 1.6,
+      "name": "Zeta Ursae Majoris 459",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.1665,
+      "dec": -41.3,
+      "mag": 1.6,
+      "name": "Star 494",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.8285,
+      "dec": 80.07,
+      "mag": 1.6,
+      "name": "Star 832",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 3.1828,
+      "dec": -33.27,
+      "mag": 1.6,
+      "name": "Star 843",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.9927,
+      "dec": 51.56,
+      "mag": 1.7,
+      "name": "Star 133",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.6333,
+      "dec": 36.26,
+      "mag": 1.7,
+      "name": "Star 155",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.1495,
+      "dec": -29.62,
+      "mag": 1.7,
+      "name": "Gamma Leonis 173",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.8006,
+      "dec": -65.99,
+      "mag": 1.7,
+      "name": "Alpha Cassiopeiae 319",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 6.7053,
+      "dec": -82.93,
+      "mag": 1.7,
+      "name": "Star 441",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.3599,
+      "dec": -66.46,
+      "mag": 1.7,
+      "name": "Star 511",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.4613,
+      "dec": 35.41,
+      "mag": 1.7,
+      "name": "Lambda Cephei 517",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.8665,
+      "dec": -34.11,
+      "mag": 1.7,
+      "name": "Star 547",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 21.6403,
+      "dec": 35.31,
+      "mag": 1.7,
+      "name": "Star 571",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.6824,
+      "dec": -24.69,
+      "mag": 1.7,
+      "name": "Star 695",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 4.4826,
+      "dec": 30.86,
+      "mag": 1.7,
+      "name": "Star 719",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 6.6947,
+      "dec": -38.48,
+      "mag": 1.7,
+      "name": "Star 831",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.5201,
+      "dec": 15.68,
+      "mag": 1.7,
+      "name": "Star 846",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 17.6168,
+      "dec": -33.99,
+      "mag": 1.7,
+      "name": "Iota Persei 976",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.2158,
+      "dec": 10.67,
+      "mag": 1.8,
+      "name": "Xi Orionis 97",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 15.7522,
+      "dec": 40.25,
+      "mag": 1.8,
+      "name": "Star 140",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.514,
+      "dec": -50.6,
+      "mag": 1.8,
+      "name": "Star 184",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.2127,
+      "dec": -11.17,
+      "mag": 1.8,
+      "name": "Iota Ursae Majoris 194",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.8773,
+      "dec": 60.45,
+      "mag": 1.8,
+      "name": "Star 200",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.5606,
+      "dec": 44.68,
+      "mag": 1.8,
+      "name": "Star 552",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.9742,
+      "dec": -18.51,
+      "mag": 1.8,
+      "name": "Star 613",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.9996,
+      "dec": 28.76,
+      "mag": 1.8,
+      "name": "Star 642",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 14.5371,
+      "dec": -41.02,
+      "mag": 1.8,
+      "name": "Star 686",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 11.9988,
+      "dec": 29.49,
+      "mag": 1.8,
+      "name": "Star 805",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.2243,
+      "dec": 61.15,
+      "mag": 1.8,
+      "name": "Star 852",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.8544,
+      "dec": 31.02,
+      "mag": 1.8,
+      "name": "Star 859",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.6852,
+      "dec": 85.03,
+      "mag": 1.8,
+      "name": "Xi Cygni 911",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.9287,
+      "dec": 34.82,
+      "mag": 1.9,
+      "name": "Nu Ceti 7",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 9.8407,
+      "dec": 20.33,
+      "mag": 1.9,
+      "name": "Star 105",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.4589,
+      "dec": 41.65,
+      "mag": 1.9,
+      "name": "Star 268",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.9822,
+      "dec": 20.21,
+      "mag": 1.9,
+      "name": "Epsilon Leonis 373",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.5105,
+      "dec": -76.19,
+      "mag": 1.9,
+      "name": "Star 670",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 2.775,
+      "dec": 12.33,
+      "mag": 1.9,
+      "name": "Beta Leonis 880",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.5913,
+      "dec": 35.51,
+      "mag": 1.9,
+      "name": "Star 893",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.6618,
+      "dec": -4.18,
+      "mag": 1.9,
+      "name": "Gamma Tauri 960",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.7213,
+      "dec": -8.43,
+      "mag": 2.0,
+      "name": "Star 82",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 3.8909,
+      "dec": -39.79,
+      "mag": 2.0,
+      "name": "Star 246",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 5.3946,
+      "dec": -25.13,
+      "mag": 2.0,
+      "name": "Star 346",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.8227,
+      "dec": -51.66,
+      "mag": 2.0,
+      "name": "Star 394",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.7455,
+      "dec": -45.65,
+      "mag": 2.0,
+      "name": "Star 442",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.5274,
+      "dec": -76.35,
+      "mag": 2.0,
+      "name": "Star 518",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.9871,
+      "dec": 27.72,
+      "mag": 2.0,
+      "name": "Mu Pegasi 588",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.6049,
+      "dec": -46.47,
+      "mag": 2.0,
+      "name": "Star 612",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.8506,
+      "dec": -46.99,
+      "mag": 2.0,
+      "name": "Star 667",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.8974,
+      "dec": -43.75,
+      "mag": 2.0,
+      "name": "Star 838",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 18.7215,
+      "dec": -8.85,
+      "mag": 2.1,
+      "name": "Star 103",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 1.8443,
+      "dec": 50.02,
+      "mag": 2.1,
+      "name": "Star 471",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.5295,
+      "dec": -34.41,
+      "mag": 2.1,
+      "name": "Star 663",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.9751,
+      "dec": -60.07,
+      "mag": 2.1,
+      "name": "Star 681",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.7841,
+      "dec": -0.89,
+      "mag": 2.1,
+      "name": "Star 724",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.0385,
+      "dec": -51.23,
+      "mag": 2.1,
+      "name": "Alpha Leonis 780",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.4363,
+      "dec": 15.28,
+      "mag": 2.1,
+      "name": "Lambda Cassiopeiae 819",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.9729,
+      "dec": -33.54,
+      "mag": 2.1,
+      "name": "Star 949",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.8464,
+      "dec": -19.18,
+      "mag": 2.1,
+      "name": "Kappa Centauri 982",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.8243,
+      "dec": -30.14,
+      "mag": 2.2,
+      "name": "Star 33",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.8943,
+      "dec": -9.58,
+      "mag": 2.2,
+      "name": "Star 54",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.6467,
+      "dec": 11.05,
+      "mag": 2.2,
+      "name": "Star 87",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.0738,
+      "dec": -14.04,
+      "mag": 2.2,
+      "name": "Star 110",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.8801,
+      "dec": 16.72,
+      "mag": 2.2,
+      "name": "Star 197",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.984,
+      "dec": -7.06,
+      "mag": 2.2,
+      "name": "Mu Virginis 247",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.4556,
+      "dec": 13.23,
+      "mag": 2.2,
+      "name": "Star 260",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.4453,
+      "dec": -27.56,
+      "mag": 2.2,
+      "name": "Star 285",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 14.4957,
+      "dec": -22.61,
+      "mag": 2.2,
+      "name": "Kappa Pegasi 415",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.4786,
+      "dec": 65.23,
+      "mag": 2.2,
+      "name": "Star 478",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.9754,
+      "dec": -74.81,
+      "mag": 2.2,
+      "name": "Star 569",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.2232,
+      "dec": -50.78,
+      "mag": 2.2,
+      "name": "Star 693",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.536,
+      "dec": -46.56,
+      "mag": 2.2,
+      "name": "Star 699",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.5179,
+      "dec": -37.83,
+      "mag": 2.2,
+      "name": "Nu Piscium 771",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.645,
+      "dec": 30.98,
+      "mag": 2.2,
+      "name": "Star 802",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.2376,
+      "dec": 8.59,
+      "mag": 2.2,
+      "name": "Star 839",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.7691,
+      "dec": -72.33,
+      "mag": 2.2,
+      "name": "Epsilon Centauri 896",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 13.4505,
+      "dec": -35.36,
+      "mag": 2.2,
+      "name": "Lambda Cygni 897",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 6.7738,
+      "dec": 42.48,
+      "mag": 2.2,
+      "name": "Star 902",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.5065,
+      "dec": -18.7,
+      "mag": 2.2,
+      "name": "Eta Lyrae 966",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.2573,
+      "dec": 41.67,
+      "mag": 2.3,
+      "name": "Star 12",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7771,
+      "dec": -20.2,
+      "mag": 2.3,
+      "name": "Star 19",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 16.1781,
+      "dec": -25.89,
+      "mag": 2.3,
+      "name": "Star 40",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 19.0788,
+      "dec": 28.68,
+      "mag": 2.3,
+      "name": "Star 172",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.4408,
+      "dec": -7.72,
+      "mag": 2.3,
+      "name": "Star 177",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 12.7416,
+      "dec": 42.83,
+      "mag": 2.3,
+      "name": "Lambda Leonis 317",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.3124,
+      "dec": -1.9,
+      "mag": 2.3,
+      "name": "Mu Scorpii 360",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 18.9877,
+      "dec": 11.12,
+      "mag": 2.3,
+      "name": "Star 403",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.5504,
+      "dec": -25.57,
+      "mag": 2.3,
+      "name": "Epsilon Ursae Majoris 482",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.8816,
+      "dec": -65.81,
+      "mag": 2.3,
+      "name": "Star 495",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.5235,
+      "dec": -36.79,
+      "mag": 2.3,
+      "name": "Star 557",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.4091,
+      "dec": 15.98,
+      "mag": 2.3,
+      "name": "Star 573",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.7172,
+      "dec": -0.48,
+      "mag": 2.3,
+      "name": "Star 586",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.7742,
+      "dec": -67.0,
+      "mag": 2.3,
+      "name": "Beta Piscium 625",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.2597,
+      "dec": -46.24,
+      "mag": 2.3,
+      "name": "Star 633",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.0728,
+      "dec": 28.37,
+      "mag": 2.3,
+      "name": "Star 675",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.3333,
+      "dec": -24.97,
+      "mag": 2.3,
+      "name": "Star 721",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.8731,
+      "dec": -6.38,
+      "mag": 2.3,
+      "name": "Star 760",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 3.3936,
+      "dec": 24.03,
+      "mag": 2.4,
+      "name": "Star 8",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.5157,
+      "dec": 61.3,
+      "mag": 2.4,
+      "name": "Star 22",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.5889,
+      "dec": -22.25,
+      "mag": 2.4,
+      "name": "Star 88",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.531,
+      "dec": 10.15,
+      "mag": 2.4,
+      "name": "Lambda Andromedae 93",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.1959,
+      "dec": 5.75,
+      "mag": 2.4,
+      "name": "Star 174",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.5385,
+      "dec": 3.32,
+      "mag": 2.4,
+      "name": "Iota Draconis 182",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.561,
+      "dec": 6.73,
+      "mag": 2.4,
+      "name": "Star 185",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7853,
+      "dec": 76.48,
+      "mag": 2.4,
+      "name": "Star 307",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.6591,
+      "dec": -18.13,
+      "mag": 2.4,
+      "name": "Star 313",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.4383,
+      "dec": 33.58,
+      "mag": 2.4,
+      "name": "Delta Cancri 491",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.5799,
+      "dec": -1.85,
+      "mag": 2.4,
+      "name": "Star 516",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.162,
+      "dec": -47.94,
+      "mag": 2.4,
+      "name": "Star 543",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.5011,
+      "dec": 6.54,
+      "mag": 2.4,
+      "name": "Epsilon Pegasi 581",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.3098,
+      "dec": -18.49,
+      "mag": 2.4,
+      "name": "Star 628",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.5438,
+      "dec": -42.08,
+      "mag": 2.4,
+      "name": "Pi Ursae Majoris 740",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 6.6232,
+      "dec": 9.97,
+      "mag": 2.4,
+      "name": "Star 772",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 10.406,
+      "dec": 38.51,
+      "mag": 2.4,
+      "name": "Star 845",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 1.5126,
+      "dec": 20.35,
+      "mag": 2.4,
+      "name": "Star 929",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.7834,
+      "dec": -3.6,
+      "mag": 2.5,
+      "name": "Star 9",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 18.6499,
+      "dec": 7.38,
+      "mag": 2.5,
+      "name": "Star 120",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 18.607,
+      "dec": 3.42,
+      "mag": 2.5,
+      "name": "Star 127",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.1042,
+      "dec": 42.17,
+      "mag": 2.5,
+      "name": "Star 248",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.9846,
+      "dec": 60.12,
+      "mag": 2.5,
+      "name": "Iota Geminorum 263",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 8.1436,
+      "dec": -52.31,
+      "mag": 2.5,
+      "name": "Star 302",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.7953,
+      "dec": 50.78,
+      "mag": 2.5,
+      "name": "Pi Orionis 329",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 15.8857,
+      "dec": 88.91,
+      "mag": 2.5,
+      "name": "Xi Persei 331",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.5427,
+      "dec": 0.42,
+      "mag": 2.5,
+      "name": "Star 344",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.6298,
+      "dec": -31.39,
+      "mag": 2.5,
+      "name": "Star 388",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.6454,
+      "dec": 25.47,
+      "mag": 2.5,
+      "name": "Star 548",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.0729,
+      "dec": 13.59,
+      "mag": 2.5,
+      "name": "Star 638",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.2321,
+      "dec": 30.5,
+      "mag": 2.5,
+      "name": "Xi Ceti 683",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 7.2524,
+      "dec": -33.54,
+      "mag": 2.5,
+      "name": "Star 828",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.1275,
+      "dec": 12.26,
+      "mag": 2.5,
+      "name": "Star 862",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7391,
+      "dec": 47.93,
+      "mag": 2.5,
+      "name": "Star 874",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.9383,
+      "dec": -74.02,
+      "mag": 2.5,
+      "name": "Star 909",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.6653,
+      "dec": 8.91,
+      "mag": 2.6,
+      "name": "Star 5",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.6715,
+      "dec": -1.6,
+      "mag": 2.6,
+      "name": "Star 11",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 1.7615,
+      "dec": 22.22,
+      "mag": 2.6,
+      "name": "Mu Piscium 31",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.782,
+      "dec": -2.02,
+      "mag": 2.6,
+      "name": "Gamma Cassiopeiae 36",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 3.6381,
+      "dec": 33.63,
+      "mag": 2.6,
+      "name": "Star 37",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.5183,
+      "dec": -37.17,
+      "mag": 2.6,
+      "name": "Star 60",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 4.7332,
+      "dec": -16.47,
+      "mag": 2.6,
+      "name": "Eta Geminorum 148",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.8182,
+      "dec": 32.25,
+      "mag": 2.6,
+      "name": "Star 224",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.8793,
+      "dec": 1.85,
+      "mag": 2.6,
+      "name": "Star 266",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.4477,
+      "dec": 68.09,
+      "mag": 2.6,
+      "name": "Star 293",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.4606,
+      "dec": -54.36,
+      "mag": 2.6,
+      "name": "Omicron Cancri 315",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.0936,
+      "dec": 27.59,
+      "mag": 2.6,
+      "name": "Star 338",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 20.0105,
+      "dec": -30.9,
+      "mag": 2.6,
+      "name": "Star 392",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.6219,
+      "dec": 78.36,
+      "mag": 2.6,
+      "name": "Star 423",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 14.0634,
+      "dec": -50.24,
+      "mag": 2.6,
+      "name": "Star 457",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.7435,
+      "dec": 67.07,
+      "mag": 2.6,
+      "name": "Star 460",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.6486,
+      "dec": -2.77,
+      "mag": 2.6,
+      "name": "Star 562",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.4657,
+      "dec": -5.48,
+      "mag": 2.6,
+      "name": "Star 583",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 17.6963,
+      "dec": -31.32,
+      "mag": 2.6,
+      "name": "Star 591",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.7773,
+      "dec": -15.81,
+      "mag": 2.6,
+      "name": "Star 680",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.4559,
+      "dec": 7.06,
+      "mag": 2.6,
+      "name": "Star 707",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.5078,
+      "dec": 59.49,
+      "mag": 2.6,
+      "name": "Star 711",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.6966,
+      "dec": 54.82,
+      "mag": 2.6,
+      "name": "Eta Leonis 821",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.2183,
+      "dec": -4.9,
+      "mag": 2.6,
+      "name": "Star 891",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.9703,
+      "dec": -8.08,
+      "mag": 2.6,
+      "name": "Star 984",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.0601,
+      "dec": 53.13,
+      "mag": 2.7,
+      "name": "Star 43",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.3311,
+      "dec": 8.8,
+      "mag": 2.7,
+      "name": "Star 96",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.6954,
+      "dec": 44.67,
+      "mag": 2.7,
+      "name": "Star 136",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.6197,
+      "dec": -48.19,
+      "mag": 2.7,
+      "name": "Pi Ursae Majoris 144",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.2581,
+      "dec": -27.91,
+      "mag": 2.7,
+      "name": "Star 147",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.6854,
+      "dec": -34.68,
+      "mag": 2.7,
+      "name": "Star 181",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 5.1042,
+      "dec": 79.69,
+      "mag": 2.7,
+      "name": "Star 228",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.7261,
+      "dec": -3.79,
+      "mag": 2.7,
+      "name": "Nu Bootis 258",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 4.2351,
+      "dec": -75.5,
+      "mag": 2.7,
+      "name": "Star 259",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.0103,
+      "dec": 55.25,
+      "mag": 2.7,
+      "name": "Star 350",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.8083,
+      "dec": 6.12,
+      "mag": 2.7,
+      "name": "Gamma Persei 420",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.9342,
+      "dec": -1.86,
+      "mag": 2.7,
+      "name": "Star 432",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.8861,
+      "dec": -17.07,
+      "mag": 2.7,
+      "name": "Star 453",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 20.5966,
+      "dec": 55.67,
+      "mag": 2.7,
+      "name": "Star 501",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.012,
+      "dec": -21.9,
+      "mag": 2.7,
+      "name": "Kappa Ceti 627",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.7881,
+      "dec": 35.6,
+      "mag": 2.7,
+      "name": "Star 637",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.0378,
+      "dec": -16.73,
+      "mag": 2.7,
+      "name": "Star 646",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.6533,
+      "dec": 71.01,
+      "mag": 2.7,
+      "name": "Star 662",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.649,
+      "dec": -23.47,
+      "mag": 2.7,
+      "name": "Star 687",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 15.0798,
+      "dec": -39.46,
+      "mag": 2.7,
+      "name": "Nu Geminorum 749",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.8651,
+      "dec": -67.0,
+      "mag": 2.7,
+      "name": "Star 798",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.3946,
+      "dec": -27.69,
+      "mag": 2.7,
+      "name": "Star 842",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.6193,
+      "dec": 39.43,
+      "mag": 2.7,
+      "name": "Lambda Scorpii 908",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.3234,
+      "dec": 28.78,
+      "mag": 2.7,
+      "name": "Star 923",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 4.588,
+      "dec": 31.62,
+      "mag": 2.7,
+      "name": "Star 939",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.7503,
+      "dec": 23.33,
+      "mag": 2.7,
+      "name": "Beta Sagittarii 944",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 14.5528,
+      "dec": 18.31,
+      "mag": 2.8,
+      "name": "Star 166",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.121,
+      "dec": -11.39,
+      "mag": 2.8,
+      "name": "Star 533",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 2.9556,
+      "dec": -12.55,
+      "mag": 2.8,
+      "name": "Star 776",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 8.4689,
+      "dec": 41.89,
+      "mag": 2.8,
+      "name": "Star 790",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.7514,
+      "dec": 67.59,
+      "mag": 2.8,
+      "name": "Star 812",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.2069,
+      "dec": 70.22,
+      "mag": 2.8,
+      "name": "Alpha Geminorum 905",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.2798,
+      "dec": -33.22,
+      "mag": 2.8,
+      "name": "Star 989",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.5467,
+      "dec": 12.58,
+      "mag": 2.9,
+      "name": "Star 2",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.0874,
+      "dec": -13.25,
+      "mag": 2.9,
+      "name": "Star 46",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.3304,
+      "dec": -27.87,
+      "mag": 2.9,
+      "name": "Star 68",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.3997,
+      "dec": -14.7,
+      "mag": 2.9,
+      "name": "Star 165",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 4.8304,
+      "dec": 6.0,
+      "mag": 2.9,
+      "name": "Star 270",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 4.2401,
+      "dec": 27.62,
+      "mag": 2.9,
+      "name": "Star 282",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.4233,
+      "dec": 3.83,
+      "mag": 2.9,
+      "name": "Star 309",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.4941,
+      "dec": -11.39,
+      "mag": 2.9,
+      "name": "Star 337",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.9164,
+      "dec": 45.1,
+      "mag": 2.9,
+      "name": "Star 386",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.4824,
+      "dec": -10.12,
+      "mag": 2.9,
+      "name": "Mu Cephei 473",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.8382,
+      "dec": 26.93,
+      "mag": 2.9,
+      "name": "Star 500",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 23.0578,
+      "dec": -39.41,
+      "mag": 2.9,
+      "name": "Star 536",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.7351,
+      "dec": -42.42,
+      "mag": 2.9,
+      "name": "Star 623",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.9658,
+      "dec": -6.18,
+      "mag": 2.9,
+      "name": "Beta Cassiopeiae 651",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.7521,
+      "dec": 18.04,
+      "mag": 2.9,
+      "name": "Star 655",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.1406,
+      "dec": -20.02,
+      "mag": 2.9,
+      "name": "Star 688",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 19.3296,
+      "dec": -15.94,
+      "mag": 2.9,
+      "name": "Star 712",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.5978,
+      "dec": -34.83,
+      "mag": 2.9,
+      "name": "Star 744",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 19.0328,
+      "dec": -3.89,
+      "mag": 2.9,
+      "name": "Star 750",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.5436,
+      "dec": -48.64,
+      "mag": 2.9,
+      "name": "Star 804",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.1917,
+      "dec": -44.64,
+      "mag": 2.9,
+      "name": "Star 810",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.7887,
+      "dec": 52.42,
+      "mag": 2.9,
+      "name": "Star 815",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.4445,
+      "dec": 36.65,
+      "mag": 2.9,
+      "name": "Star 932",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.1411,
+      "dec": 2.68,
+      "mag": 2.9,
+      "name": "Beta Orionis 991",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.2822,
+      "dec": -22.62,
+      "mag": 3.0,
+      "name": "Star 156",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 8.2294,
+      "dec": 0.18,
+      "mag": 3.0,
+      "name": "Theta Lyrae 250",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.9351,
+      "dec": 15.34,
+      "mag": 3.0,
+      "name": "Star 261",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 6.1833,
+      "dec": -60.83,
+      "mag": 3.0,
+      "name": "Star 279",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.5579,
+      "dec": 55.24,
+      "mag": 3.0,
+      "name": "Star 334",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 21.3082,
+      "dec": -20.13,
+      "mag": 3.0,
+      "name": "Mu Lyrae 347",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.8763,
+      "dec": 0.76,
+      "mag": 3.0,
+      "name": "Mu Orionis 348",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.726,
+      "dec": -70.12,
+      "mag": 3.0,
+      "name": "Star 376",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.2736,
+      "dec": 68.61,
+      "mag": 3.0,
+      "name": "Zeta Centauri 437",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.7558,
+      "dec": 18.79,
+      "mag": 3.0,
+      "name": "Star 452",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.9384,
+      "dec": -21.42,
+      "mag": 3.0,
+      "name": "Gamma Cephei 468",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 7.0661,
+      "dec": -6.97,
+      "mag": 3.0,
+      "name": "Star 515",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.0037,
+      "dec": -50.73,
+      "mag": 3.0,
+      "name": "Star 568",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.7813,
+      "dec": -30.11,
+      "mag": 3.0,
+      "name": "Star 580",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.6804,
+      "dec": 16.55,
+      "mag": 3.0,
+      "name": "Star 593",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.7434,
+      "dec": 17.75,
+      "mag": 3.0,
+      "name": "Star 606",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 0.7044,
+      "dec": -42.32,
+      "mag": 3.0,
+      "name": "Star 608",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 16.74,
+      "dec": -39.78,
+      "mag": 3.0,
+      "name": "Star 631",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.604,
+      "dec": -12.26,
+      "mag": 3.0,
+      "name": "Star 653",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.0644,
+      "dec": 45.47,
+      "mag": 3.0,
+      "name": "Eta Leonis 731",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 23.3259,
+      "dec": -26.8,
+      "mag": 3.0,
+      "name": "Star 789",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.0996,
+      "dec": -14.39,
+      "mag": 3.0,
+      "name": "Star 793",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.2924,
+      "dec": -74.61,
+      "mag": 3.0,
+      "name": "Star 841",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.7166,
+      "dec": 29.32,
+      "mag": 3.0,
+      "name": "Star 867",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.9618,
+      "dec": -68.23,
+      "mag": 3.0,
+      "name": "Star 904",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.6825,
+      "dec": 33.02,
+      "mag": 3.0,
+      "name": "Star 968",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.4165,
+      "dec": 23.44,
+      "mag": 3.0,
+      "name": "Epsilon Aquarii 981",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.6128,
+      "dec": -13.84,
+      "mag": 3.1,
+      "name": "Star 42",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 14.4221,
+      "dec": -23.6,
+      "mag": 3.1,
+      "name": "Star 76",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.4705,
+      "dec": -18.85,
+      "mag": 3.1,
+      "name": "Zeta Ceti 100",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 9.0044,
+      "dec": 12.59,
+      "mag": 3.1,
+      "name": "Delta Virginis 123",
+      "spectralType": "A5"
+    },
+    {
+      "ra": 5.2642,
+      "dec": -26.99,
+      "mag": 3.1,
+      "name": "Gamma Ursae Minoris 143",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 0.1673,
+      "dec": -25.24,
+      "mag": 3.1,
+      "name": "Star 150",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.4353,
+      "dec": -48.34,
+      "mag": 3.1,
+      "name": "Star 167",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.8702,
+      "dec": -19.29,
+      "mag": 3.1,
+      "name": "Star 199",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.355,
+      "dec": -16.97,
+      "mag": 3.1,
+      "name": "Star 238",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.4772,
+      "dec": -2.14,
+      "mag": 3.1,
+      "name": "Xi Bootis 292",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.7154,
+      "dec": -22.17,
+      "mag": 3.1,
+      "name": "Delta Cassiopeiae 297",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.0273,
+      "dec": -27.13,
+      "mag": 3.1,
+      "name": "Star 333",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.8656,
+      "dec": 3.5,
+      "mag": 3.1,
+      "name": "Star 359",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 0.4319,
+      "dec": 0.02,
+      "mag": 3.1,
+      "name": "Star 424",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.5914,
+      "dec": -2.01,
+      "mag": 3.1,
+      "name": "Star 434",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.1255,
+      "dec": -52.46,
+      "mag": 3.1,
+      "name": "Star 446",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.6344,
+      "dec": 32.43,
+      "mag": 3.1,
+      "name": "Star 487",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.2481,
+      "dec": 9.2,
+      "mag": 3.1,
+      "name": "Star 622",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.7063,
+      "dec": 78.78,
+      "mag": 3.1,
+      "name": "Lambda Virginis 635",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 2.205,
+      "dec": -27.66,
+      "mag": 3.1,
+      "name": "Star 856",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.0786,
+      "dec": 21.02,
+      "mag": 3.1,
+      "name": "Star 914",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.6453,
+      "dec": 7.29,
+      "mag": 3.1,
+      "name": "Star 953",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.4328,
+      "dec": -62.94,
+      "mag": 3.1,
+      "name": "Star 955",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 8.4823,
+      "dec": 17.95,
+      "mag": 3.2,
+      "name": "Star 39",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.9719,
+      "dec": -14.93,
+      "mag": 3.2,
+      "name": "Pi Geminorum 92",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.9512,
+      "dec": -40.97,
+      "mag": 3.2,
+      "name": "Eta Lyrae 168",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.1295,
+      "dec": 21.09,
+      "mag": 3.2,
+      "name": "Star 179",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.3192,
+      "dec": 5.28,
+      "mag": 3.2,
+      "name": "Star 203",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 10.7625,
+      "dec": 10.31,
+      "mag": 3.2,
+      "name": "Star 316",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.8635,
+      "dec": -2.93,
+      "mag": 3.2,
+      "name": "Beta Persei 358",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.2519,
+      "dec": 18.51,
+      "mag": 3.2,
+      "name": "Star 367",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.0835,
+      "dec": 24.58,
+      "mag": 3.2,
+      "name": "Star 406",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 13.8013,
+      "dec": 41.76,
+      "mag": 3.2,
+      "name": "Star 433",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.6114,
+      "dec": 15.84,
+      "mag": 3.2,
+      "name": "Epsilon Leonis 449",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 13.9794,
+      "dec": -25.6,
+      "mag": 3.2,
+      "name": "Star 470",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 3.7184,
+      "dec": 77.34,
+      "mag": 3.2,
+      "name": "Star 492",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.8714,
+      "dec": -12.39,
+      "mag": 3.2,
+      "name": "Star 576",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.5168,
+      "dec": 6.88,
+      "mag": 3.2,
+      "name": "Nu Tauri 624",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.3278,
+      "dec": -31.25,
+      "mag": 3.2,
+      "name": "Star 715",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 7.2365,
+      "dec": -24.01,
+      "mag": 3.2,
+      "name": "Beta Piscium 758",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.1766,
+      "dec": -46.89,
+      "mag": 3.2,
+      "name": "Mu Cephei 796",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.895,
+      "dec": 17.58,
+      "mag": 3.2,
+      "name": "Star 940",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.0394,
+      "dec": -70.95,
+      "mag": 3.2,
+      "name": "Star 998",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.1944,
+      "dec": 41.61,
+      "mag": 3.3,
+      "name": "Kappa Centauri 27",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.3527,
+      "dec": 22.11,
+      "mag": 3.3,
+      "name": "Iota Arietis 30",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.3588,
+      "dec": -43.49,
+      "mag": 3.3,
+      "name": "Star 70",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.5707,
+      "dec": 17.53,
+      "mag": 3.3,
+      "name": "Beta Pegasi 108",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.2064,
+      "dec": -18.11,
+      "mag": 3.3,
+      "name": "Star 112",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 15.6482,
+      "dec": 36.99,
+      "mag": 3.3,
+      "name": "Star 159",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.8999,
+      "dec": -46.64,
+      "mag": 3.3,
+      "name": "Star 211",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.9153,
+      "dec": -1.36,
+      "mag": 3.3,
+      "name": "Star 216",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.8461,
+      "dec": -1.85,
+      "mag": 3.3,
+      "name": "Star 255",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.4769,
+      "dec": -52.09,
+      "mag": 3.3,
+      "name": "Star 262",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.4146,
+      "dec": 26.13,
+      "mag": 3.3,
+      "name": "Mu Capricorni 294",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.4127,
+      "dec": -4.96,
+      "mag": 3.3,
+      "name": "Star 327",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.3227,
+      "dec": 67.99,
+      "mag": 3.3,
+      "name": "Lambda Cassiopeiae 352",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 1.0552,
+      "dec": -16.08,
+      "mag": 3.3,
+      "name": "Delta Cephei 390",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.816,
+      "dec": -65.11,
+      "mag": 3.3,
+      "name": "Star 480",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.4764,
+      "dec": -75.66,
+      "mag": 3.3,
+      "name": "Star 498",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.379,
+      "dec": 73.28,
+      "mag": 3.3,
+      "name": "Delta Sagittarii 565",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.0396,
+      "dec": -30.66,
+      "mag": 3.3,
+      "name": "Theta Sagittarii 587",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.4166,
+      "dec": 56.32,
+      "mag": 3.3,
+      "name": "Star 611",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.4894,
+      "dec": -7.25,
+      "mag": 3.3,
+      "name": "Star 684",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 17.2161,
+      "dec": 12.06,
+      "mag": 3.3,
+      "name": "Kappa Cancri 765",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.9127,
+      "dec": -38.32,
+      "mag": 3.3,
+      "name": "Star 799",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.0519,
+      "dec": 9.57,
+      "mag": 3.3,
+      "name": "Kappa Pegasi 936",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 2.0627,
+      "dec": -7.14,
+      "mag": 3.4,
+      "name": "Star 21",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.8616,
+      "dec": -35.47,
+      "mag": 3.4,
+      "name": "Gamma Lyrae 58",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.599,
+      "dec": -4.64,
+      "mag": 3.4,
+      "name": "Gamma Tauri 106",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.1307,
+      "dec": -43.27,
+      "mag": 3.4,
+      "name": "Star 114",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.2181,
+      "dec": -61.69,
+      "mag": 3.4,
+      "name": "Star 154",
+      "spectralType": "A0"
+    },
+    {
+      "ra": 11.9449,
+      "dec": -34.97,
+      "mag": 3.4,
+      "name": "Star 160",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.8156,
+      "dec": 8.26,
+      "mag": 3.4,
+      "name": "Star 162",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 23.2727,
+      "dec": -17.91,
+      "mag": 3.4,
+      "name": "Star 187",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.9882,
+      "dec": -29.26,
+      "mag": 3.4,
+      "name": "Star 240",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.719,
+      "dec": 59.9,
+      "mag": 3.4,
+      "name": "Star 265",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 11.8903,
+      "dec": -50.24,
+      "mag": 3.4,
+      "name": "Star 278",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 4.03,
+      "dec": -73.36,
+      "mag": 3.4,
+      "name": "Star 356",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.1482,
+      "dec": -30.89,
+      "mag": 3.4,
+      "name": "Star 378",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 14.3914,
+      "dec": 26.03,
+      "mag": 3.4,
+      "name": "Kappa Lyrae 381",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 9.8297,
+      "dec": -15.62,
+      "mag": 3.4,
+      "name": "Star 417",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.8213,
+      "dec": 23.33,
+      "mag": 3.4,
+      "name": "Star 528",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.8718,
+      "dec": -5.61,
+      "mag": 3.4,
+      "name": "Beta Scorpii 540",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.8155,
+      "dec": 48.59,
+      "mag": 3.4,
+      "name": "Star 589",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.5545,
+      "dec": 83.59,
+      "mag": 3.4,
+      "name": "Star 648",
+      "spectralType": "F0"
+    },
+    {
+      "ra": 16.4161,
+      "dec": -4.71,
+      "mag": 3.4,
+      "name": "Star 677",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 19.3,
+      "dec": 24.36,
+      "mag": 3.4,
+      "name": "Star 690",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 14.4623,
+      "dec": 17.71,
+      "mag": 3.4,
+      "name": "Kappa Cancri 761",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.6633,
+      "dec": 62.26,
+      "mag": 3.4,
+      "name": "Alpha Draconis 871",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 18.5601,
+      "dec": -1.15,
+      "mag": 3.4,
+      "name": "Star 892",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.4433,
+      "dec": -6.48,
+      "mag": 3.4,
+      "name": "Star 922",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.6038,
+      "dec": -68.92,
+      "mag": 3.4,
+      "name": "Star 926",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 4.3119,
+      "dec": -6.48,
+      "mag": 3.5,
+      "name": "Star 53",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 5.6223,
+      "dec": -56.96,
+      "mag": 3.5,
+      "name": "Star 55",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.0602,
+      "dec": 60.76,
+      "mag": 3.5,
+      "name": "Star 78",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.251,
+      "dec": 9.14,
+      "mag": 3.5,
+      "name": "Star 102",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.4448,
+      "dec": -28.18,
+      "mag": 3.5,
+      "name": "Star 118",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.0694,
+      "dec": 65.74,
+      "mag": 3.5,
+      "name": "Star 196",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 12.9352,
+      "dec": -29.96,
+      "mag": 3.5,
+      "name": "Star 201",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.4811,
+      "dec": 46.31,
+      "mag": 3.5,
+      "name": "Star 295",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.9949,
+      "dec": 1.66,
+      "mag": 3.5,
+      "name": "Theta Lyrae 481",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.3064,
+      "dec": 28.9,
+      "mag": 3.5,
+      "name": "Theta Scorpii 520",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.0087,
+      "dec": -56.89,
+      "mag": 3.5,
+      "name": "Star 544",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.9462,
+      "dec": 4.11,
+      "mag": 3.5,
+      "name": "Star 559",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.777,
+      "dec": -21.25,
+      "mag": 3.5,
+      "name": "Star 582",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 9.9476,
+      "dec": -65.87,
+      "mag": 3.5,
+      "name": "Kappa Ursae Minoris 647",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 0.6158,
+      "dec": 50.66,
+      "mag": 3.5,
+      "name": "Star 694",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.8642,
+      "dec": 74.92,
+      "mag": 3.5,
+      "name": "Star 696",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.6854,
+      "dec": -15.46,
+      "mag": 3.5,
+      "name": "Star 751",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.7912,
+      "dec": 41.04,
+      "mag": 3.5,
+      "name": "Star 814",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 21.107,
+      "dec": 49.82,
+      "mag": 3.5,
+      "name": "Alpha Cassiopeiae 826",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.2921,
+      "dec": 50.97,
+      "mag": 3.5,
+      "name": "Beta Piscium 865",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.616,
+      "dec": -69.99,
+      "mag": 3.5,
+      "name": "Star 895",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.9523,
+      "dec": 8.83,
+      "mag": 3.5,
+      "name": "Star 921",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.6048,
+      "dec": 10.54,
+      "mag": 3.5,
+      "name": "Star 924",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.4559,
+      "dec": -84.63,
+      "mag": 3.5,
+      "name": "Star 1000",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.8708,
+      "dec": 30.82,
+      "mag": 3.6,
+      "name": "Alpha Sagittarii 72",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.9931,
+      "dec": 47.87,
+      "mag": 3.6,
+      "name": "Star 109",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.0891,
+      "dec": 46.99,
+      "mag": 3.6,
+      "name": "Star 122",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 22.0036,
+      "dec": -21.99,
+      "mag": 3.6,
+      "name": "Kappa Lyrae 135",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 0.0024,
+      "dec": -5.44,
+      "mag": 3.6,
+      "name": "Star 306",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.651,
+      "dec": 49.94,
+      "mag": 3.6,
+      "name": "Star 311",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 21.6905,
+      "dec": -23.35,
+      "mag": 3.6,
+      "name": "Star 339",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.131,
+      "dec": 17.2,
+      "mag": 3.6,
+      "name": "Star 398",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.5744,
+      "dec": -25.31,
+      "mag": 3.6,
+      "name": "Lambda Cassiopeiae 412",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.2925,
+      "dec": 18.72,
+      "mag": 3.6,
+      "name": "Star 422",
+      "spectralType": "F0"
+    },
+    {
+      "ra": 21.8027,
+      "dec": 8.0,
+      "mag": 3.6,
+      "name": "Star 451",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.3596,
+      "dec": -33.52,
+      "mag": 3.6,
+      "name": "Delta Aquarii 461",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.3991,
+      "dec": 6.82,
+      "mag": 3.6,
+      "name": "Star 616",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 12.9455,
+      "dec": -31.9,
+      "mag": 3.6,
+      "name": "Omicron Tauri 634",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.7055,
+      "dec": 1.44,
+      "mag": 3.6,
+      "name": "Nu Cassiopeiae 728",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.9751,
+      "dec": 17.09,
+      "mag": 3.6,
+      "name": "Star 782",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 5.5614,
+      "dec": -26.64,
+      "mag": 3.6,
+      "name": "Star 835",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.2593,
+      "dec": 48.18,
+      "mag": 3.6,
+      "name": "Star 885",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.2887,
+      "dec": 44.97,
+      "mag": 3.6,
+      "name": "Star 986",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.953,
+      "dec": -21.85,
+      "mag": 3.7,
+      "name": "Star 63",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 11.6225,
+      "dec": -5.73,
+      "mag": 3.7,
+      "name": "Theta Lyrae 94",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.6501,
+      "dec": 18.16,
+      "mag": 3.7,
+      "name": "Star 145",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.5524,
+      "dec": 73.5,
+      "mag": 3.7,
+      "name": "Gamma Sagittarii 175",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.3277,
+      "dec": 21.64,
+      "mag": 3.7,
+      "name": "Star 210",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.6558,
+      "dec": -68.85,
+      "mag": 3.7,
+      "name": "Delta Orionis 231",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 8.9571,
+      "dec": -27.85,
+      "mag": 3.7,
+      "name": "Star 267",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.6048,
+      "dec": -9.34,
+      "mag": 3.7,
+      "name": "Star 272",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.1397,
+      "dec": -48.8,
+      "mag": 3.7,
+      "name": "Star 320",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.7286,
+      "dec": 34.66,
+      "mag": 3.7,
+      "name": "Star 354",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 4.4177,
+      "dec": -51.89,
+      "mag": 3.7,
+      "name": "Star 414",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.8901,
+      "dec": -33.27,
+      "mag": 3.7,
+      "name": "Gamma Cygni 436",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.2411,
+      "dec": 60.42,
+      "mag": 3.7,
+      "name": "Star 439",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.7031,
+      "dec": 42.55,
+      "mag": 3.7,
+      "name": "Star 472",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7019,
+      "dec": -15.12,
+      "mag": 3.7,
+      "name": "Star 496",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 4.4542,
+      "dec": 22.44,
+      "mag": 3.7,
+      "name": "Star 499",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 12.4745,
+      "dec": 76.98,
+      "mag": 3.7,
+      "name": "Star 521",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.1625,
+      "dec": -40.56,
+      "mag": 3.7,
+      "name": "Star 561",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.3198,
+      "dec": -66.85,
+      "mag": 3.7,
+      "name": "Alpha Capricorni 572",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 19.2865,
+      "dec": -13.21,
+      "mag": 3.7,
+      "name": "Star 600",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 7.8833,
+      "dec": -81.22,
+      "mag": 3.7,
+      "name": "Star 692",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.3519,
+      "dec": 43.64,
+      "mag": 3.7,
+      "name": "Star 697",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.4293,
+      "dec": -19.13,
+      "mag": 3.7,
+      "name": "Star 718",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.6323,
+      "dec": -0.73,
+      "mag": 3.7,
+      "name": "Gamma Ursae Minoris 786",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.9865,
+      "dec": 76.24,
+      "mag": 3.7,
+      "name": "Star 844",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.3849,
+      "dec": 31.21,
+      "mag": 3.7,
+      "name": "Star 879",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.4979,
+      "dec": -5.16,
+      "mag": 3.7,
+      "name": "Star 882",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 12.8654,
+      "dec": -26.15,
+      "mag": 3.7,
+      "name": "Star 889",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.2782,
+      "dec": -8.09,
+      "mag": 3.7,
+      "name": "Kappa Leonis 912",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 8.7332,
+      "dec": 56.08,
+      "mag": 3.7,
+      "name": "Star 972",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.5077,
+      "dec": -24.73,
+      "mag": 3.8,
+      "name": "Star 28",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.8692,
+      "dec": 72.27,
+      "mag": 3.8,
+      "name": "Xi Cancri 50",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.5714,
+      "dec": -6.52,
+      "mag": 3.8,
+      "name": "Eta Virginis 71",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.9724,
+      "dec": -15.59,
+      "mag": 3.8,
+      "name": "Eta Cygni 111",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.3315,
+      "dec": 54.35,
+      "mag": 3.8,
+      "name": "Star 218",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 23.6244,
+      "dec": 38.73,
+      "mag": 3.8,
+      "name": "Star 256",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.7701,
+      "dec": 3.31,
+      "mag": 3.8,
+      "name": "Kappa Sagittarii 283",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.2501,
+      "dec": -10.26,
+      "mag": 3.8,
+      "name": "Star 303",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 6.3769,
+      "dec": 15.97,
+      "mag": 3.8,
+      "name": "Star 377",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.47,
+      "dec": 13.65,
+      "mag": 3.8,
+      "name": "Star 483",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.3219,
+      "dec": 59.52,
+      "mag": 3.8,
+      "name": "Star 484",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 8.3673,
+      "dec": -22.89,
+      "mag": 3.8,
+      "name": "Star 493",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.5733,
+      "dec": 14.02,
+      "mag": 3.8,
+      "name": "Star 505",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.3804,
+      "dec": 34.57,
+      "mag": 3.8,
+      "name": "Star 523",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.6684,
+      "dec": 6.73,
+      "mag": 3.8,
+      "name": "Zeta Ceti 524",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.9277,
+      "dec": 80.77,
+      "mag": 3.8,
+      "name": "Star 526",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.6593,
+      "dec": -3.28,
+      "mag": 3.8,
+      "name": "Kappa Ursae Majoris 592",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.9837,
+      "dec": -22.31,
+      "mag": 3.8,
+      "name": "Star 661",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.5878,
+      "dec": -16.47,
+      "mag": 3.8,
+      "name": "Star 706",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 4.3545,
+      "dec": -14.73,
+      "mag": 3.8,
+      "name": "Beta Persei 734",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.047,
+      "dec": 31.26,
+      "mag": 3.8,
+      "name": "Star 743",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.9272,
+      "dec": 67.78,
+      "mag": 3.8,
+      "name": "Star 818",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.8731,
+      "dec": -2.67,
+      "mag": 3.8,
+      "name": "Mu Sagittarii 823",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.896,
+      "dec": -15.14,
+      "mag": 3.8,
+      "name": "Star 916",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.5311,
+      "dec": 30.04,
+      "mag": 3.8,
+      "name": "Star 962",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.4491,
+      "dec": -3.77,
+      "mag": 3.8,
+      "name": "Star 967",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.1879,
+      "dec": 6.7,
+      "mag": 3.8,
+      "name": "Star 985",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.8352,
+      "dec": 21.48,
+      "mag": 3.9,
+      "name": "Star 66",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.1131,
+      "dec": -18.05,
+      "mag": 3.9,
+      "name": "Epsilon Lyrae 90",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 23.1505,
+      "dec": -58.46,
+      "mag": 3.9,
+      "name": "Star 158",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.7582,
+      "dec": -47.14,
+      "mag": 3.9,
+      "name": "Pi Andromedae 284",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.3969,
+      "dec": 22.64,
+      "mag": 3.9,
+      "name": "Star 326",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 4.1946,
+      "dec": 23.5,
+      "mag": 3.9,
+      "name": "Star 349",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.0001,
+      "dec": 17.4,
+      "mag": 3.9,
+      "name": "Pi Capricorni 355",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.2011,
+      "dec": -62.69,
+      "mag": 3.9,
+      "name": "Star 368",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.3052,
+      "dec": -22.7,
+      "mag": 3.9,
+      "name": "Mu Ceti 393",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.9376,
+      "dec": -9.01,
+      "mag": 3.9,
+      "name": "Star 396",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.2552,
+      "dec": 40.06,
+      "mag": 3.9,
+      "name": "Star 401",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.1844,
+      "dec": 64.95,
+      "mag": 3.9,
+      "name": "Star 405",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.7033,
+      "dec": -77.22,
+      "mag": 3.9,
+      "name": "Star 407",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.8399,
+      "dec": -7.78,
+      "mag": 3.9,
+      "name": "Iota Persei 513",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.7398,
+      "dec": 56.76,
+      "mag": 3.9,
+      "name": "Pi Arietis 525",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.389,
+      "dec": -49.03,
+      "mag": 3.9,
+      "name": "Alpha Cephei 584",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 14.1891,
+      "dec": -12.02,
+      "mag": 3.9,
+      "name": "Iota Orionis 594",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.2957,
+      "dec": 36.54,
+      "mag": 3.9,
+      "name": "Star 654",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.5765,
+      "dec": 65.88,
+      "mag": 3.9,
+      "name": "Star 657",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.6443,
+      "dec": -56.76,
+      "mag": 3.9,
+      "name": "Star 664",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.2742,
+      "dec": -72.51,
+      "mag": 3.9,
+      "name": "Star 752",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 9.0023,
+      "dec": 56.36,
+      "mag": 3.9,
+      "name": "Star 775",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 10.8746,
+      "dec": -55.55,
+      "mag": 3.9,
+      "name": "Star 779",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.6344,
+      "dec": -68.43,
+      "mag": 3.9,
+      "name": "Beta Librae 847",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.005,
+      "dec": 1.45,
+      "mag": 3.9,
+      "name": "Star 866",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.7248,
+      "dec": -29.68,
+      "mag": 3.9,
+      "name": "Star 878",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.0188,
+      "dec": 55.5,
+      "mag": 3.9,
+      "name": "Pi Ceti 920",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.7923,
+      "dec": 66.93,
+      "mag": 3.9,
+      "name": "Lambda Lyrae 948",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.2181,
+      "dec": 8.0,
+      "mag": 3.9,
+      "name": "Star 970",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.9921,
+      "dec": 27.88,
+      "mag": 3.9,
+      "name": "Mu Cancri 997",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.905,
+      "dec": -76.46,
+      "mag": 4.0,
+      "name": "Star 14",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.4523,
+      "dec": 43.8,
+      "mag": 4.0,
+      "name": "Star 85",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.8592,
+      "dec": 20.37,
+      "mag": 4.0,
+      "name": "Star 129",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.7162,
+      "dec": -21.84,
+      "mag": 4.0,
+      "name": "Beta Ursae Majoris 241",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 3.0467,
+      "dec": -44.65,
+      "mag": 4.0,
+      "name": "Star 304",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.7955,
+      "dec": -9.45,
+      "mag": 4.0,
+      "name": "Star 372",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.8914,
+      "dec": -43.62,
+      "mag": 4.0,
+      "name": "Lambda Cassiopeiae 399",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 21.0792,
+      "dec": 12.87,
+      "mag": 4.0,
+      "name": "Star 443",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.6951,
+      "dec": -3.0,
+      "mag": 4.0,
+      "name": "Star 479",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 11.8123,
+      "dec": 35.24,
+      "mag": 4.0,
+      "name": "Omicron Arietis 560",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 0.6427,
+      "dec": -55.53,
+      "mag": 4.0,
+      "name": "Star 570",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.5625,
+      "dec": 27.86,
+      "mag": 4.0,
+      "name": "Star 577",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.4707,
+      "dec": 0.89,
+      "mag": 4.0,
+      "name": "Star 643",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 22.6658,
+      "dec": -48.87,
+      "mag": 4.0,
+      "name": "Star 685",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.1057,
+      "dec": -18.38,
+      "mag": 4.0,
+      "name": "Omicron Librae 702",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.6243,
+      "dec": -18.1,
+      "mag": 4.0,
+      "name": "Kappa Ursae Minoris 705",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.2535,
+      "dec": 30.4,
+      "mag": 4.0,
+      "name": "Star 738",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 17.1684,
+      "dec": -33.89,
+      "mag": 4.0,
+      "name": "Star 800",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.5406,
+      "dec": 31.47,
+      "mag": 4.0,
+      "name": "Star 918",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.3493,
+      "dec": -74.91,
+      "mag": 4.1,
+      "name": "Gamma Geminorum 45",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 11.9749,
+      "dec": 50.25,
+      "mag": 4.1,
+      "name": "Star 52",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.0608,
+      "dec": -33.53,
+      "mag": 4.1,
+      "name": "Star 91",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.9495,
+      "dec": 19.45,
+      "mag": 4.1,
+      "name": "Star 183",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.1256,
+      "dec": -40.99,
+      "mag": 4.1,
+      "name": "Star 325",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.4274,
+      "dec": 10.38,
+      "mag": 4.1,
+      "name": "Star 335",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.404,
+      "dec": -25.84,
+      "mag": 4.1,
+      "name": "Gamma Centauri 336",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.7422,
+      "dec": -1.45,
+      "mag": 4.1,
+      "name": "Star 400",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.6467,
+      "dec": -45.71,
+      "mag": 4.1,
+      "name": "Star 413",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.8027,
+      "dec": 17.18,
+      "mag": 4.1,
+      "name": "Star 440",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.455,
+      "dec": -51.04,
+      "mag": 4.1,
+      "name": "Star 448",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.011,
+      "dec": -20.04,
+      "mag": 4.1,
+      "name": "Star 456",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 17.0046,
+      "dec": 28.97,
+      "mag": 4.1,
+      "name": "Star 598",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.8961,
+      "dec": -38.61,
+      "mag": 4.1,
+      "name": "Eta Arietis 607",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 0.3668,
+      "dec": 55.25,
+      "mag": 4.1,
+      "name": "Star 618",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 22.2182,
+      "dec": 53.85,
+      "mag": 4.1,
+      "name": "Star 629",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.0914,
+      "dec": 25.83,
+      "mag": 4.1,
+      "name": "Star 656",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.2644,
+      "dec": -3.62,
+      "mag": 4.1,
+      "name": "Star 676",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.9765,
+      "dec": 11.71,
+      "mag": 4.1,
+      "name": "Star 792",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.6631,
+      "dec": 48.3,
+      "mag": 4.1,
+      "name": "Star 850",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.7339,
+      "dec": 10.8,
+      "mag": 4.1,
+      "name": "Star 855",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.7844,
+      "dec": 36.18,
+      "mag": 4.1,
+      "name": "Pi Bootis 863",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.4693,
+      "dec": 32.04,
+      "mag": 4.1,
+      "name": "Star 942",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.1007,
+      "dec": -30.36,
+      "mag": 4.2,
+      "name": "Star 51",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.7382,
+      "dec": -22.21,
+      "mag": 4.2,
+      "name": "Star 74",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.0306,
+      "dec": -15.76,
+      "mag": 4.2,
+      "name": "Omicron Piscium 84",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.8959,
+      "dec": -27.25,
+      "mag": 4.2,
+      "name": "Star 124",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.8771,
+      "dec": 73.11,
+      "mag": 4.2,
+      "name": "Alpha Tauri 139",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.6855,
+      "dec": 17.65,
+      "mag": 4.2,
+      "name": "Star 230",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.1738,
+      "dec": -59.57,
+      "mag": 4.2,
+      "name": "Star 232",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.5213,
+      "dec": -19.86,
+      "mag": 4.2,
+      "name": "Star 465",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 19.6746,
+      "dec": -26.68,
+      "mag": 4.2,
+      "name": "Star 553",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.9323,
+      "dec": 21.48,
+      "mag": 4.2,
+      "name": "Star 609",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.3377,
+      "dec": -21.25,
+      "mag": 4.2,
+      "name": "Star 621",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.9673,
+      "dec": -4.37,
+      "mag": 4.2,
+      "name": "Star 650",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 10.4103,
+      "dec": 50.1,
+      "mag": 4.2,
+      "name": "Star 691",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.9489,
+      "dec": 24.19,
+      "mag": 4.2,
+      "name": "Star 820",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.5373,
+      "dec": 18.0,
+      "mag": 4.2,
+      "name": "Star 860",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.5995,
+      "dec": 25.73,
+      "mag": 4.2,
+      "name": "Beta Centauri 957",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 17.6487,
+      "dec": -22.48,
+      "mag": 4.2,
+      "name": "Star 999",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 19.8329,
+      "dec": 10.17,
+      "mag": 4.3,
+      "name": "Star 29",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 10.0267,
+      "dec": -0.47,
+      "mag": 4.3,
+      "name": "Star 69",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.7162,
+      "dec": -44.59,
+      "mag": 4.3,
+      "name": "Nu Ursae Majoris 214",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.2187,
+      "dec": 29.08,
+      "mag": 4.3,
+      "name": "Star 237",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.2881,
+      "dec": -20.59,
+      "mag": 4.3,
+      "name": "Pi Andromedae 280",
+      "spectralType": "A5"
+    },
+    {
+      "ra": 20.1023,
+      "dec": -46.74,
+      "mag": 4.3,
+      "name": "Star 345",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 16.7539,
+      "dec": 38.14,
+      "mag": 4.3,
+      "name": "Star 380",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 11.6613,
+      "dec": 8.8,
+      "mag": 4.3,
+      "name": "Star 445",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.5954,
+      "dec": 54.43,
+      "mag": 4.3,
+      "name": "Star 462",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 11.0353,
+      "dec": -12.08,
+      "mag": 4.3,
+      "name": "Star 488",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.0337,
+      "dec": -32.59,
+      "mag": 4.3,
+      "name": "Star 490",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.4041,
+      "dec": -50.49,
+      "mag": 4.3,
+      "name": "Star 527",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.5908,
+      "dec": 26.61,
+      "mag": 4.3,
+      "name": "Iota Andromedae 636",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 7.4332,
+      "dec": 71.25,
+      "mag": 4.3,
+      "name": "Pi Draconis 700",
+      "spectralType": "F0"
+    },
+    {
+      "ra": 15.5952,
+      "dec": 2.37,
+      "mag": 4.3,
+      "name": "Mu Persei 709",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.6277,
+      "dec": -50.67,
+      "mag": 4.3,
+      "name": "Star 710",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 13.1817,
+      "dec": -21.46,
+      "mag": 4.3,
+      "name": "Star 763",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 3.2088,
+      "dec": 5.09,
+      "mag": 4.3,
+      "name": "Star 784",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.2667,
+      "dec": -12.18,
+      "mag": 4.3,
+      "name": "Star 801",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 23.412,
+      "dec": 85.08,
+      "mag": 4.3,
+      "name": "Theta Sagittarii 813",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.7855,
+      "dec": 15.72,
+      "mag": 4.3,
+      "name": "Star 829",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.5394,
+      "dec": 13.0,
+      "mag": 4.3,
+      "name": "Star 877",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.5597,
+      "dec": 56.94,
+      "mag": 4.3,
+      "name": "Star 915",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.9773,
+      "dec": 36.13,
+      "mag": 4.3,
+      "name": "Star 919",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 8.4655,
+      "dec": -65.96,
+      "mag": 4.3,
+      "name": "Iota Ursae Minoris 958",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.4177,
+      "dec": 44.37,
+      "mag": 4.3,
+      "name": "Iota Cancri 969",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.803,
+      "dec": 81.15,
+      "mag": 4.4,
+      "name": "Star 10",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 2.7205,
+      "dec": -55.95,
+      "mag": 4.4,
+      "name": "Mu Virginis 26",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.946,
+      "dec": 34.9,
+      "mag": 4.4,
+      "name": "Star 48",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.0774,
+      "dec": -10.69,
+      "mag": 4.4,
+      "name": "Star 81",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.4544,
+      "dec": 14.07,
+      "mag": 4.4,
+      "name": "Star 107",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.6073,
+      "dec": 44.87,
+      "mag": 4.4,
+      "name": "Star 117",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.0528,
+      "dec": 44.81,
+      "mag": 4.4,
+      "name": "Star 130",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 17.4645,
+      "dec": -35.51,
+      "mag": 4.4,
+      "name": "Star 141",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.4542,
+      "dec": -22.79,
+      "mag": 4.4,
+      "name": "Star 151",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 17.7345,
+      "dec": -21.39,
+      "mag": 4.4,
+      "name": "Star 215",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.495,
+      "dec": 34.42,
+      "mag": 4.4,
+      "name": "Iota Ursae Minoris 223",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.4784,
+      "dec": 28.22,
+      "mag": 4.4,
+      "name": "Star 236",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 4.2005,
+      "dec": -60.88,
+      "mag": 4.4,
+      "name": "Delta Sagittarii 242",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 12.7567,
+      "dec": -0.57,
+      "mag": 4.4,
+      "name": "Star 244",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.2556,
+      "dec": -6.43,
+      "mag": 4.4,
+      "name": "Star 275",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.9944,
+      "dec": -1.08,
+      "mag": 4.4,
+      "name": "Pi Virginis 300",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.5319,
+      "dec": -60.38,
+      "mag": 4.4,
+      "name": "Delta Persei 318",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.5807,
+      "dec": -16.87,
+      "mag": 4.4,
+      "name": "Pi Cephei 343",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.251,
+      "dec": -46.68,
+      "mag": 4.4,
+      "name": "Zeta Tauri 364",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 12.9763,
+      "dec": 34.11,
+      "mag": 4.4,
+      "name": "Star 391",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 23.9604,
+      "dec": -53.2,
+      "mag": 4.4,
+      "name": "Star 411",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.357,
+      "dec": -35.05,
+      "mag": 4.4,
+      "name": "Nu Centauri 455",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.0479,
+      "dec": 2.91,
+      "mag": 4.4,
+      "name": "Star 485",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.452,
+      "dec": 22.54,
+      "mag": 4.4,
+      "name": "Pi Ursae Minoris 610",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.8846,
+      "dec": 11.21,
+      "mag": 4.4,
+      "name": "Iota Persei 620",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 11.2399,
+      "dec": 17.58,
+      "mag": 4.4,
+      "name": "Star 730",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.6211,
+      "dec": 65.77,
+      "mag": 4.4,
+      "name": "Star 803",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.1248,
+      "dec": 82.77,
+      "mag": 4.4,
+      "name": "Star 816",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.7419,
+      "dec": -23.98,
+      "mag": 4.4,
+      "name": "Omicron Andromedae 947",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.137,
+      "dec": -4.95,
+      "mag": 4.4,
+      "name": "Star 978",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.3944,
+      "dec": 13.15,
+      "mag": 4.5,
+      "name": "Star 73",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.7118,
+      "dec": 36.05,
+      "mag": 4.5,
+      "name": "Star 86",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 6.7814,
+      "dec": -11.94,
+      "mag": 4.5,
+      "name": "Delta Cephei 121",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.1114,
+      "dec": -10.31,
+      "mag": 4.5,
+      "name": "Star 296",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.7961,
+      "dec": 34.67,
+      "mag": 4.5,
+      "name": "Star 299",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.0425,
+      "dec": 1.62,
+      "mag": 4.5,
+      "name": "Star 301",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 12.8826,
+      "dec": 46.95,
+      "mag": 4.5,
+      "name": "Star 332",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.3158,
+      "dec": 65.86,
+      "mag": 4.5,
+      "name": "Star 362",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 2.6811,
+      "dec": -34.98,
+      "mag": 4.5,
+      "name": "Star 421",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.0857,
+      "dec": 27.01,
+      "mag": 4.5,
+      "name": "Gamma Orionis 425",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.1678,
+      "dec": 41.81,
+      "mag": 4.5,
+      "name": "Star 426",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.1332,
+      "dec": 31.51,
+      "mag": 4.5,
+      "name": "Star 590",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 5.3634,
+      "dec": -15.44,
+      "mag": 4.5,
+      "name": "Star 595",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3498,
+      "dec": 44.75,
+      "mag": 4.5,
+      "name": "Star 649",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.2862,
+      "dec": -35.11,
+      "mag": 4.5,
+      "name": "Kappa Ceti 668",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.1859,
+      "dec": 3.96,
+      "mag": 4.5,
+      "name": "Star 769",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.6157,
+      "dec": 45.02,
+      "mag": 4.5,
+      "name": "Star 781",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.3348,
+      "dec": 8.11,
+      "mag": 4.5,
+      "name": "Star 791",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.2493,
+      "dec": -11.61,
+      "mag": 4.5,
+      "name": "Star 794",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.9261,
+      "dec": -23.85,
+      "mag": 4.5,
+      "name": "Star 883",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.3908,
+      "dec": -28.99,
+      "mag": 4.5,
+      "name": "Kappa Draconis 887",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7513,
+      "dec": -19.72,
+      "mag": 4.5,
+      "name": "Theta Draconis 907",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.5653,
+      "dec": 44.32,
+      "mag": 4.5,
+      "name": "Star 913",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.585,
+      "dec": -36.45,
+      "mag": 4.5,
+      "name": "Gamma Lyrae 937",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.9408,
+      "dec": 16.11,
+      "mag": 4.5,
+      "name": "Kappa Cephei 987",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.0717,
+      "dec": 8.52,
+      "mag": 4.6,
+      "name": "Star 15",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.9688,
+      "dec": -62.18,
+      "mag": 4.6,
+      "name": "Pi Leonis 49",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 1.4873,
+      "dec": 13.5,
+      "mag": 4.6,
+      "name": "Star 190",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.2134,
+      "dec": -13.28,
+      "mag": 4.6,
+      "name": "Eta Cygni 245",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.812,
+      "dec": 17.6,
+      "mag": 4.6,
+      "name": "Omicron Cassiopeiae 289",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 9.4626,
+      "dec": -23.61,
+      "mag": 4.6,
+      "name": "Star 416",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 13.0272,
+      "dec": 51.1,
+      "mag": 4.6,
+      "name": "Star 447",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 21.7439,
+      "dec": -66.53,
+      "mag": 4.6,
+      "name": "Omicron Draconis 477",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.8796,
+      "dec": 81.93,
+      "mag": 4.6,
+      "name": "Star 497",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.9329,
+      "dec": 8.12,
+      "mag": 4.6,
+      "name": "Pi Bootis 503",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.7623,
+      "dec": -9.09,
+      "mag": 4.6,
+      "name": "Delta Andromedae 514",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.9187,
+      "dec": 14.11,
+      "mag": 4.6,
+      "name": "Star 522",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.9348,
+      "dec": 39.29,
+      "mag": 4.6,
+      "name": "Delta Cancri 537",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.7867,
+      "dec": 9.07,
+      "mag": 4.6,
+      "name": "Star 601",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.2249,
+      "dec": 12.19,
+      "mag": 4.6,
+      "name": "Star 604",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.4568,
+      "dec": -41.27,
+      "mag": 4.6,
+      "name": "Star 640",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.3076,
+      "dec": 40.17,
+      "mag": 4.6,
+      "name": "Star 672",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.0806,
+      "dec": 3.02,
+      "mag": 4.6,
+      "name": "Star 741",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.6263,
+      "dec": 25.45,
+      "mag": 4.6,
+      "name": "Star 762",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.4589,
+      "dec": -14.12,
+      "mag": 4.6,
+      "name": "Lambda Geminorum 770",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.9159,
+      "dec": -19.25,
+      "mag": 4.6,
+      "name": "Star 774",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 17.0315,
+      "dec": 4.56,
+      "mag": 4.6,
+      "name": "Beta Andromedae 777",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.8299,
+      "dec": 49.55,
+      "mag": 4.6,
+      "name": "Star 858",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 19.2766,
+      "dec": -11.76,
+      "mag": 4.6,
+      "name": "Star 910",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 4.813,
+      "dec": -31.81,
+      "mag": 4.6,
+      "name": "Star 956",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.835,
+      "dec": 30.43,
+      "mag": 4.7,
+      "name": "Omicron Cygni 208",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.4249,
+      "dec": -20.18,
+      "mag": 4.7,
+      "name": "Star 225",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.8019,
+      "dec": 27.33,
+      "mag": 4.7,
+      "name": "Star 234",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.7738,
+      "dec": -71.35,
+      "mag": 4.7,
+      "name": "Star 308",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.6034,
+      "dec": 31.16,
+      "mag": 4.7,
+      "name": "Star 310",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7028,
+      "dec": 27.54,
+      "mag": 4.7,
+      "name": "Kappa Virginis 321",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.1443,
+      "dec": 44.21,
+      "mag": 4.7,
+      "name": "Star 375",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 2.5792,
+      "dec": -14.09,
+      "mag": 4.7,
+      "name": "Star 397",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.8525,
+      "dec": -40.78,
+      "mag": 4.7,
+      "name": "Star 402",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.538,
+      "dec": 15.97,
+      "mag": 4.7,
+      "name": "Star 404",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 19.5083,
+      "dec": 13.63,
+      "mag": 4.7,
+      "name": "Zeta Sagittarii 506",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.4368,
+      "dec": 4.82,
+      "mag": 4.7,
+      "name": "Star 579",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.4084,
+      "dec": 52.24,
+      "mag": 4.7,
+      "name": "Star 615",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 1.9646,
+      "dec": -48.74,
+      "mag": 4.7,
+      "name": "Star 619",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.4807,
+      "dec": 24.43,
+      "mag": 4.7,
+      "name": "Star 717",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 11.92,
+      "dec": -1.95,
+      "mag": 4.7,
+      "name": "Alpha Cassiopeiae 757",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.9385,
+      "dec": -60.55,
+      "mag": 4.7,
+      "name": "Star 767",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.4473,
+      "dec": -26.52,
+      "mag": 4.7,
+      "name": "Star 773",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.5103,
+      "dec": -29.5,
+      "mag": 4.7,
+      "name": "Star 851",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 15.9678,
+      "dec": -34.01,
+      "mag": 4.7,
+      "name": "Beta Capricorni 881",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.4351,
+      "dec": -73.32,
+      "mag": 4.7,
+      "name": "Star 894",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.4752,
+      "dec": 31.35,
+      "mag": 4.7,
+      "name": "Xi Centauri 941",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.4609,
+      "dec": 60.01,
+      "mag": 4.7,
+      "name": "Star 952",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.454,
+      "dec": 13.31,
+      "mag": 4.8,
+      "name": "Star 47",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.8651,
+      "dec": -17.03,
+      "mag": 4.8,
+      "name": "Star 95",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.3941,
+      "dec": -18.89,
+      "mag": 4.8,
+      "name": "Star 192",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.9426,
+      "dec": -27.33,
+      "mag": 4.8,
+      "name": "Star 193",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.4781,
+      "dec": -45.39,
+      "mag": 4.8,
+      "name": "Omicron Ursae Majoris 233",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.272,
+      "dec": 26.18,
+      "mag": 4.8,
+      "name": "Star 271",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 22.2362,
+      "dec": 38.56,
+      "mag": 4.8,
+      "name": "Star 314",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7607,
+      "dec": -56.69,
+      "mag": 4.8,
+      "name": "Star 353",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.8567,
+      "dec": -11.59,
+      "mag": 4.8,
+      "name": "Star 366",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.511,
+      "dec": -21.27,
+      "mag": 4.8,
+      "name": "Mu Ursae Majoris 563",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.8192,
+      "dec": 17.96,
+      "mag": 4.8,
+      "name": "Star 574",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 17.1882,
+      "dec": 0.96,
+      "mag": 4.8,
+      "name": "Star 578",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 1.355,
+      "dec": 16.97,
+      "mag": 4.8,
+      "name": "Eta Centauri 682",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.2627,
+      "dec": 43.43,
+      "mag": 4.8,
+      "name": "Star 698",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 8.138,
+      "dec": -50.72,
+      "mag": 4.8,
+      "name": "Star 701",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 11.0477,
+      "dec": 44.62,
+      "mag": 4.8,
+      "name": "Star 756",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.2609,
+      "dec": -26.37,
+      "mag": 4.8,
+      "name": "Star 864",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3292,
+      "dec": 53.85,
+      "mag": 4.8,
+      "name": "Star 876",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.7717,
+      "dec": 70.1,
+      "mag": 4.9,
+      "name": "Star 35",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.4235,
+      "dec": -33.64,
+      "mag": 4.9,
+      "name": "Nu Persei 59",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.8339,
+      "dec": -56.21,
+      "mag": 4.9,
+      "name": "Star 142",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.649,
+      "dec": 29.48,
+      "mag": 4.9,
+      "name": "Star 243",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.122,
+      "dec": 43.18,
+      "mag": 4.9,
+      "name": "Star 428",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.8963,
+      "dec": -46.46,
+      "mag": 4.9,
+      "name": "Nu Capricorni 429",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.9578,
+      "dec": 41.91,
+      "mag": 4.9,
+      "name": "Star 463",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.0673,
+      "dec": 34.0,
+      "mag": 4.9,
+      "name": "Star 558",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 23.2756,
+      "dec": -31.47,
+      "mag": 4.9,
+      "name": "Star 599",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.1881,
+      "dec": 13.2,
+      "mag": 4.9,
+      "name": "Star 671",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.1906,
+      "dec": -28.99,
+      "mag": 4.9,
+      "name": "Star 788",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.3779,
+      "dec": -1.66,
+      "mag": 4.9,
+      "name": "Star 811",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 18.0079,
+      "dec": 42.38,
+      "mag": 4.9,
+      "name": "Star 825",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.0984,
+      "dec": 78.88,
+      "mag": 4.9,
+      "name": "Star 884",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.0117,
+      "dec": 31.43,
+      "mag": 4.9,
+      "name": "Star 930",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.2612,
+      "dec": -1.78,
+      "mag": 4.9,
+      "name": "Star 938",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.2494,
+      "dec": 51.05,
+      "mag": 4.9,
+      "name": "Star 959",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.4607,
+      "dec": -12.46,
+      "mag": 4.9,
+      "name": "Zeta Ursae Majoris 963",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.1266,
+      "dec": 58.1,
+      "mag": 5.0,
+      "name": "Star 79",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.4534,
+      "dec": 25.16,
+      "mag": 5.0,
+      "name": "Star 125",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.8911,
+      "dec": 53.8,
+      "mag": 5.0,
+      "name": "Star 134",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.7695,
+      "dec": 47.36,
+      "mag": 5.0,
+      "name": "Star 212",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.2702,
+      "dec": 5.8,
+      "mag": 5.0,
+      "name": "Mu Leonis 221",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.6141,
+      "dec": -39.98,
+      "mag": 5.0,
+      "name": "Star 249",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.7789,
+      "dec": -6.38,
+      "mag": 5.0,
+      "name": "Delta Librae 342",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.3785,
+      "dec": 24.56,
+      "mag": 5.0,
+      "name": "Star 370",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.3477,
+      "dec": -20.92,
+      "mag": 5.0,
+      "name": "Star 458",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 15.1313,
+      "dec": 71.01,
+      "mag": 5.0,
+      "name": "Star 510",
+      "spectralType": "F0"
+    },
+    {
+      "ra": 21.3096,
+      "dec": 33.08,
+      "mag": 5.0,
+      "name": "Kappa Ceti 519",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 7.1424,
+      "dec": 38.27,
+      "mag": 5.0,
+      "name": "Star 545",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.4944,
+      "dec": -19.04,
+      "mag": 5.0,
+      "name": "Alpha Lyrae 546",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.1111,
+      "dec": 41.75,
+      "mag": 5.0,
+      "name": "Star 554",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 20.7011,
+      "dec": 26.33,
+      "mag": 5.0,
+      "name": "Star 736",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.9859,
+      "dec": -11.51,
+      "mag": 5.0,
+      "name": "Star 950",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.2756,
+      "dec": 19.65,
+      "mag": 5.0,
+      "name": "Star 990",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.8066,
+      "dec": 31.08,
+      "mag": 5.1,
+      "name": "Star 146",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 23.871,
+      "dec": -5.36,
+      "mag": 5.1,
+      "name": "Star 195",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 1.4801,
+      "dec": 81.11,
+      "mag": 5.1,
+      "name": "Star 239",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.2894,
+      "dec": 36.23,
+      "mag": 5.1,
+      "name": "Star 253",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.2517,
+      "dec": -2.65,
+      "mag": 5.1,
+      "name": "Star 257",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.2676,
+      "dec": 42.95,
+      "mag": 5.1,
+      "name": "Kappa Librae 277",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.6064,
+      "dec": -9.44,
+      "mag": 5.1,
+      "name": "Star 427",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.1075,
+      "dec": 0.07,
+      "mag": 5.1,
+      "name": "Star 541",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.2763,
+      "dec": -5.04,
+      "mag": 5.1,
+      "name": "Star 674",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.3998,
+      "dec": -35.37,
+      "mag": 5.1,
+      "name": "Star 783",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.6937,
+      "dec": 67.54,
+      "mag": 5.1,
+      "name": "Star 861",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.0833,
+      "dec": -43.07,
+      "mag": 5.1,
+      "name": "Star 872",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.2648,
+      "dec": 55.48,
+      "mag": 5.1,
+      "name": "Theta Aquarii 945",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.2666,
+      "dec": -33.99,
+      "mag": 5.2,
+      "name": "Pi Librae 34",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.6183,
+      "dec": 35.3,
+      "mag": 5.2,
+      "name": "Star 62",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.323,
+      "dec": -35.12,
+      "mag": 5.2,
+      "name": "Epsilon Draconis 77",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 13.3919,
+      "dec": -2.44,
+      "mag": 5.2,
+      "name": "Star 152",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.1224,
+      "dec": -52.65,
+      "mag": 5.2,
+      "name": "Star 220",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 17.3894,
+      "dec": 10.09,
+      "mag": 5.2,
+      "name": "Star 341",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.9259,
+      "dec": -61.82,
+      "mag": 5.2,
+      "name": "Star 382",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 15.8592,
+      "dec": -25.23,
+      "mag": 5.2,
+      "name": "Zeta Cassiopeiae 474",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.717,
+      "dec": 33.68,
+      "mag": 5.2,
+      "name": "Star 539",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 7.9576,
+      "dec": 19.35,
+      "mag": 5.2,
+      "name": "Star 549",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.679,
+      "dec": -19.72,
+      "mag": 5.2,
+      "name": "Star 555",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.6718,
+      "dec": -7.58,
+      "mag": 5.2,
+      "name": "Delta Bootis 614",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.1312,
+      "dec": -72.98,
+      "mag": 5.2,
+      "name": "Star 704",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.1009,
+      "dec": 28.29,
+      "mag": 5.2,
+      "name": "Gamma Cancri 716",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.875,
+      "dec": -8.58,
+      "mag": 5.2,
+      "name": "Star 754",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 7.6693,
+      "dec": 50.22,
+      "mag": 5.2,
+      "name": "Lambda Cygni 900",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.7689,
+      "dec": 35.84,
+      "mag": 5.2,
+      "name": "Star 927",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.6853,
+      "dec": -28.13,
+      "mag": 5.2,
+      "name": "Star 933",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 16.3325,
+      "dec": 18.3,
+      "mag": 5.2,
+      "name": "Star 934",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.5788,
+      "dec": -83.22,
+      "mag": 5.3,
+      "name": "Nu Capricorni 13",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.6824,
+      "dec": 54.0,
+      "mag": 5.3,
+      "name": "Star 44",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.6641,
+      "dec": 14.58,
+      "mag": 5.3,
+      "name": "Star 138",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 6.2872,
+      "dec": -46.01,
+      "mag": 5.3,
+      "name": "Alpha Ursae Minoris 149",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.7329,
+      "dec": 7.91,
+      "mag": 5.3,
+      "name": "Iota Draconis 205",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 19.1497,
+      "dec": 7.93,
+      "mag": 5.3,
+      "name": "Gamma Andromedae 264",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.252,
+      "dec": 37.75,
+      "mag": 5.3,
+      "name": "Eta Ursae Minoris 365",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 9.0116,
+      "dec": -24.43,
+      "mag": 5.3,
+      "name": "Star 389",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.2297,
+      "dec": -2.88,
+      "mag": 5.3,
+      "name": "Alpha Lyrae 507",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.9645,
+      "dec": 14.63,
+      "mag": 5.3,
+      "name": "Star 508",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.7814,
+      "dec": -86.35,
+      "mag": 5.3,
+      "name": "Star 644",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 20.0802,
+      "dec": 21.61,
+      "mag": 5.3,
+      "name": "Omicron Piscium 669",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 15.3351,
+      "dec": 10.44,
+      "mag": 5.3,
+      "name": "Star 678",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 5.7725,
+      "dec": 46.15,
+      "mag": 5.3,
+      "name": "Star 725",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.9511,
+      "dec": -20.17,
+      "mag": 5.3,
+      "name": "Eta Centauri 732",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.1196,
+      "dec": -49.64,
+      "mag": 5.3,
+      "name": "Delta Aquarii 748",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.2222,
+      "dec": -81.38,
+      "mag": 5.3,
+      "name": "Star 822",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.9562,
+      "dec": 42.66,
+      "mag": 5.3,
+      "name": "Delta Centauri 824",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.7693,
+      "dec": -31.57,
+      "mag": 5.3,
+      "name": "Star 875",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.317,
+      "dec": -85.39,
+      "mag": 5.4,
+      "name": "Star 61",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.9869,
+      "dec": 2.42,
+      "mag": 5.4,
+      "name": "Star 98",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.6237,
+      "dec": -39.21,
+      "mag": 5.4,
+      "name": "Star 116",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 16.6726,
+      "dec": 52.1,
+      "mag": 5.4,
+      "name": "Star 171",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.8186,
+      "dec": 60.63,
+      "mag": 5.4,
+      "name": "Star 191",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.9548,
+      "dec": 11.96,
+      "mag": 5.4,
+      "name": "Star 226",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.3236,
+      "dec": -25.69,
+      "mag": 5.4,
+      "name": "Star 251",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.2778,
+      "dec": -16.63,
+      "mag": 5.4,
+      "name": "Star 273",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3183,
+      "dec": -11.24,
+      "mag": 5.4,
+      "name": "Star 274",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.5857,
+      "dec": 45.65,
+      "mag": 5.4,
+      "name": "Star 450",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 6.3609,
+      "dec": 0.54,
+      "mag": 5.4,
+      "name": "Star 475",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.8464,
+      "dec": -8.64,
+      "mag": 5.4,
+      "name": "Mu Orionis 504",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.7016,
+      "dec": -76.0,
+      "mag": 5.4,
+      "name": "Star 809",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 12.6091,
+      "dec": -20.85,
+      "mag": 5.4,
+      "name": "Lambda Persei 979",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.0338,
+      "dec": -54.09,
+      "mag": 5.5,
+      "name": "Omicron Lyrae 65",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.2189,
+      "dec": 13.52,
+      "mag": 5.5,
+      "name": "Mu Persei 119",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 8.0937,
+      "dec": 50.7,
+      "mag": 5.5,
+      "name": "Star 438",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.1651,
+      "dec": 45.88,
+      "mag": 5.5,
+      "name": "Star 532",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 3.4049,
+      "dec": 23.57,
+      "mag": 5.5,
+      "name": "Star 597",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 5.179,
+      "dec": 21.73,
+      "mag": 5.5,
+      "name": "Star 626",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 13.0568,
+      "dec": -49.93,
+      "mag": 5.5,
+      "name": "Star 679",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.566,
+      "dec": -32.84,
+      "mag": 5.5,
+      "name": "Star 737",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.1837,
+      "dec": 34.56,
+      "mag": 5.5,
+      "name": "Star 854",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.7438,
+      "dec": 26.05,
+      "mag": 5.5,
+      "name": "Star 988",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.8486,
+      "dec": 72.9,
+      "mag": 5.6,
+      "name": "Eta Aquarii 16",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3235,
+      "dec": 25.87,
+      "mag": 5.6,
+      "name": "Omicron Capricorni 57",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.7333,
+      "dec": 15.84,
+      "mag": 5.6,
+      "name": "Star 67",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.1061,
+      "dec": 54.13,
+      "mag": 5.6,
+      "name": "Star 75",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.5829,
+      "dec": -16.73,
+      "mag": 5.6,
+      "name": "Kappa Sagittarii 104",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 10.3134,
+      "dec": -0.06,
+      "mag": 5.6,
+      "name": "Epsilon Geminorum 161",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.143,
+      "dec": 56.9,
+      "mag": 5.6,
+      "name": "Star 186",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.5728,
+      "dec": -17.4,
+      "mag": 5.6,
+      "name": "Star 202",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.3778,
+      "dec": 7.0,
+      "mag": 5.6,
+      "name": "Star 290",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 8.5074,
+      "dec": 13.62,
+      "mag": 5.6,
+      "name": "Star 351",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 2.5664,
+      "dec": -25.89,
+      "mag": 5.6,
+      "name": "Star 387",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.1738,
+      "dec": 16.78,
+      "mag": 5.6,
+      "name": "Iota Andromedae 502",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.3674,
+      "dec": -42.75,
+      "mag": 5.6,
+      "name": "Star 605",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 0.6785,
+      "dec": -68.26,
+      "mag": 5.6,
+      "name": "Star 630",
+      "spectralType": "A0"
+    },
+    {
+      "ra": 23.4539,
+      "dec": -27.57,
+      "mag": 5.6,
+      "name": "Star 641",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 8.5837,
+      "dec": -54.41,
+      "mag": 5.6,
+      "name": "Star 755",
+      "spectralType": "F5"
+    },
+    {
+      "ra": 6.7401,
+      "dec": 30.15,
+      "mag": 5.6,
+      "name": "Star 766",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.9436,
+      "dec": -4.01,
+      "mag": 5.6,
+      "name": "Pi Andromedae 768",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.3767,
+      "dec": -59.2,
+      "mag": 5.6,
+      "name": "Star 931",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.5716,
+      "dec": 52.11,
+      "mag": 5.7,
+      "name": "Star 1",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.3408,
+      "dec": 14.11,
+      "mag": 5.7,
+      "name": "Star 38",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.0323,
+      "dec": -11.85,
+      "mag": 5.7,
+      "name": "Star 198",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.7915,
+      "dec": 9.51,
+      "mag": 5.7,
+      "name": "Nu Librae 209",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 13.6614,
+      "dec": 18.01,
+      "mag": 5.7,
+      "name": "Star 252",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.2717,
+      "dec": 29.83,
+      "mag": 5.7,
+      "name": "Nu Geminorum 322",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3922,
+      "dec": 64.86,
+      "mag": 5.7,
+      "name": "Star 409",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.0887,
+      "dec": 34.6,
+      "mag": 5.7,
+      "name": "Star 431",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.554,
+      "dec": 36.9,
+      "mag": 5.7,
+      "name": "Star 617",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.4316,
+      "dec": 36.7,
+      "mag": 5.7,
+      "name": "Delta Sagittarii 666",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 18.896,
+      "dec": 50.28,
+      "mag": 5.7,
+      "name": "Star 797",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.3735,
+      "dec": -14.47,
+      "mag": 5.7,
+      "name": "Iota Draconis 840",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.815,
+      "dec": 28.12,
+      "mag": 5.7,
+      "name": "Theta Centauri 848",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.5522,
+      "dec": -52.62,
+      "mag": 5.7,
+      "name": "Star 868",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.997,
+      "dec": -32.86,
+      "mag": 5.7,
+      "name": "Star 925",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 21.4058,
+      "dec": -74.7,
+      "mag": 5.7,
+      "name": "Kappa Ursae Majoris 964",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.1245,
+      "dec": -52.73,
+      "mag": 5.7,
+      "name": "Star 980",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.1038,
+      "dec": 2.18,
+      "mag": 5.8,
+      "name": "Star 217",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 7.7869,
+      "dec": -45.26,
+      "mag": 5.8,
+      "name": "Star 374",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.0737,
+      "dec": 1.27,
+      "mag": 5.8,
+      "name": "Star 444",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.3183,
+      "dec": 60.78,
+      "mag": 5.8,
+      "name": "Star 464",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.6783,
+      "dec": 24.41,
+      "mag": 5.8,
+      "name": "Star 585",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.5984,
+      "dec": 6.84,
+      "mag": 5.8,
+      "name": "Star 720",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.3676,
+      "dec": -7.28,
+      "mag": 5.8,
+      "name": "Star 726",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 6.9891,
+      "dec": 53.99,
+      "mag": 5.8,
+      "name": "Epsilon Librae 747",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 19.1845,
+      "dec": -4.36,
+      "mag": 5.8,
+      "name": "Star 888",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.3736,
+      "dec": 38.9,
+      "mag": 5.8,
+      "name": "Star 943",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 22.2635,
+      "dec": 46.33,
+      "mag": 5.9,
+      "name": "Zeta Arietis 6",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 9.8655,
+      "dec": -28.54,
+      "mag": 5.9,
+      "name": "Xi Draconis 25",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.1406,
+      "dec": -76.02,
+      "mag": 5.9,
+      "name": "Star 128",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.3214,
+      "dec": 70.06,
+      "mag": 5.9,
+      "name": "Star 176",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.7747,
+      "dec": 52.68,
+      "mag": 5.9,
+      "name": "Star 207",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.5526,
+      "dec": -51.66,
+      "mag": 5.9,
+      "name": "Star 369",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.2164,
+      "dec": 32.06,
+      "mag": 5.9,
+      "name": "Epsilon Scorpii 645",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.3621,
+      "dec": -77.33,
+      "mag": 5.9,
+      "name": "Star 727",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 23.0479,
+      "dec": -28.04,
+      "mag": 5.9,
+      "name": "Star 735",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.1428,
+      "dec": 4.32,
+      "mag": 5.9,
+      "name": "Star 745",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.8764,
+      "dec": 49.63,
+      "mag": 5.9,
+      "name": "Beta Cephei 746",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 2.5409,
+      "dec": -19.37,
+      "mag": 5.9,
+      "name": "Star 759",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 23.9458,
+      "dec": 47.95,
+      "mag": 5.9,
+      "name": "Star 994",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.5055,
+      "dec": -3.8,
+      "mag": 6.0,
+      "name": "Lambda Cephei 17",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 20.1336,
+      "dec": 30.59,
+      "mag": 6.0,
+      "name": "Gamma Piscium 18",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.8549,
+      "dec": 35.75,
+      "mag": 6.0,
+      "name": "Star 80",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.7384,
+      "dec": 49.97,
+      "mag": 6.0,
+      "name": "Alpha Capricorni 330",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 2.2645,
+      "dec": 25.26,
+      "mag": 6.0,
+      "name": "Star 385",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 6.8794,
+      "dec": -2.64,
+      "mag": 6.0,
+      "name": "Star 410",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.568,
+      "dec": 3.77,
+      "mag": 6.0,
+      "name": "Alpha Cygni 530",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.7644,
+      "dec": -17.92,
+      "mag": 6.0,
+      "name": "Xi Ursae Majoris 660",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.7997,
+      "dec": 26.4,
+      "mag": 6.0,
+      "name": "Zeta Scorpii 753",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 2.3277,
+      "dec": 9.59,
+      "mag": 6.0,
+      "name": "Star 833",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.9615,
+      "dec": 30.31,
+      "mag": 6.0,
+      "name": "Star 951",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 10.3985,
+      "dec": -0.89,
+      "mag": 6.1,
+      "name": "Epsilon Centauri 3",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.5913,
+      "dec": -10.22,
+      "mag": 6.1,
+      "name": "Star 235",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 22.7514,
+      "dec": 49.63,
+      "mag": 6.1,
+      "name": "Star 328",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.5928,
+      "dec": -64.02,
+      "mag": 6.1,
+      "name": "Star 509",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.6809,
+      "dec": 30.19,
+      "mag": 6.1,
+      "name": "Star 928",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.3519,
+      "dec": 20.28,
+      "mag": 6.2,
+      "name": "Kappa Cygni 23",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 12.2615,
+      "dec": 28.34,
+      "mag": 6.2,
+      "name": "Star 64",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.1097,
+      "dec": -7.41,
+      "mag": 6.2,
+      "name": "Delta Aquarii 131",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.36,
+      "dec": 26.45,
+      "mag": 6.2,
+      "name": "Omicron Lyrae 163",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.7893,
+      "dec": 2.69,
+      "mag": 6.2,
+      "name": "Pi Aquarii 169",
+      "spectralType": "G5"
+    },
+    {
+      "ra": 19.8071,
+      "dec": 43.97,
+      "mag": 6.2,
+      "name": "Delta Capricorni 213",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 13.5603,
+      "dec": -18.67,
+      "mag": 6.2,
+      "name": "Star 298",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 8.6147,
+      "dec": -77.09,
+      "mag": 6.2,
+      "name": "Star 357",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.5685,
+      "dec": 72.94,
+      "mag": 6.2,
+      "name": "Star 371",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 0.9075,
+      "dec": 5.08,
+      "mag": 6.2,
+      "name": "Star 575",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.7962,
+      "dec": -57.48,
+      "mag": 6.2,
+      "name": "Gamma Scorpii 834",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 5.348,
+      "dec": -21.02,
+      "mag": 6.2,
+      "name": "Star 971",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.824,
+      "dec": 41.95,
+      "mag": 6.3,
+      "name": "Gamma Scorpii 113",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.9684,
+      "dec": 68.53,
+      "mag": 6.3,
+      "name": "Star 189",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.6243,
+      "dec": -29.53,
+      "mag": 6.3,
+      "name": "Star 222",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.6642,
+      "dec": -49.5,
+      "mag": 6.3,
+      "name": "Star 305",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.294,
+      "dec": -45.31,
+      "mag": 6.3,
+      "name": "Star 469",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.6633,
+      "dec": 22.28,
+      "mag": 6.3,
+      "name": "Star 486",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.0838,
+      "dec": 22.96,
+      "mag": 6.3,
+      "name": "Alpha Leonis 596",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 11.7462,
+      "dec": -29.55,
+      "mag": 6.3,
+      "name": "Lambda Geminorum 961",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 5.2127,
+      "dec": 14.99,
+      "mag": 6.3,
+      "name": "Star 983",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 17.7207,
+      "dec": 15.16,
+      "mag": 6.4,
+      "name": "Gamma Capricorni 137",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.2642,
+      "dec": 40.29,
+      "mag": 6.4,
+      "name": "Gamma Piscium 288",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 3.1451,
+      "dec": -13.65,
+      "mag": 6.4,
+      "name": "Star 312",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 21.3878,
+      "dec": 52.42,
+      "mag": 6.4,
+      "name": "Star 383",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.5725,
+      "dec": -1.1,
+      "mag": 6.4,
+      "name": "Star 542",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.5384,
+      "dec": -72.79,
+      "mag": 6.4,
+      "name": "Iota Pegasi 787",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 15.4425,
+      "dec": 73.37,
+      "mag": 6.4,
+      "name": "Star 795",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 17.1214,
+      "dec": -36.77,
+      "mag": 6.4,
+      "name": "Eta Bootis 806",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 18.7823,
+      "dec": 44.41,
+      "mag": 6.4,
+      "name": "Star 992",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.6183,
+      "dec": 57.0,
+      "mag": 6.4,
+      "name": "Nu Ursae Minoris 995",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 0.1964,
+      "dec": 46.98,
+      "mag": 6.4,
+      "name": "Star 996",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 1.2738,
+      "dec": 37.15,
+      "mag": 6.5,
+      "name": "Star 20",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.5347,
+      "dec": -35.65,
+      "mag": 6.5,
+      "name": "Star 89",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 12.2225,
+      "dec": -16.18,
+      "mag": 6.5,
+      "name": "Iota Capricorni 157",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.0763,
+      "dec": -41.59,
+      "mag": 6.5,
+      "name": "Star 180",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.9914,
+      "dec": -29.7,
+      "mag": 6.5,
+      "name": "Star 188",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.9426,
+      "dec": 43.26,
+      "mag": 6.5,
+      "name": "Epsilon Orionis 219",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 13.2897,
+      "dec": 4.28,
+      "mag": 6.5,
+      "name": "Omicron Andromedae 229",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 9.37,
+      "dec": -17.82,
+      "mag": 6.5,
+      "name": "Star 276",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 8.3144,
+      "dec": 2.55,
+      "mag": 6.5,
+      "name": "Star 281",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 2.1358,
+      "dec": 9.28,
+      "mag": 6.5,
+      "name": "Star 286",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.8691,
+      "dec": -54.91,
+      "mag": 6.5,
+      "name": "Pi Aquarii 287",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 17.1482,
+      "dec": 26.35,
+      "mag": 6.5,
+      "name": "Eta Virginis 291",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 10.8724,
+      "dec": 16.0,
+      "mag": 6.5,
+      "name": "Zeta Aquarii 340",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 18.2576,
+      "dec": 2.6,
+      "mag": 6.5,
+      "name": "Pi Geminorum 379",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 4.8773,
+      "dec": -36.52,
+      "mag": 6.5,
+      "name": "Star 384",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 9.1528,
+      "dec": -13.86,
+      "mag": 6.5,
+      "name": "Star 395",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 2.3305,
+      "dec": -20.82,
+      "mag": 6.5,
+      "name": "Star 408",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 3.0584,
+      "dec": 48.97,
+      "mag": 6.5,
+      "name": "Star 419",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.503,
+      "dec": 66.14,
+      "mag": 6.5,
+      "name": "Pi Piscium 466",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 12.3954,
+      "dec": -60.43,
+      "mag": 6.5,
+      "name": "Kappa Persei 467",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.1248,
+      "dec": -18.3,
+      "mag": 6.5,
+      "name": "Star 489",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 4.8576,
+      "dec": 18.52,
+      "mag": 6.5,
+      "name": "Star 529",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 14.2449,
+      "dec": 28.59,
+      "mag": 6.5,
+      "name": "Star 535",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 19.0349,
+      "dec": -1.33,
+      "mag": 6.5,
+      "name": "Star 538",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.2685,
+      "dec": 43.06,
+      "mag": 6.5,
+      "name": "Delta Pegasi 556",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 19.9653,
+      "dec": -22.72,
+      "mag": 6.5,
+      "name": "Kappa Sagittarii 567",
+      "spectralType": "A0"
+    },
+    {
+      "ra": 10.4638,
+      "dec": 26.08,
+      "mag": 6.5,
+      "name": "Mu Arietis 652",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.4246,
+      "dec": -76.97,
+      "mag": 6.5,
+      "name": "Iota Draconis 659",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 15.187,
+      "dec": -22.35,
+      "mag": 6.5,
+      "name": "Star 665",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 14.3131,
+      "dec": 32.88,
+      "mag": 6.5,
+      "name": "Omicron Cancri 673",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 7.2946,
+      "dec": 38.18,
+      "mag": 6.5,
+      "name": "Star 689",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 20.0788,
+      "dec": 2.66,
+      "mag": 6.5,
+      "name": "Beta Cephei 713",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.5021,
+      "dec": 33.17,
+      "mag": 6.5,
+      "name": "Star 714",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 11.2269,
+      "dec": 26.94,
+      "mag": 6.5,
+      "name": "Star 722",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 5.8981,
+      "dec": -49.7,
+      "mag": 6.5,
+      "name": "Star 729",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 21.6863,
+      "dec": 57.96,
+      "mag": 6.5,
+      "name": "Star 733",
+      "spectralType": "K0"
+    },
+    {
+      "ra": 19.2311,
+      "dec": -39.02,
+      "mag": 6.5,
+      "name": "Star 778",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 10.2993,
+      "dec": 11.12,
+      "mag": 6.5,
+      "name": "Star 807",
+      "spectralType": "G0"
+    },
+    {
+      "ra": 13.6809,
+      "dec": 39.26,
+      "mag": 6.5,
+      "name": "Pi Ursae Majoris 808",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 5.4173,
+      "dec": -7.86,
+      "mag": 6.5,
+      "name": "Omicron Tauri 857",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 20.8105,
+      "dec": -42.75,
+      "mag": 6.5,
+      "name": "Star 870",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 10.721,
+      "dec": -20.25,
+      "mag": 6.5,
+      "name": "Star 873",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 6.2525,
+      "dec": 6.51,
+      "mag": 6.5,
+      "name": "Star 886",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 23.2176,
+      "dec": 53.1,
+      "mag": 6.5,
+      "name": "Star 898",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 16.2349,
+      "dec": -23.3,
+      "mag": 6.5,
+      "name": "Star 903",
+      "spectralType": "M0"
+    },
+    {
+      "ra": 11.2838,
+      "dec": -25.55,
+      "mag": 6.5,
+      "name": "Star 917",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 23.9182,
+      "dec": -45.93,
+      "mag": 6.5,
+      "name": "Star 935",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 16.0775,
+      "dec": 6.79,
+      "mag": 6.5,
+      "name": "Star 965",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 20.3592,
+      "dec": -57.43,
+      "mag": 6.5,
+      "name": "Star 973",
+      "spectralType": "M5"
+    },
+    {
+      "ra": 22.6343,
+      "dec": -13.92,
+      "mag": 6.5,
+      "name": "Beta Librae 975",
+      "spectralType": "K5"
+    },
+    {
+      "ra": 1.0048,
+      "dec": -65.73,
+      "mag": 6.5,
+      "name": "Star 993",
+      "spectralType": "M5"
+    }
+  ]
+}

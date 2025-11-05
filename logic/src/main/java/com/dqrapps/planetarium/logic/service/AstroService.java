@@ -199,4 +199,45 @@ LT = Latitude (DEG 0 - 90)
     public void setScreen(Screen screen) {
         this.screen = screen;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // Phase 1-3: Corrected visibility calculation
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Determines if a star is visible above the horizon (corrected calculation).
+     *
+     * @param ra Right Ascension in hours (0-24)
+     * @param dec Declination in degrees (-90 to 90)
+     * @param lst Local Sidereal Time in hours (0-24)
+     * @param lat Observer latitude in degrees (-90 to 90)
+     * @return true if the star is above the horizon
+     */
+    public boolean isVisible(double ra, double dec, double lst, double lat) {
+        // Calculate hour angle (LST - RA)
+        double hourAngle = lst - ra;
+
+        // Normalize hour angle to 0-24 range
+        while (hourAngle < 0) hourAngle += 24.0;
+        while (hourAngle >= 24.0) hourAngle -= 24.0;
+
+        // Convert to radians
+        double latRad = toRadians(lat);
+        double decRad = toRadians(dec);
+        double hourAngleRad = toRadians(hourAngle * 15.0); // Convert hours to degrees to radians
+
+        // Calculate altitude using the altitude formula:
+        // sin(alt) = sin(lat) * sin(dec) + cos(lat) * cos(dec) * cos(HA)
+        double sinAltitude = Math.sin(latRad) * Math.sin(decRad) +
+                           Math.cos(latRad) * Math.cos(decRad) * Math.cos(hourAngleRad);
+
+        // Star is visible if altitude > 0 (above horizon)
+        // Adding small margin for atmospheric refraction
+        double altitude = Math.asin(sinAltitude);
+        return altitude > Math.toRadians(-0.5); // -0.5 degrees accounts for refraction
+    }
+
+    public double toRadians(double degrees) {
+        return degrees * Math.PI / ONE_EIGHTY;
+    }
 }

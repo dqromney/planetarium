@@ -16,18 +16,16 @@ import java.util.stream.Collectors;
 public class ConfigService {
 
     private static ConfigService instance = null;
-    private static final String resourceName = "/data/configs.json";
+    private static final String configFilename = "configs.json";  // Use gui directory file only
 
     private static final String defaultConfig = "default";
 
     ObjectMapper om;
     Configs configs;
-    private final File file;
     Config currentConfig;
 
     private ConfigService() {
         om = new ObjectMapper();
-        file = new File(this.getClass().getResource(resourceName).getFile());
     }
 
     public static ConfigService getInstance() throws IOException {
@@ -121,9 +119,9 @@ public class ConfigService {
 
     private Configs saveConfigs() {
         try {
-            om.writerFor(Configs.class).writeValue(this.file, configs);
+            om.writerFor(Configs.class).writeValue(new File(configFilename), configs);
         } catch (IOException e) {
-            System.out.println("Error saving configs");
+            System.out.println("Error saving configs: " + e.getMessage());
             // log.throwing(this.getClass().getName(), "saveConfigs", e);
         }
         return this.getConfigs();
@@ -132,9 +130,10 @@ public class ConfigService {
     private Configs loadConfigs() {
         if (null == this.configs) {
             try {
-                this.configs = om.readerFor(Configs.class).readValue(this.file);
+                // Load directly from gui directory file
+                this.configs = om.readerFor(Configs.class).readValue(new File(configFilename));
             } catch (IOException e) {
-                System.out.println("Error loading configs");
+                System.out.println("Error loading configs: " + e.getMessage());
                 // log.throwing(this.getClass().getName(), "loadConfigs", e);
             }
         }
@@ -142,7 +141,8 @@ public class ConfigService {
     }
 
     private boolean defaultSetupExists() {
-        return this.file.exists();
+        // Check if gui directory file exists
+        return new File(configFilename).exists();
     }
 
     private void deepCopy(Config from, Config to) {

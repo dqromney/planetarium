@@ -4,9 +4,12 @@
 module gui {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.swing;
+    requires java.desktop;
     requires logic;
     requires static lombok;
     requires java.logging;
+    requires com.fasterxml.jackson.databind;
 
     opens com.dqrapps.planetarium.gui to javafx.fxml, javafx.graphics;
 

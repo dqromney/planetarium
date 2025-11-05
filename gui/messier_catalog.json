@@ -1,0 +1,155 @@
+{
+  "objects": [
+    {
+      "messierNumber": "M1",
+      "name": "Crab Nebula",
+      "type": "Supernova Remnant",
+      "ra": 5.575,
+      "dec": 22.0,
+      "magnitude": 8.4,
+      "size": 6.0,
+      "constellation": "Taurus"
+    },
+    {
+      "messierNumber": "M31",
+      "name": "Andromeda Galaxy",
+      "type": "Galaxy",
+      "ra": 0.712,
+      "dec": 41.27,
+      "magnitude": 3.4,
+      "size": 178.0,
+      "constellation": "Andromeda"
+    },
+    {
+      "messierNumber": "M42",
+      "name": "Orion Nebula",
+      "type": "Nebula",
+      "ra": 5.588,
+      "dec": -5.39,
+      "magnitude": 4.0,
+      "size": 65.0,
+      "constellation": "Orion"
+    },
+    {
+      "messierNumber": "M45",
+      "name": "Pleiades",
+      "type": "Open Cluster",
+      "ra": 3.783,
+      "dec": 24.12,
+      "magnitude": 1.6,
+      "size": 110.0,
+      "constellation": "Taurus"
+    },
+    {
+      "messierNumber": "M13",
+      "name": "Hercules Cluster",
+      "type": "Globular Cluster",
+      "ra": 16.695,
+      "dec": 36.46,
+      "magnitude": 5.8,
+      "size": 20.0,
+      "constellation": "Hercules"
+    },
+    {
+      "messierNumber": "M44",
+      "name": "Beehive Cluster",
+      "type": "Open Cluster",
+      "ra": 8.667,
+      "dec": 19.67,
+      "magnitude": 3.7,
+      "size": 95.0,
+      "constellation": "Cancer"
+    },
+    {
+      "messierNumber": "M57",
+      "name": "Ring Nebula",
+      "type": "Planetary Nebula",
+      "ra": 18.892,
+      "dec": 33.03,
+      "magnitude": 8.8,
+      "size": 1.4,
+      "constellation": "Lyra"
+    },
+    {
+      "messierNumber": "M8",
+      "name": "Lagoon Nebula",
+      "type": "Nebula",
+      "ra": 18.067,
+      "dec": -24.38,
+      "magnitude": 6.0,
+      "size": 90.0,
+      "constellation": "Sagittarius"
+    },
+    {
+      "messierNumber": "M20",
+      "name": "Trifid Nebula",
+      "type": "Nebula",
+      "ra": 18.033,
+      "dec": -23.03,
+      "magnitude": 6.3,
+      "size": 28.0,
+      "constellation": "Sagittarius"
+    },
+    {
+      "messierNumber": "M27",
+      "name": "Dumbbell Nebula",
+      "type": "Planetary Nebula",
+      "ra": 19.993,
+      "dec": 22.72,
+      "magnitude": 7.5,
+      "size": 8.0,
+      "constellation": "Vulpecula"
+    },
+    {
+      "messierNumber": "M33",
+      "name": "Triangulum Galaxy",
+      "type": "Galaxy",
+      "ra": 1.565,
+      "dec": 30.66,
+      "magnitude": 5.7,
+      "size": 73.0,
+      "constellation": "Triangulum"
+    },
+    {
+      "messierNumber": "M51",
+      "name": "Whirlpool Galaxy",
+      "type": "Galaxy",
+      "ra": 13.497,
+      "dec": 47.20,
+      "magnitude": 8.4,
+      "size": 11.0,
+      "constellation": "Canes Venatici"
+    },
+    {
+      "messierNumber": "M81",
+      "name": "Bode's Galaxy",
+      "type": "Galaxy",
+      "ra": 9.928,
+      "dec": 69.07,
+      "magnitude": 6.9,
+      "size": 27.0,
+      "constellation": "Ursa Major"
+    },
+    {
+      "messierNumber": "M82",
+      "name": "Cigar Galaxy",
+      "type": "Galaxy",
+      "ra": 9.927,
+      "dec": 69.68,
+      "magnitude": 8.4,
+      "size": 11.0,
+      "constellation": "Ursa Major"
+    },
+    {
+      "messierNumber": "M104",
+      "name": "Sombrero Galaxy",
+      "type": "Galaxy",
+      "ra": 12.667,
+      "dec": -11.62,
+      "magnitude": 8.0,
+      "size": 9.0,
+      "constellation": "Virgo"
+    }
+  ]
+}
+

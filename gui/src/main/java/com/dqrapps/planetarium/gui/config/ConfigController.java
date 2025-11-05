@@ -6,8 +6,6 @@ import com.dqrapps.planetarium.logic.model.Configs;
 import com.dqrapps.planetarium.logic.service.ConfigService;
 import com.dqrapps.planetarium.logic.type.Horizon;
 import com.dqrapps.planetarium.logic.type.PlotMode;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -30,30 +28,29 @@ public class ConfigController {
 
     ConfigService configService;
 
-    ObservableList<String> horizonList = FXCollections
-            .observableArrayList(Horizon.NORTH.getToken(), Horizon.SOUTH.getToken());
-    ObservableList<String> plotModeList = FXCollections
-            .observableArrayList(PlotMode.INDIVIDUAL.getMode(), PlotMode.CONTINUOUS.getMode());
-
-    @FXML
-    private ComboBox horizonBox;
-    @FXML
-    private ComboBox plotModeBox;
     @FXML
     private MenuButton loadConfigMenu;
 
     @FXML
-    private TextField longHours;
+    private TextField longHours;  // Now stores decimal degrees (e.g., -112.03884)
     @FXML
-    private TextField longMinutes;
-    @FXML
-    private TextField latHours;
+    private TextField latHours;   // Now stores decimal degrees (e.g., 40.68329)
     @FXML
     private DatePicker viewDate;
     @FXML
     private TextField siderealTime;
     @FXML
     private TextField configName;
+
+    // Display preference checkboxes
+    @FXML
+    private CheckBox showConstellationsCheckbox;
+    @FXML
+    private CheckBox showGridCheckbox;
+    @FXML
+    private CheckBox showDSOCheckbox;
+    @FXML
+    private CheckBox showPlanetsCheckbox;
 
     private Configs configs;
 
@@ -74,13 +71,38 @@ public class ConfigController {
                 .appendValue(MINUTE_OF_HOUR, 2)
                 .toFormatter();
 
-        horizonBox.setItems(horizonList);
-        plotModeBox.setItems(plotModeList);
 
         updateConfigs();
 
         // Set default configuration
         populateConfigForm(configService.getCurrentConfig().getName());
+
+        // Initialize display preferences from singleton
+        DisplayPreferences prefs = DisplayPreferences.getInstance();
+        if (showConstellationsCheckbox != null) {
+            showConstellationsCheckbox.setSelected(prefs.isShowConstellations());
+            showConstellationsCheckbox.selectedProperty().addListener((obs, oldVal, newVal) -> {
+                prefs.setShowConstellations(newVal);
+            });
+        }
+        if (showGridCheckbox != null) {
+            showGridCheckbox.setSelected(prefs.isShowGrid());
+            showGridCheckbox.selectedProperty().addListener((obs, oldVal, newVal) -> {
+                prefs.setShowGrid(newVal);
+            });
+        }
+        if (showDSOCheckbox != null) {
+            showDSOCheckbox.setSelected(prefs.isShowDSO());
+            showDSOCheckbox.selectedProperty().addListener((obs, oldVal, newVal) -> {
+                prefs.setShowDSO(newVal);
+            });
+        }
+        if (showPlanetsCheckbox != null) {
+            showPlanetsCheckbox.setSelected(prefs.isShowPlanets());
+            showPlanetsCheckbox.selectedProperty().addListener((obs, oldVal, newVal) -> {
+                prefs.setShowPlanets(newVal);
+            });
+        }
     }
 
     @FXML
@@ -101,13 +123,13 @@ public class ConfigController {
         Config config = Config
                 .builder()
                 .name(configName.getText())
-                .longitudeDegrees(longHours.getText())
-                .longitudeMinutes(longMinutes.getText())
-                .latitudeDegrees(latHours.getText())
+                .longitudeDegrees(longHours.getText())  // Decimal degrees (e.g., -112.03884)
+                .longitudeMinutes("0")  // Set to "0" for backward compatibility
+                .latitudeDegrees(latHours.getText())  // Decimal degrees (e.g., 40.68329)
                 .dateOfObservation(viewDate.getValue().format(dateTimeFormatter))
                 .siderealTime(siderealTime.getText())
-                .horizon(horizonBox.getValue().toString())
-                .plotMode(plotModeBox.getValue().toString())
+                .horizon(Horizon.NORTH.getToken())  // Default to North
+                .plotMode(PlotMode.INDIVIDUAL.getMode())  // Default to Individual
                 .build();
         boolean doesExist = configService.doesConfigExist(config.getName());
         if (configService.save(config)) {
@@ -115,9 +137,28 @@ public class ConfigController {
             if (!doesExist) {
                 loadConfigMenu.getItems().add(new MenuItem(config.getName()));
             }
+            // Show success feedback
+            showSaveSuccess();
         } else {
             log.info("Error saving config");
+            showSaveError();
         }
+    }
+
+    private void showSaveSuccess() {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle("Configuration Saved");
+        alert.setHeaderText(null);
+        alert.setContentText("Configuration '" + configName.getText() + "' saved successfully!");
+        alert.showAndWait();
+    }
+
+    private void showSaveError() {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+        alert.setTitle("Save Failed");
+        alert.setHeaderText("Failed to save configuration");
+        alert.setContentText("Please check that all required fields are filled in correctly.");
+        alert.showAndWait();
     }
 
     @FXML
@@ -137,13 +178,10 @@ public class ConfigController {
         LocalDateTime localDateTime = LocalDateTime.now();
         configName.setEditable(true);
         configName.setText("");
-        longHours.setText("");
-        longMinutes.setText("");
-        latHours.setText("");
+        longHours.setText("");  // Decimal longitude
+        latHours.setText("");   // Decimal latitude
         viewDate.setValue(localDateTime.toLocalDate());
         siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
-        horizonBox.setValue(Horizon.NORTH);
-        plotModeBox.setValue(PlotMode.INDIVIDUAL);
     }
 
     private void populateConfigForm(String name) {
@@ -162,13 +200,11 @@ public class ConfigController {
                 configName.setText(c.getName());
                 LocalDateTime localDateTime = LocalDateTime.parse(
                         c.getDateOfObservation() + " " + c.getSiderealTime(), dateTimeFormatter);
-                longHours.setText(c.getLongitudeDegrees());
-                longMinutes.setText(c.getLongitudeMinutes());
-                latHours.setText(c.getLatitudeDegrees());
+                longHours.setText(c.getLongitudeDegrees());  // Load decimal longitude
+                latHours.setText(c.getLatitudeDegrees());    // Load decimal latitude
                 viewDate.setValue(localDateTime.toLocalDate());
                 siderealTime.setText(localDateTime.toLocalTime().format(timeFormatter));
-                horizonBox.setValue(c.getHorizon());
-                plotModeBox.setValue(c.getPlotMode());
+                // Note: horizon and plotMode are no longer displayed but are preserved in config
                 // Set current config to configuration service
                 configService.setCurrentConfig(c);
             }

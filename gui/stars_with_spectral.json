@@ -1,0 +1,22 @@
+{
+    "objects": [
+        {"ra": 0.12, "dec": 28.9, "mag": 2.1, "name": "ALPHERATZ", "spectralType": "B8"},
+        {"ra": 0.12, "dec": 58.8, "mag": 2.4, "name": "CAPH", "spectralType": "F2"},
+        {"ra": 2.04, "dec": 89.1, "mag": 2.1, "name": "POLARIS", "spectralType": "F7"},
+        {"ra": 1.62, "dec": -57.4, "mag": 0.6, "name": "ACHERNAR", "spectralType": "B3"},
+        {"ra": 5.23, "dec": 46.0, "mag": 0.2, "name": "CAPELLA", "spectralType": "G8"},
+        {"ra": 5.22, "dec": -8.2, "mag": 0.3, "name": "RIGEL", "spectralType": "B8"},
+        {"ra": 5.9, "dec": 7.4, "mag": 0.0, "name": "BETELGEUSE", "spectralType": "M2"},
+        {"ra": 5.4, "dec": 6.3, "mag": 1.7, "name": "BELLATRIX", "spectralType": "B2"},
+        {"ra": 6.73, "dec": -16.7, "mag": -1.5, "name": "SIRIUS", "spectralType": "A1"},
+        {"ra": 7.63, "dec": 5.3, "mag": 0.5, "name": "PROCYON", "spectralType": "F5"},
+        {"ra": 10.12, "dec": 12.1, "mag": 1.3, "name": "REGULUS", "spectralType": "B7"},
+        {"ra": 13.39, "dec": -11.0, "mag": 1.2, "name": "SPICA", "spectralType": "B1"},
+        {"ra": 14.23, "dec": 19.3, "mag": 0.2, "name": "ARCTURUS", "spectralType": "K2"},
+        {"ra": 16.47, "dec": -26.4, "mag": 1.2, "name": "ANTARES", "spectralType": "M1"},
+        {"ra": 18.6, "dec": 38.8, "mag": 0.0, "name": "VEGA", "spectralType": "A0"},
+        {"ra": 19.83, "dec": 8.9, "mag": 0.9, "name": "ALTAIR", "spectralType": "A7"},
+        {"ra": 20.68, "dec": 45.3, "mag": 1.3, "name": "DENEB", "spectralType": "A2"},
+        {"ra": 22.95, "dec": -29.6, "mag": 1.2, "name": "FOMALHAUT", "spectralType": "A3"}
+    ]
+}

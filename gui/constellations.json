@@ -1,0 +1,66 @@
+{
+  "constellations": [
+    {
+      "name": "Orion",
+      "abbreviation": "Ori",
+      "lines": [
+        {"star1Name": "BETELGEUSE", "star2Name": "BELLATRIX"},
+        {"star1Name": "BELLATRIX", "star2Name": "MINTAKA"},
+        {"star1Name": "MINTAKA", "star2Name": "ANILAIM"},
+        {"star1Name": "ANILAIM", "star2Name": "ALNITAK"},
+        {"star1Name": "ALNITAK", "star2Name": "SAIPH"},
+        {"star1Name": "SAIPH", "star2Name": "RIGEL"},
+        {"star1Name": "RIGEL", "star2Name": "BETELGEUSE"}
+      ]
+    },
+    {
+      "name": "Ursa Major",
+      "abbreviation": "UMa",
+      "lines": [
+        {"star1Name": "DUBHE", "star2Name": "MERAK"},
+        {"star1Name": "MERAK", "star2Name": "PHECDA"},
+        {"star1Name": "PHECDA", "star2Name": "MEGREZ"},
+        {"star1Name": "MEGREZ", "star2Name": "ALIOTH"},
+        {"star1Name": "ALIOTH", "star2Name": "MIZAR"},
+        {"star1Name": "MIZAR", "star2Name": "ALKAID"},
+        {"star1Name": "MEGREZ", "star2Name": "DUBHE"}
+      ]
+    },
+    {
+      "name": "Cassiopeia",
+      "abbreviation": "Cas",
+      "lines": [
+        {"star1Name": "CAPH", "star2Name": "SCHEDAR"},
+        {"star1Name": "SCHEDAR", "star2Name": "GAMMA CASSIOPEIA"},
+        {"star1Name": "GAMMA CASSIOPEIA", "star2Name": "RUCKBAH"},
+        {"star1Name": "RUCKBAH", "star2Name": "SEGIN"}
+      ]
+    },
+    {
+      "name": "Leo",
+      "abbreviation": "Leo",
+      "lines": [
+        {"star1Name": "REGULUS", "star2Name": "ETA LEO"},
+        {"star1Name": "ETA LEO", "star2Name": "ALGEIBA"},
+        {"star1Name": "ALGEIBA", "star2Name": "ADHAFERA"},
+        {"star1Name": "ADHAFERA", "star2Name": "ZOSMA"},
+        {"star1Name": "ZOSMA", "star2Name": "DENEBOLA"},
+        {"star1Name": "DENEBOLA", "star2Name": "COXA"},
+        {"star1Name": "REGULUS", "star2Name": "COXA"}
+      ]
+    },
+    {
+      "name": "Scorpius",
+      "abbreviation": "Sco",
+      "lines": [
+        {"star1Name": "ACRAB", "star2Name": "DSCHUBBA"},
+        {"star1Name": "DSCHUBBA", "star2Name": "ANTARES"},
+        {"star1Name": "ANTARES", "star2Name": "TAU SCORPIO"},
+        {"star1Name": "TAU SCORPIO", "star2Name": "EPSILON SCORPIUS"},
+        {"star1Name": "EPSILON SCORPIUS", "star2Name": "MU SCORPIO"},
+        {"star1Name": "MU SCORPIO", "star2Name": "SHAULA"}
+      ]
+    }
+  ]
+}
+
