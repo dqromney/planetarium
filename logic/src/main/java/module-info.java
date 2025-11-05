@@ -1,5 +1,6 @@
 module logic{
     requires static lombok;
+    requires java.logging;
     // requires static com.mhuss.AstroLib.Astro;
     requires com.fasterxml.jackson.databind;
     //requires AstroLib;

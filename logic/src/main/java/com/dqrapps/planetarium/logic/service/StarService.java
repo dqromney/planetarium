@@ -3,6 +3,7 @@ package com.dqrapps.planetarium.logic.service;
 import com.dqrapps.planetarium.logic.model.Stars;
 import com.dqrapps.planetarium.logic.model.Star;
 import com.dqrapps.planetarium.logic.spatial.QuadTree;
+import com.dqrapps.planetarium.logic.type.StarCatalog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
@@ -10,12 +11,16 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class StarService {
+
+    private static final Logger log = Logger.getLogger(StarService.class.getName());
 
     private final ObjectMapper om;
     private Stars stars;
     private QuadTree spatialIndex;
+    private StarCatalog currentCatalog;
 
     private static StarService instance = null;
     private static final String resourceName = "/data/stars.json";
@@ -23,6 +28,7 @@ public class StarService {
 
     private StarService() {
         om = new ObjectMapper();
+        currentCatalog = StarCatalog.BRIGHT_STARS_166; // Default catalog
     }
 
     @SneakyThrows
@@ -33,6 +39,61 @@ public class StarService {
             instance.buildSpatialIndex();
         }
         return instance;
+    }
+
+    /**
+     * Load a specific star catalog.
+     */
+    public void loadCatalog(StarCatalog catalog) {
+        log.info("Loading catalog: " + catalog.getDisplayName() + " (" + catalog.getStarCount() + " stars)");
+
+        long startTime = System.currentTimeMillis();
+
+        try {
+            // Load the stars first - this can throw an exception
+            Stars loadedStars = loadStars(catalog.getFilename());
+
+            // Only update if successful
+            this.stars = loadedStars;
+            this.currentCatalog = catalog;
+
+            // Build spatial index for fast queries
+            buildSpatialIndex();
+
+            long loadTime = System.currentTimeMillis() - startTime;
+            int actualCount = stars != null && stars.getStarList() != null ? stars.getStarList().size() : 0;
+
+            log.info(String.format("✅ Loaded %s: %,d stars in %d ms (%.1f MB estimated)",
+                catalog.getDisplayName(), actualCount, loadTime, catalog.getEstimatedMemoryMB()));
+
+        } catch (Exception e) {
+            log.warning("Failed to load catalog " + catalog.getDisplayName() + ": " + e.getMessage());
+            e.printStackTrace(); // Print full stack trace for debugging
+
+            // Don't change currentCatalog if we fail - keep the existing one
+            // Only fallback to default if we have no stars at all
+            if (stars == null) {
+                try {
+                    loadCatalog(StarCatalog.BRIGHT_STARS_166);
+                } catch (Exception fallbackException) {
+                    log.severe("Failed to load fallback catalog: " + fallbackException.getMessage());
+                }
+            }
+        }
+    }
+
+    /**
+     * Get current catalog information.
+     */
+    public StarCatalog getCurrentCatalog() {
+        return currentCatalog;
+    }
+
+    /**
+     * Get current star count.
+     */
+    public int getCurrentStarCount() {
+        return stars != null && stars.getStarList() != null ? stars.getStarList().size() : 0;
     }
 
     /**
@@ -104,9 +165,6 @@ public class StarService {
             try (InputStream is = getClass().getResourceAsStream(resourceName)) {
                 if (is != null) {
                     loadedStars = om.readerFor(Stars.class).readValue(is);
-                    // Update instance state (Phase 7)
-                    this.stars = loadedStars;
-                    buildSpatialIndex();
                     return loadedStars;
                 }
             } catch (Exception e) {
@@ -117,15 +175,36 @@ public class StarService {
             fileName = fallbackFilename;
         }
 
+        // Try multiple file locations
+        File catalogFile = new File(fileName);
+
+        // If not found in current directory, try gui subdirectory
+        if (!catalogFile.exists()) {
+            catalogFile = new File("gui/" + fileName);
+            log.info("Trying alternate path: gui/" + fileName);
+        }
+
+        // If still not found, try parent directory
+        if (!catalogFile.exists()) {
+            catalogFile = new File("../" + fileName);
+            log.info("Trying alternate path: ../" + fileName);
+        }
+
+        if (!catalogFile.exists()) {
+            throw new IOException("Catalog file not found: " + fileName +
+                " (searched in current dir, gui/, and ../)");
+        }
+
+        log.info("Loading stars from: " + catalogFile.getAbsolutePath());
+
         // Load from external file
-        loadedStars = om.readerFor(Stars.class).readValue(new File(fileName));
+        loadedStars = om.readerFor(Stars.class).readValue(catalogFile);
 
-        // Update instance state (Phase 7)
-        this.stars = loadedStars;
-        buildSpatialIndex();
-
+        // Don't update instance state here - let the caller do it
+        // This way we can verify success before committing the change
         return loadedStars;
     }
+
 
     public boolean defaultStarsExists() {
         // Check if resource exists

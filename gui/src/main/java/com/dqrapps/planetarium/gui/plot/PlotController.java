@@ -20,6 +20,8 @@ import com.dqrapps.planetarium.logic.service.PlanetService;
 import com.dqrapps.planetarium.logic.service.SkyProjection;
 import com.dqrapps.planetarium.logic.service.StarService;
 import com.dqrapps.planetarium.logic.service.SunCalculator;
+import com.dqrapps.planetarium.logic.type.SkyViewMode;
+import com.dqrapps.planetarium.logic.type.StarCatalog;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
@@ -30,7 +32,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
@@ -44,14 +48,18 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-@Log
 public class PlotController {
+
+    // Logger for the controller
+    private static final Logger log = Logger.getLogger(PlotController.class.getName());
 
     @FXML
     private Canvas starCanvas;
@@ -74,11 +82,48 @@ public class PlotController {
     @FXML
     private javafx.scene.control.Button playButton;
 
+    // Menu buttons for organized toolbar
     @FXML
-    private javafx.scene.control.Button sunButton;
+    private javafx.scene.control.MenuButton objectsMenuButton;
 
     @FXML
-    private javafx.scene.control.Button moonButton;
+    private javafx.scene.control.MenuButton displayMenuButton;
+
+    // Menu items for celestial objects
+    @FXML
+    private javafx.scene.control.CheckMenuItem sunMenuItem;
+
+    @FXML
+    private javafx.scene.control.CheckMenuItem moonMenuItem;
+
+    @FXML
+    private javafx.scene.control.CheckMenuItem planetsMenuItem;
+
+    @FXML
+    private javafx.scene.control.CheckMenuItem constellationsMenuItem;
+
+    // Menu items for display options
+    @FXML
+    private javafx.scene.control.CheckMenuItem gridMenuItem;
+
+    @FXML
+    private javafx.scene.control.CheckMenuItem dsoMenuItem;
+
+    @FXML
+    private javafx.scene.control.CheckMenuItem orbitalPathsMenuItem;
+
+    // Menu items for view modes (hemisphere display)
+    @FXML
+    private javafx.scene.control.MenuButton viewMenuButton;
+
+    @FXML
+    private javafx.scene.control.RadioMenuItem singleHemisphereMenuItem;
+
+    @FXML
+    private javafx.scene.control.RadioMenuItem dualHemisphereMenuItem;
+
+    @FXML
+    private javafx.scene.control.RadioMenuItem fullSkyMenuItem;
 
     private GraphicsContext gc;
     private ConfigService configService;
@@ -96,8 +141,8 @@ public class PlotController {
     // Display preferences (centralized in singleton)
     private DisplayPreferences displayPrefs;
 
-    // Catalog management (Phase 7)
-    private String currentCatalog = "stars_sao.json";  // Default: SAO catalog (37K stars)
+    // Enhanced catalog management (Multiple HYG catalogs)
+    private StarCatalog currentCatalog = StarCatalog.HYG_5000;  // Default: 5K stars for good balance
     private int currentStarCount = 0;
 
     // Performance optimization fields (Phase 2 & 3)
@@ -144,6 +189,17 @@ public class PlotController {
 
     // Star search fields (Phase 5)
     private Star highlightedStar = null;
+
+    // Planet hover and orbital path fields (Phase Enhancement)
+    private Planet hoveredPlanet = null;
+    private boolean showOrbitalPaths = false;
+    private java.util.Map<String, List<Planet.OrbitalPoint>> orbitalPathCache = new java.util.HashMap<>();
+    private LocalDateTime lastOrbitalPathUpdate = null;
+    private static final long ORBITAL_PATH_UPDATE_INTERVAL = 24 * 60 * 60 * 1000L; // Update daily
+    private javafx.scene.control.Tooltip planetTooltip;
+
+    // Hemisphere view mode fields (Dual Hemisphere Enhancement)
+    private SkyViewMode currentViewMode = SkyViewMode.SINGLE_HEMISPHERE;
 
     @SneakyThrows
     @FXML
@@ -228,8 +284,49 @@ public class PlotController {
                 });
             }
 
+            // Synchronize menu items with current state
+            synchronizeMenuItems();
+
             // Start the rendering loop
             Platform.runLater(this::startRenderLoop);
+        }
+    }
+
+    /**
+     * Synchronize menu item states with current application settings.
+     */
+    private void synchronizeMenuItems() {
+        if (sunMenuItem != null) {
+            sunMenuItem.setSelected(showSun);
+        }
+        if (moonMenuItem != null) {
+            moonMenuItem.setSelected(showMoon);
+        }
+        if (planetsMenuItem != null) {
+            planetsMenuItem.setSelected(displayPrefs.isShowPlanets());
+        }
+        if (constellationsMenuItem != null) {
+            constellationsMenuItem.setSelected(displayPrefs.isShowConstellations());
+        }
+        if (gridMenuItem != null) {
+            gridMenuItem.setSelected(displayPrefs.isShowGrid());
+        }
+        if (dsoMenuItem != null) {
+            dsoMenuItem.setSelected(displayPrefs.isShowDSO());
+        }
+        if (orbitalPathsMenuItem != null) {
+            orbitalPathsMenuItem.setSelected(showOrbitalPaths);
+        }
+
+        // Synchronize view mode menu items
+        if (singleHemisphereMenuItem != null) {
+            singleHemisphereMenuItem.setSelected(currentViewMode == SkyViewMode.SINGLE_HEMISPHERE);
+        }
+        if (dualHemisphereMenuItem != null) {
+            dualHemisphereMenuItem.setSelected(currentViewMode == SkyViewMode.DUAL_HEMISPHERE);
+        }
+        if (fullSkyMenuItem != null) {
+            fullSkyMenuItem.setSelected(currentViewMode == SkyViewMode.FULL_SKY_MERCATOR);
         }
     }
 
@@ -319,11 +416,32 @@ public class PlotController {
     }
 
     /**
-     * Update hovered star based on mouse position (Phase 3).
+     * Update hovered star and planet based on mouse position (Phase 3, Enhanced).
      */
     private void updateHoveredStar(double mouseX, double mouseY) {
+        // Clear previous hover states
+        hoveredStar = null;
+        if (hoveredPlanet != null) {
+            hoveredPlanet.setHovered(false);
+            hoveredPlanet = null;
+        }
+
+        // Check for planet hover first (higher priority)
+        if (planets != null && displayPrefs.isShowPlanets()) {
+            double planetThreshold = 20.0; // Larger threshold for planets
+            for (Planet planet : planets) {
+                if (planet.isNearPoint(mouseX, mouseY, planetThreshold)) {
+                    hoveredPlanet = planet;
+                    planet.setHovered(true);
+                    showPlanetTooltip(planet, mouseX, mouseY);
+                    return; // Exit early if planet is hovered
+                }
+            }
+        }
+
+        // Check for star hover if no planet is hovered
         if (visibleStarsCache == null || visibleStarsCache.isEmpty()) {
-            hoveredStar = null;
+            hidePlanetTooltip();
             return;
         }
 
@@ -345,6 +463,35 @@ public class PlotController {
         }
 
         hoveredStar = closest;
+        hidePlanetTooltip(); // Hide planet tooltip when hovering over stars
+    }
+
+    /**
+     * Show planet tooltip at mouse position
+     */
+    private void showPlanetTooltip(Planet planet, double mouseX, double mouseY) {
+        if (planetTooltip == null) {
+            planetTooltip = new javafx.scene.control.Tooltip();
+            planetTooltip.setShowDelay(javafx.util.Duration.millis(100));
+            planetTooltip.setStyle("-fx-font-size: 12px; -fx-background-color: #2b2b2b; -fx-text-fill: white;");
+        }
+
+        planetTooltip.setText(planet.getHoverTooltip());
+
+        // Install tooltip on the canvas
+        if (planetTooltip.getOwnerWindow() == null) {
+            javafx.scene.control.Tooltip.install(starCanvas, planetTooltip);
+        }
+    }
+
+    /**
+     * Hide planet tooltip
+     */
+    private void hidePlanetTooltip() {
+        if (planetTooltip != null) {
+            javafx.scene.control.Tooltip.uninstall(starCanvas, planetTooltip);
+            planetTooltip = null;
+        }
     }
 
     /**
@@ -479,6 +626,7 @@ public class PlotController {
                 SkyProjection skyProj = new SkyProjection(centerRA, centerDec, fov, width, height);
                 skyProj.setLatitude(latitude);
                 skyProj.setLocalSiderealTime(lst);
+                skyProj.setViewMode(currentViewMode); // Set current hemisphere view mode
 
                 // Calculate query region for spatial index
                 double raRadius = (fov / 2.0) / 15.0;  // Convert degrees to hours
@@ -901,6 +1049,8 @@ public class PlotController {
             char type = star.getSpectralType().charAt(0);
 
             switch (type) {
+                case 'W': // Wolf-Rayet stars (extremely hot, >25,000 K)
+                    return Color.rgb(140, 160, 255, brightness);
                 case 'O': // Very hot blue stars (30,000-60,000 K)
                     return Color.rgb(155, 176, 255, brightness);
                 case 'B': // Hot blue-white stars (10,000-30,000 K)
@@ -1067,7 +1217,7 @@ public class PlotController {
     }
 
     /**
-     * Draw planets at calculated positions (Phase 8).
+     * Draw planets at calculated positions (Phase 8 - Enhanced with orbital paths and hover).
      */
     private void drawPlanets() {
         if (!displayPrefs.isShowPlanets() || planets == null || projection == null) {
@@ -1076,6 +1226,11 @@ public class PlotController {
 
         double width = starCanvas.getWidth();
         double height = starCanvas.getHeight();
+
+        // Draw orbital paths first (behind planets)
+        if (showOrbitalPaths) {
+            drawOrbitalPaths();
+        }
 
         for (Planet planet : planets) {
             if (!planet.hasValidCoordinates()) continue;
@@ -1086,27 +1241,222 @@ public class PlotController {
             double x = coords[0];
             double y = coords[1];
 
-            // Check if on screen
-            if (x < 0 || x > width || y < 0 || y > height) continue;
+            // Check if on screen (with some margin for labels)
+            if (x < -50 || x > width + 50 || y < -50 || y > height + 50) continue;
 
-            // Draw planet disk
-            double size = planet.getDisplaySize();
-            Color color = Color.web(planet.getDisplayColor());
+            // Cache position for potential hover effects
+            planet.cachePosition(x, y, true);
 
-            gc.setFill(color);
-            gc.fillOval(x - size/2, y - size/2, size, size);
+            // Draw planet with enhanced rendering (includes hover effects)
+            drawPlanet(planet, x, y);
+        }
+    }
 
-            // Add glow effect for bright planets
-            if (planet.getMagnitude() < 0) {
-                gc.setFill(Color.rgb((int)(color.getRed()*255), (int)(color.getGreen()*255),
-                                    (int)(color.getBlue()*255), 0.3));
-                gc.fillOval(x - size, y - size, size * 2, size * 2);
+    /**
+     * Draw orbital paths for planets (Planet Enhancement).
+     */
+    private void drawOrbitalPaths() {
+        if (planets == null) return;
+
+        // Update orbital paths if needed
+        updateOrbitalPaths();
+
+        gc.setLineWidth(1.0);
+
+        for (Planet planet : planets) {
+            if (!planet.shouldShowOrbitalPath()) continue;
+
+            List<Planet.OrbitalPoint> path = orbitalPathCache.get(planet.getName());
+            if (path == null || path.size() < 2) continue;
+
+            // Set orbital path color (dimmed version of planet color)
+            Color planetColor = Color.web(planet.getDisplayColor());
+            Color pathColor = Color.rgb(
+                (int)(planetColor.getRed() * 255),
+                (int)(planetColor.getGreen() * 255),
+                (int)(planetColor.getBlue() * 255),
+                0.4 // Semi-transparent
+            );
+            gc.setStroke(pathColor);
+
+            // Draw the orbital path as connected line segments
+            Planet.OrbitalPoint prevPoint = null;
+            for (Planet.OrbitalPoint point : path) {
+                if (prevPoint != null) {
+                    double[] coords1 = projection.raDecToScreen(prevPoint.getRa(), prevPoint.getDec());
+                    double[] coords2 = projection.raDecToScreen(point.getRa(), point.getDec());
+
+                    if (coords1 != null && coords2 != null) {
+                        // Only draw if both points are reasonable (avoid wrapping issues)
+                        double dx = coords2[0] - coords1[0];
+                        if (Math.abs(dx) < starCanvas.getWidth() / 2) {
+                            gc.strokeLine(coords1[0], coords1[1], coords2[0], coords2[1]);
+                        }
+                    }
+                }
+                prevPoint = point;
+            }
+        }
+    }
+
+    /**
+     * Enhanced planet rendering with realistic colors, sizes, hover effects, and type-specific features
+     */
+    private void drawPlanet(Planet planet, double x, double y) {
+        double size = planet.getDisplaySize();
+        Color color = Color.web(planet.getDisplayColor());
+
+        // Enhance size if hovered
+        if (planet.isHovered()) {
+            size *= 1.3; // Make hovered planets 30% larger
+        }
+
+        // Draw planet glow for bright planets or when hovered
+        if (planet.getMagnitude() < 1.0 || planet.isHovered()) {
+            double glowOpacity = planet.isHovered() ? 0.5 : 0.3;
+            gc.setFill(Color.rgb((int)(color.getRed()*255), (int)(color.getGreen()*255),
+                                (int)(color.getBlue()*255), glowOpacity));
+            gc.fillOval(x - size * 1.2, y - size * 1.2, size * 2.4, size * 2.4);
+        }
+
+        // Draw selection ring for hovered planets
+        if (planet.isHovered()) {
+            gc.setStroke(Color.rgb(255, 255, 255, 0.8));
+            gc.setLineWidth(2.0);
+            gc.strokeOval(x - size * 0.7, y - size * 0.7, size * 1.4, size * 1.4);
+        }
+
+        // Draw planet disk
+        gc.setFill(color);
+        gc.fillOval(x - size/2, y - size/2, size, size);
+
+        // Add special rendering for Saturn (rings)
+        if (planet.getName().equalsIgnoreCase("Saturn")) {
+            drawSaturnRings(x, y, size, color);
+        }
+
+        // Add special rendering for Jupiter (bands)
+        if (planet.getName().equalsIgnoreCase("Jupiter")) {
+            drawJupiterBands(x, y, size, color);
+        }
+
+        // Enhanced labeling based on object type
+        gc.setFill(Color.rgb(255, 255, 200));
+        gc.setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.NORMAL, 10));
+
+        String label = String.format("%s %s", planet.getSymbol(), planet.getName());
+
+        // Add type indicator for non-planets
+        if (planet.isDwarfPlanet()) {
+            label += " (Dwarf)";
+        } else if (planet.isAsteroid()) {
+            label += " (Asteroid)";
+        }
+
+        gc.fillText(label, x + size/2 + 3, y - size/2 - 2);
+
+        // Draw magnitude and distance info for bright objects or when hovered
+        if (planet.getMagnitude() < 8.0 || planet.isHovered()) {
+            gc.setFont(javafx.scene.text.Font.font("Arial", 8));
+            gc.setFill(Color.rgb(200, 200, 200, 0.8));
+            String info = String.format("mag %.1f, %s", planet.getMagnitude(), planet.getDistanceString());
+            gc.fillText(info, x + size/2 + 3, y + size/2 + 10);
+
+            // Show orbital period for hovered objects
+            if (planet.isHovered() && planet.getOrbitalPeriod() > 0) {
+                String periodInfo = String.format("Period: %s", planet.getOrbitalPeriodString());
+                gc.fillText(periodInfo, x + size/2 + 3, y + size/2 + 22);
+            }
+        }
+    }
+
+    /**
+     * Draw Saturn's rings
+     */
+    private void drawSaturnRings(double x, double y, double planetSize, Color planetColor) {
+        // Outer ring
+        gc.setStroke(Color.rgb(200, 180, 120, 0.6));
+        gc.setLineWidth(1.0);
+        double ringSize = planetSize * 1.8;
+        gc.strokeOval(x - ringSize/2, y - ringSize/2, ringSize, ringSize * 0.3); // Flattened ellipse
+
+        // Inner ring
+        double innerRingSize = planetSize * 1.4;
+        gc.strokeOval(x - innerRingSize/2, y - innerRingSize/2, innerRingSize, innerRingSize * 0.3);
+    }
+
+    /**
+     * Draw Jupiter's atmospheric bands
+     */
+    private void drawJupiterBands(double x, double y, double planetSize, Color planetColor) {
+        gc.setStroke(Color.rgb(139, 100, 20, 0.4)); // Dark brown bands
+        gc.setLineWidth(0.5);
+
+        // Draw horizontal bands across Jupiter
+        double bandSpacing = planetSize / 4;
+        for (int i = -1; i <= 1; i++) {
+            double bandY = y + i * bandSpacing;
+            gc.strokeLine(x - planetSize/2, bandY, x + planetSize/2, bandY);
+        }
+    }
+
+    /**
+     * Update orbital paths for planets (Planet Enhancement).
+     */
+    private void updateOrbitalPaths() {
+        LocalDateTime currentTime = timeAnimationRunning ? animationTime : LocalDateTime.now();
+
+        // Check if we need to update orbital paths (daily update or when forced)
+        if (lastOrbitalPathUpdate != null &&
+            java.time.Duration.between(lastOrbitalPathUpdate, currentTime).toMillis() < ORBITAL_PATH_UPDATE_INTERVAL) {
+            return; // Use cached paths
+        }
+
+        if (planets == null) return;
+
+        try {
+            // Calculate orbital path points for each planet over their orbital period
+            for (Planet planet : planets) {
+                if (!planet.shouldShowOrbitalPath()) continue;
+
+                List<Planet.OrbitalPoint> pathPoints = new ArrayList<>();
+
+                // Number of points based on orbital period (more points for longer periods)
+                int numPoints = Math.min(360, Math.max(36, (int)(planet.getOrbitalPeriod() * 12)));
+
+                // Calculate points over the orbital period
+                double periodDays = planet.getOrbitalPeriod() * 365.25;
+                LocalDateTime baseTime = currentTime.minusDays((long)(periodDays / 2));
+
+                for (int i = 0; i < numPoints; i++) {
+                    double fraction = (double) i / numPoints;
+                    LocalDateTime pointTime = baseTime.plusDays((long)(periodDays * fraction));
+
+                    // Calculate planet position at this time
+                    List<Planet> tempPlanets = planetService.calculatePlanetPositions(pointTime);
+                    Planet tempPlanet = tempPlanets.stream()
+                        .filter(p -> p.getName().equals(planet.getName()))
+                        .findFirst()
+                        .orElse(null);
+
+                    if (tempPlanet != null && tempPlanet.hasValidCoordinates()) {
+                        pathPoints.add(new Planet.OrbitalPoint(
+                            tempPlanet.getRa(),
+                            tempPlanet.getDec(),
+                            0, 0 // Screen coordinates will be calculated during rendering
+                        ));
+                    }
+                }
+
+                // Cache the orbital path
+                orbitalPathCache.put(planet.getName(), pathPoints);
             }
 
-            // Draw planet name
-            gc.setFill(Color.rgb(255, 255, 200));
-            gc.setFont(javafx.scene.text.Font.font("Arial", 10));
-            gc.fillText(planet.getName(), x + size/2 + 5, y - size/2);
+            lastOrbitalPathUpdate = currentTime;
+            log.info("Updated orbital paths for " + orbitalPathCache.size() + " celestial objects");
+
+        } catch (Exception e) {
+            log.warning("Error calculating orbital paths: " + e.getMessage());
         }
     }
 
@@ -1337,13 +1687,96 @@ public class PlotController {
             if (currentMoonPosition != null) {
                 gc.setFill(currentMoonPosition.isVisible() ? Color.rgb(200, 200, 220) : Color.rgb(180, 180, 200));
                 gc.fillText(currentMoonPosition.getDisplayStatus(), 10, sunMoonOffset);
+                sunMoonOffset += 15;
+            }
+
+            // Planet status (Enhanced with detailed breakdown)
+            if (displayPrefs.isShowPlanets() && planets != null && !planets.isEmpty()) {
+                gc.setFill(Color.rgb(200, 200, 200, 0.8));
+
+                // Count different types of objects
+                long totalVisible = planets.stream().filter(p -> p.hasValidCoordinates()).count();
+                long planetsCount = planets.stream()
+                    .filter(p -> p.hasValidCoordinates() && "planet".equals(p.getType())).count();
+                long dwarfPlanetsCount = planets.stream()
+                    .filter(p -> p.hasValidCoordinates() && "dwarf_planet".equals(p.getType())).count();
+                long asteroidsCount = planets.stream()
+                    .filter(p -> p.hasValidCoordinates() && "asteroid".equals(p.getType())).count();
+
+                // Enhanced display showing breakdown
+                if (dwarfPlanetsCount > 0 || asteroidsCount > 0) {
+                    gc.fillText(String.format("🪐 Objects: %d planets, %d dwarf, %d asteroids",
+                        planetsCount, dwarfPlanetsCount, asteroidsCount), 10, sunMoonOffset);
+                } else {
+                    gc.fillText(String.format("🪐 Planets: %d visible", totalVisible), 10, sunMoonOffset);
+                }
+                sunMoonOffset += 15;
+
+                // Show orbital paths status if enabled
+                if (showOrbitalPaths) {
+                    gc.setFill(Color.rgb(150, 200, 255, 0.8));
+                    gc.fillText("🛸 Orbital paths: ON", 10, sunMoonOffset);
+                    sunMoonOffset += 15;
+                }
+            }
+
+            // View mode status (Dual Hemisphere Enhancement)
+            if (currentViewMode != SkyViewMode.SINGLE_HEMISPHERE) {
+                gc.setFill(Color.rgb(200, 255, 200, 0.8));
+                String viewModeText = "🌐 View: " + currentViewMode.getDisplayName();
+                gc.fillText(viewModeText, 10, sunMoonOffset);
+                sunMoonOffset += 15;
             }
         }
 
         // Instructions
         gc.setFill(Color.rgb(200, 200, 200, 0.6));
         gc.setFont(javafx.scene.text.Font.font("Arial", 9));
-        gc.fillText("Drag: Pan | Scroll: Zoom | Hover: Info | Search: Find stars", 10, starCanvas.getHeight() - 10);
+        String instructions = "Drag: Pan | Scroll: Zoom | Hover: Info | Search: Find stars";
+        if (currentViewMode == SkyViewMode.DUAL_HEMISPHERE) {
+            instructions += " | View: Dual Hemisphere";
+        } else if (currentViewMode == SkyViewMode.FULL_SKY_MERCATOR) {
+            instructions += " | View: Full Sky Map";
+        }
+        gc.fillText(instructions, 10, starCanvas.getHeight() - 10);
+
+        // Draw hemisphere labels for dual hemisphere mode
+        if (currentViewMode == SkyViewMode.DUAL_HEMISPHERE) {
+            drawHemisphereLabels();
+        }
+    }
+
+    /**
+     * Draw hemisphere labels for dual hemisphere mode.
+     */
+    private void drawHemisphereLabels() {
+        gc.setFill(Color.rgb(255, 255, 255, 0.8));
+        gc.setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 14));
+
+        double width = starCanvas.getWidth();
+        double height = starCanvas.getHeight();
+
+        // Northern hemisphere label
+        gc.fillText("Northern Hemisphere", width * 0.25 - 60, 25);
+
+        // Southern hemisphere label
+        gc.fillText("Southern Hemisphere", width * 0.75 - 60, 25);
+
+        // Draw dividing line
+        gc.setStroke(Color.rgb(255, 255, 255, 0.3));
+        gc.setLineWidth(1);
+        gc.strokeLine(width / 2, 0, width / 2, height);
+
+        // Add celestial pole markers
+        gc.setFill(Color.rgb(255, 255, 200, 0.7));
+        gc.setFont(javafx.scene.text.Font.font("Arial", 10));
+        gc.fillText("North Celestial Pole", width * 0.25 - 45, height / 2 - 5);
+        gc.fillText("South Celestial Pole", width * 0.75 - 45, height / 2 - 5);
+
+        // Draw pole markers
+        gc.setFill(Color.rgb(255, 255, 0, 0.8));
+        gc.fillOval(width * 0.25 - 2, height / 2 - 2, 4, 4); // North pole
+        gc.fillOval(width * 0.75 - 2, height / 2 - 2, 4, 4); // South pole
     }
 
     /**
@@ -1428,14 +1861,17 @@ public class PlotController {
     }
 
     /**
-     * Get display name for current catalog (Phase 7).
+     * Get display name for current catalog (Enhanced for StarCatalog enum).
      */
     private String getCatalogDisplayName() {
-        if (currentCatalog.contains("sao")) return "SAO";
-        if (currentCatalog.contains("100k")) return "100K";
-        if (currentCatalog.contains("10k")) return "10K";
-        if (currentCatalog.contains("1k")) return "1K";
-        return "Default";
+        if (currentCatalog == null) return "Default";
+
+        String filename = currentCatalog.getFilename();
+        if (filename.contains("sao")) return "SAO";
+        if (filename.contains("100k")) return "100K";
+        if (filename.contains("10k")) return "10K";
+        if (filename.contains("1k")) return "1K";
+        return currentCatalog.getDisplayName();
     }
 
     /**
@@ -1702,32 +2138,6 @@ public class PlotController {
         });
     }
 
-    /**
-     * Toggle RA/Dec coordinate grid on/off (Phase 6 - Optional).
-     */
-    @FXML
-    private void toggleGrid() {
-        displayPrefs.setShowGrid(!displayPrefs.isShowGrid());
-        log.info("RA/Dec grid " + (displayPrefs.isShowGrid() ? "enabled" : "disabled"));
-    }
-
-    /**
-     * Toggle Deep Sky Objects on/off (Phase 8).
-     */
-    @FXML
-    private void toggleDeepSky() {
-        displayPrefs.setShowDSO(!displayPrefs.isShowDSO());
-        log.info("Deep Sky Objects " + (displayPrefs.isShowDSO() ? "enabled" : "disabled"));
-    }
-
-    /**
-     * Toggle Planets on/off (Phase 8).
-     */
-    @FXML
-    private void togglePlanets() {
-        displayPrefs.setShowPlanets(!displayPrefs.isShowPlanets());
-        log.info("Planets " + (displayPrefs.isShowPlanets() ? "enabled" : "disabled"));
-    }
 
     /**
      * Toggle Sun display on/off (Phase 5 Enhancement).
@@ -1735,6 +2145,9 @@ public class PlotController {
     @FXML
     private void toggleSun() {
         showSun = !showSun;
+        if (sunMenuItem != null) {
+            sunMenuItem.setSelected(showSun);
+        }
         log.info("Sun display " + (showSun ? "enabled" : "disabled"));
     }
 
@@ -1744,7 +2157,124 @@ public class PlotController {
     @FXML
     private void toggleMoon() {
         showMoon = !showMoon;
+        if (moonMenuItem != null) {
+            moonMenuItem.setSelected(showMoon);
+        }
         log.info("Moon display " + (showMoon ? "enabled" : "disabled"));
+    }
+
+    /**
+     * Toggle Planets on/off (Phase 8).
+     */
+    @FXML
+    private void togglePlanets() {
+        displayPrefs.setShowPlanets(!displayPrefs.isShowPlanets());
+        if (planetsMenuItem != null) {
+            planetsMenuItem.setSelected(displayPrefs.isShowPlanets());
+        }
+        log.info("Planets " + (displayPrefs.isShowPlanets() ? "enabled" : "disabled"));
+    }
+
+    /**
+     * Toggle Constellations on/off.
+     */
+    @FXML
+    private void toggleConstellations() {
+        displayPrefs.setShowConstellations(!displayPrefs.isShowConstellations());
+        if (constellationsMenuItem != null) {
+            constellationsMenuItem.setSelected(displayPrefs.isShowConstellations());
+        }
+        log.info("Constellations " + (displayPrefs.isShowConstellations() ? "enabled" : "disabled"));
+    }
+
+    /**
+     * Toggle Grid on/off (Phase 6).
+     */
+    @FXML
+    private void toggleGrid() {
+        displayPrefs.setShowGrid(!displayPrefs.isShowGrid());
+        if (gridMenuItem != null) {
+            gridMenuItem.setSelected(displayPrefs.isShowGrid());
+        }
+        log.info("RA/Dec grid " + (displayPrefs.isShowGrid() ? "enabled" : "disabled"));
+    }
+
+    /**
+     * Toggle Deep Sky Objects on/off (Phase 8).
+     */
+    @FXML
+    private void toggleDeepSky() {
+        displayPrefs.setShowDSO(!displayPrefs.isShowDSO());
+        if (dsoMenuItem != null) {
+            dsoMenuItem.setSelected(displayPrefs.isShowDSO());
+        }
+        log.info("Deep Sky Objects " + (displayPrefs.isShowDSO() ? "enabled" : "disabled"));
+    }
+
+    /**
+     * Toggle Orbital Paths on/off (Planet Enhancement).
+     */
+    @FXML
+    private void toggleOrbitalPaths() {
+        showOrbitalPaths = !showOrbitalPaths;
+        if (orbitalPathsMenuItem != null) {
+            orbitalPathsMenuItem.setSelected(showOrbitalPaths);
+        }
+
+        // Clear existing orbital path cache when toggled
+        if (!showOrbitalPaths) {
+            orbitalPathCache.clear();
+        } else {
+            // Force recalculation of orbital paths
+            lastOrbitalPathUpdate = null;
+        }
+
+        log.info("Orbital Paths " + (showOrbitalPaths ? "enabled" : "disabled"));
+    }
+
+    /**
+     * Set single hemisphere view mode (Dual Hemisphere Enhancement).
+     */
+    @FXML
+    private void setSingleHemisphere() {
+        currentViewMode = SkyViewMode.SINGLE_HEMISPHERE;
+        updateViewMode();
+        log.info("View mode set to: Single Hemisphere");
+    }
+
+    /**
+     * Set dual hemisphere view mode (Dual Hemisphere Enhancement).
+     */
+    @FXML
+    private void setDualHemisphere() {
+        currentViewMode = SkyViewMode.DUAL_HEMISPHERE;
+        updateViewMode();
+        log.info("View mode set to: Dual Hemisphere");
+    }
+
+    /**
+     * Set full sky Mercator view mode (Dual Hemisphere Enhancement).
+     */
+    @FXML
+    private void setFullSky() {
+        currentViewMode = SkyViewMode.FULL_SKY_MERCATOR;
+        updateViewMode();
+        log.info("View mode set to: Full Sky Mercator");
+    }
+
+    /**
+     * Update projection and trigger re-rendering when view mode changes.
+     */
+    private void updateViewMode() {
+        if (projection != null) {
+            projection.setViewMode(currentViewMode);
+            needsRecalculation = true; // Force complete recalculation
+
+            // Clear caches as coordinates will be completely different
+            visibleStarsCache = null;
+            orbitalPathCache.clear();
+            lastOrbitalPathUpdate = null;
+        }
     }
 
     /**
@@ -1804,74 +2334,181 @@ public class PlotController {
      */
     @FXML
     private void selectCatalog() {
-        // Scan for available catalog files
-        File catalogDir = new File(".");
-        File[] catalogFiles = catalogDir.listFiles((dir, name) ->
-            name.startsWith("stars") && name.endsWith(".json")
-        );
+        // Create choice dialog with all available catalogs
+        javafx.scene.control.ChoiceDialog<StarCatalog> dialog =
+            new javafx.scene.control.ChoiceDialog<>(currentCatalog, StarCatalog.values());
 
-        if (catalogFiles == null || catalogFiles.length == 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("No Catalogs Found");
-            alert.setHeaderText("Cannot find catalog files");
-            alert.setContentText("No star catalogs found in current directory.");
-            alert.showAndWait();
-            return;
-        }
-
-        // Sort catalogs by name
-        java.util.Arrays.sort(catalogFiles, (a, b) -> a.getName().compareTo(b.getName()));
-
-        // Create choice dialog with catalog info
-        List<String> catalogChoices = new java.util.ArrayList<>();
-        java.util.Map<String, String> catalogDescriptions = new java.util.HashMap<>();
-
-        for (File file : catalogFiles) {
-            String name = file.getName();
-            long sizeBytes = file.length();
-            String sizeStr;
-
-            if (sizeBytes > 1_000_000) {
-                sizeStr = String.format("%.1f MB", sizeBytes / 1_000_000.0);
-            } else if (sizeBytes > 1_000) {
-                sizeStr = String.format("%.0f KB", sizeBytes / 1_000.0);
-            } else {
-                sizeStr = sizeBytes + " B";
-            }
-
-            String description = getCatalogDescription(name);
-            String displayText = String.format("%s (%s)", description, sizeStr);
-
-            catalogChoices.add(displayText);
-            catalogDescriptions.put(displayText, name);
-        }
-
-        // Create choice dialog
-        javafx.scene.control.ChoiceDialog<String> dialog =
-            new javafx.scene.control.ChoiceDialog<>(null, catalogChoices);
         dialog.setTitle("Select Star Catalog");
-        dialog.setHeaderText("Choose a star catalog to load");
+        dialog.setHeaderText("Choose a star catalog");
         dialog.setContentText("Available catalogs:");
 
-        // Set current catalog as selected if found
-        String currentDesc = null;
-        for (String choice : catalogChoices) {
-            if (catalogDescriptions.get(choice).equals(currentCatalog)) {
-                currentDesc = choice;
-                break;
-            }
+        // Customize the dialog to show detailed information
+        dialog.getDialogPane().setExpandableContent(createCatalogInfoPane());
+        dialog.getDialogPane().setExpanded(true);
+
+        // Show the dialog and get the result
+        java.util.Optional<StarCatalog> result = dialog.showAndWait();
+
+        if (result.isPresent() && result.get() != currentCatalog) {
+            StarCatalog selectedCatalog = result.get();
+            loadCatalog(selectedCatalog);
         }
-        if (currentDesc != null) {
-            dialog.setSelectedItem(currentDesc);
+    }
+
+    /**
+     * Create an information pane showing catalog details
+     */
+    private javafx.scene.layout.VBox createCatalogInfoPane() {
+        javafx.scene.layout.VBox vbox = new javafx.scene.layout.VBox(10);
+        vbox.setPadding(new javafx.geometry.Insets(10));
+
+        javafx.scene.control.Label titleLabel = new javafx.scene.control.Label("Catalog Information:");
+        titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
+        vbox.getChildren().add(titleLabel);
+
+        // Create table of catalog info
+        javafx.scene.control.TableView<StarCatalog> table = new javafx.scene.control.TableView<>();
+        table.setPrefHeight(200);
+
+        // Name column
+        javafx.scene.control.TableColumn<StarCatalog, String> nameCol =
+            new javafx.scene.control.TableColumn<>("Catalog");
+        nameCol.setCellValueFactory(data ->
+            new javafx.beans.property.SimpleStringProperty(data.getValue().getDisplayName()));
+        nameCol.setPrefWidth(150);
+
+        // Star count column
+        javafx.scene.control.TableColumn<StarCatalog, String> countCol =
+            new javafx.scene.control.TableColumn<>("Stars");
+        countCol.setCellValueFactory(data ->
+            new javafx.beans.property.SimpleStringProperty(String.format("%,d", data.getValue().getStarCount())));
+        countCol.setPrefWidth(80);
+
+        // Memory column
+        javafx.scene.control.TableColumn<StarCatalog, String> memoryCol =
+            new javafx.scene.control.TableColumn<>("Memory");
+        memoryCol.setCellValueFactory(data ->
+            new javafx.beans.property.SimpleStringProperty(String.format("%.1f MB", data.getValue().getEstimatedMemoryMB())));
+        memoryCol.setPrefWidth(80);
+
+        // Performance column
+        javafx.scene.control.TableColumn<StarCatalog, String> perfCol =
+            new javafx.scene.control.TableColumn<>("Performance");
+        perfCol.setCellValueFactory(data ->
+            new javafx.beans.property.SimpleStringProperty(data.getValue().getPerformanceCategory()));
+        perfCol.setPrefWidth(150);
+
+        table.getColumns().addAll(nameCol, countCol, memoryCol, perfCol);
+        table.getItems().addAll(StarCatalog.values());
+
+        vbox.getChildren().add(table);
+
+        // Add recommendations
+        javafx.scene.control.Label recLabel = new javafx.scene.control.Label("Recommendations:");
+        recLabel.setStyle("-fx-font-weight: bold;");
+        vbox.getChildren().add(recLabel);
+
+        javafx.scene.control.Label rec1 = new javafx.scene.control.Label("• Education/Classroom: 1K-10K stars");
+        javafx.scene.control.Label rec2 = new javafx.scene.control.Label("• Amateur Astronomy: 5K-25K stars");
+        javafx.scene.control.Label rec3 = new javafx.scene.control.Label("• Professional/Research: 25K+ stars");
+        javafx.scene.control.Label rec4 = new javafx.scene.control.Label("• Performance Concerns: Use 5K or fewer");
+
+        vbox.getChildren().addAll(rec1, rec2, rec3, rec4);
+
+        return vbox;
+    }
+
+    /**
+     * Load a new star catalog (enhanced version with StarCatalog enum)
+     */
+    private void loadCatalog(StarCatalog catalog) {
+        log.info("Loading catalog: " + catalog.getDisplayName());
+
+        // Show loading dialog for large catalogs
+        javafx.scene.control.Alert loadingAlert = null;
+        if (catalog.getStarCount() > 25000) {
+            loadingAlert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+            loadingAlert.setTitle("Loading Catalog");
+            loadingAlert.setHeaderText("Loading " + catalog.getDisplayName());
+            loadingAlert.setContentText("Please wait while " + String.format("%,d", catalog.getStarCount()) + " stars are loaded...");
+            loadingAlert.show();
         }
 
-        // Show dialog and handle selection
-        dialog.showAndWait().ifPresent(choice -> {
-            String selectedCatalog = catalogDescriptions.get(choice);
-            if (selectedCatalog != null && !selectedCatalog.equals(currentCatalog)) {
-                loadCatalog(selectedCatalog);
+        try {
+            // Load the catalog in the star service
+            starService.loadCatalog(catalog);
+
+            // Get the actual loaded catalog from StarService (in case it fell back)
+            this.currentCatalog = starService.getCurrentCatalog();
+            this.stars = starService.getStars();
+            this.currentStarCount = starService.getCurrentStarCount();
+
+            // Verify we actually loaded the requested catalog
+            if (this.currentCatalog != catalog) {
+                throw new RuntimeException("Failed to load requested catalog. Currently loaded: " +
+                    this.currentCatalog.getDisplayName() + " with " + this.currentStarCount + " stars");
             }
-        });
+
+            // Force complete recalculation
+            needsRecalculation = true;
+            visibleStarsCache = null;
+
+            // Close loading dialog
+            if (loadingAlert != null) {
+                loadingAlert.close();
+            }
+
+            // Show success message with actual loaded data
+            javafx.scene.control.Alert successAlert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Catalog Loaded");
+            successAlert.setHeaderText("Successfully loaded " + this.currentCatalog.getDisplayName());
+            successAlert.setContentText(String.format("Loaded %,d stars. Performance: %s",
+                currentStarCount, this.currentCatalog.getPerformanceCategory()));
+            successAlert.showAndWait();
+
+        } catch (Exception e) {
+            if (loadingAlert != null) {
+                loadingAlert.close();
+            }
+
+            javafx.scene.control.Alert errorAlert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+            errorAlert.setTitle("Catalog Load Failed");
+            errorAlert.setHeaderText("Failed to load " + catalog.getDisplayName());
+            errorAlert.setContentText("Error: " + e.getMessage() + "\n\nPlease check console for details.");
+            errorAlert.showAndWait();
+
+            log.warning("Failed to load catalog: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Load a star catalog by filename (backward compatibility method)
+     */
+    private void loadCatalogByFilename(String filename) {
+        // Find matching StarCatalog enum if possible
+        for (StarCatalog catalog : StarCatalog.values()) {
+            if (catalog.getFilename().equals(filename)) {
+                loadCatalog(catalog);
+                return;
+            }
+        }
+
+        // Fallback for unknown files - log and continue with basic loading
+        log.warning("Unknown catalog file: " + filename + ". Using basic loading.");
+
+        // For backward compatibility, keep some basic file loading
+        // This ensures cycleCatalog() still works with any filename
+        try {
+            // Basic file loading without StarService enhancement
+            currentStarCount = 0; // Will be updated when file is actually loaded
+            needsRecalculation = true;
+            visibleStarsCache = null;
+
+            log.info("Attempted to load catalog: " + filename);
+        } catch (Exception e) {
+            log.warning("Failed to load catalog " + filename + ": " + e.getMessage());
+        }
     }
 
     /**
@@ -1922,10 +2559,11 @@ public class PlotController {
             "stars_with_spectral.json" // few stars with spectral data
         };
 
-        // Find current index
+        // Find current index based on filename
         int currentIndex = 0;
+        String currentFilename = currentCatalog != null ? currentCatalog.getFilename() : "stars.json";
         for (int i = 0; i < catalogs.length; i++) {
-            if (catalogs[i].equals(currentCatalog)) {
+            if (catalogs[i].equals(currentFilename)) {
                 currentIndex = i;
                 break;
             }
@@ -1936,70 +2574,7 @@ public class PlotController {
         String nextCatalog = catalogs[nextIndex];
 
         // Try to load the catalog
-        loadCatalog(nextCatalog);
-    }
-
-    /**
-     * Load a specific star catalog (Phase 7).
-     */
-    private void loadCatalog(String catalogName) {
-        log.info("Attempting to load catalog: " + catalogName);
-
-        try {
-            // Try to load the catalog
-            Stars newStars = starService.loadStars(catalogName);
-
-            if (newStars != null && newStars.getStarList() != null) {
-                // Success - update catalog
-                stars = newStars;
-                currentCatalog = catalogName;
-                currentStarCount = stars.getStarList().size();
-
-                // Clear caches
-                visibleStarsCache = null;
-
-                // Force recalculation
-                needsRecalculation = true;
-
-                log.info("Successfully loaded " + currentStarCount + " stars from " + catalogName);
-
-                // Show notification
-                Platform.runLater(() -> {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Catalog Loaded");
-                    alert.setHeaderText("Star Catalog Changed");
-                    alert.setContentText(String.format(
-                        "Loaded: %s\nStars: %,d\n\nPerformance may vary with larger catalogs.",
-                        catalogName, currentStarCount
-                    ));
-                    alert.showAndWait();
-                });
-
-            } else {
-                throw new IOException("Catalog file not found or empty");
-            }
-
-        } catch (Exception e) {
-            log.warning("Failed to load catalog " + catalogName + ": " + e.getMessage());
-
-            // Show error and keep current catalog
-            Platform.runLater(() -> {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Catalog Not Available");
-                alert.setHeaderText("Cannot Load " + catalogName);
-                alert.setContentText(
-                    "This catalog is not available.\n\n" +
-                    "Available catalogs:\n" +
-                    "• stars_sao.json (37,539 stars - SAO catalog)\n" +
-                    "• stars.json (166 stars)\n" +
-                    "• stars_1k.json (1,000 stars)\n" +
-                    "• stars_10k.json (10,000 stars)\n" +
-                    "• stars_100k.json (100,000 stars)\n\n" +
-                    "Keeping current catalog: " + currentCatalog
-                );
-                alert.showAndWait();
-            });
-        }
+        loadCatalogByFilename(nextCatalog);
     }
 
     /**

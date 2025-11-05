@@ -17,12 +17,16 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.util.logging.Logger;
 
 import static java.time.temporal.ChronoField.HOUR_OF_DAY;
 import static java.time.temporal.ChronoField.MINUTE_OF_HOUR;
 
 @Log
 public class ConfigController {
+
+    // Explicit logger as backup for @Log annotation
+    private static final Logger log = Logger.getLogger(ConfigController.class.getName());
 
     //private static final Logger logger = LoggerFactory.getLogger(ConfigController.class);
 

@@ -3,7 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
@@ -13,44 +18,87 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="rootPane" prefHeight="648.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dqrapps.planetarium.gui.plot.PlotController">
-   <children>
-      <Pane fx:id="canvasPane" layoutY="-2.0" prefHeight="600.0" prefWidth="882.0" style="-fx-background-color: rgb(0, 0, 35);" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Canvas fx:id="starCanvas" height="600.0" width="882.0" />
-         </children>
-      </Pane>
-      <ToolBar id="plotToolbar" layoutY="600.0" prefHeight="48.0" prefWidth="882.0" style="-fx-background-color: midnightblue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <items>
-          <Button id="configBtnId" fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToConfig" text="Config" />
-          <Button id="exportBtnId" fx:id="exportButton" mnemonicParsing="false" onAction="#exportScreenshot" prefHeight="26.0" prefWidth="70.0" text="Export" />
-          <Button id="gridBtnId" fx:id="gridButton" mnemonicParsing="false" onAction="#toggleGrid" prefHeight="26.0" prefWidth="50.0" text="Grid" />
-          <Button id="dsoBtn" fx:id="dsoButton" mnemonicParsing="false" onAction="#toggleDeepSky" prefHeight="26.0" prefWidth="60.0" text="DSO" />
-          <Button id="planetsBtn" fx:id="planetsButton" mnemonicParsing="false" onAction="#togglePlanets" prefHeight="26.0" prefWidth="70.0" text="Planets" />
-          <Button id="sunBtn" fx:id="sunButton" mnemonicParsing="false" onAction="#toggleSun" prefHeight="26.0" prefWidth="50.0" text="☀ Sun" />
-          <Button id="moonBtn" fx:id="moonButton" mnemonicParsing="false" onAction="#toggleMoon" prefHeight="26.0" prefWidth="60.0" text="🌙 Moon" />
-          <Button id="catalogSelectBtnId" fx:id="catalogSelectButton" mnemonicParsing="false" onAction="#selectCatalog" prefHeight="26.0" prefWidth="80.0" text="Catalog..." />
-          <Region HBox.hgrow="ALWAYS" />
-          <HBox spacing="5.0" alignment="CENTER_LEFT">
-            <TextField fx:id="searchField" promptText="Search star..." prefWidth="150.0" onAction="#searchStar" />
-            <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchStar" prefHeight="26.0" prefWidth="60.0" text="Find" />
-            <Button fx:id="clearSearchButton" mnemonicParsing="false" onAction="#clearSearch" prefHeight="26.0" prefWidth="50.0" text="Clear" />
+<AnchorPane fx:id="rootPane" prefHeight="648.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dqrapps.planetarium.gui.plot.PlotController">
+  <children>
+    <Pane fx:id="canvasPane" layoutY="-2.0" prefHeight="600.0" prefWidth="882.0" style="-fx-background-color: rgb(0, 0, 35);" AnchorPane.bottomAnchor="48.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Canvas fx:id="starCanvas" height="600.0" width="882.0"/>
+      </children>
+    </Pane>
+    <ToolBar id="plotToolbar" layoutY="600.0" prefHeight="48.0" prefWidth="882.0" style="-fx-background-color: midnightblue;" AnchorPane.bottomAnchor="0.0"
+             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <!-- Core Controls -->
+        <Button id="configBtnId" fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToConfig"
+                text="Config"/>
+        <Button id="catalogSelectBtnId" fx:id="catalogSelectButton" mnemonicParsing="false" onAction="#selectCatalog" prefHeight="26.0" prefWidth="80.0"
+                text="Catalog..."/>
+
+        <!-- Objects Menu (Consolidated celestial objects) -->
+        <MenuButton fx:id="objectsMenuButton" text="Objects" prefHeight="26.0" prefWidth="80.0">
+          <items>
+            <CheckMenuItem fx:id="sunMenuItem" text="☀ Sun" selected="true" onAction="#toggleSun"/>
+            <CheckMenuItem fx:id="moonMenuItem" text="🌙 Moon" selected="true" onAction="#toggleMoon"/>
+            <CheckMenuItem fx:id="planetsMenuItem" text="🪐 Planets" selected="true" onAction="#togglePlanets"/>
+            <SeparatorMenuItem/>
+            <CheckMenuItem fx:id="constellationsMenuItem" text="⭐ Constellations" selected="false" onAction="#toggleConstellations"/>
+          </items>
+        </MenuButton>
+
+        <!-- View Menu (Hemisphere modes) -->
+        <MenuButton fx:id="viewMenuButton" text="View" prefHeight="26.0" prefWidth="60.0">
+          <items>
+            <RadioMenuItem fx:id="singleHemisphereMenuItem" text="🌐 Single View" selected="true" onAction="#setSingleHemisphere" toggleGroup="$viewModeGroup"/>
+            <RadioMenuItem fx:id="dualHemisphereMenuItem" text="🌍🌏 Dual View" selected="false" onAction="#setDualHemisphere" toggleGroup="$viewModeGroup"/>
+            <RadioMenuItem fx:id="fullSkyMenuItem" text="🗺️ Full Sky" selected="false" onAction="#setFullSky" toggleGroup="$viewModeGroup"/>
+          </items>
+        </MenuButton>
+
+        <!-- Display Menu (Display options) -->
+        <MenuButton fx:id="displayMenuButton" text="Display" prefHeight="26.0" prefWidth="70.0">
+          <items>
+            <CheckMenuItem fx:id="gridMenuItem" text="📐 Grid" selected="false" onAction="#toggleGrid"/>
+            <CheckMenuItem fx:id="dsoMenuItem" text="🌌 DSO" selected="false" onAction="#toggleDeepSky"/>
+            <CheckMenuItem fx:id="orbitalPathsMenuItem" text="🛸 Orbits" selected="false" onAction="#toggleOrbitalPaths"/>
+            <SeparatorMenuItem/>
+            <MenuItem fx:id="exportMenuItem" text="📸 Export..." onAction="#exportScreenshot"/>
+          </items>
+        </MenuButton>
+
+        <!-- Flexible spacer -->
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Search Controls (Compact) -->
+        <HBox spacing="5.0" alignment="CENTER_LEFT" prefWidth="220.0">
+          <TextField fx:id="searchField" promptText="Search star..." prefWidth="120.0" onAction="#searchStar"/>
+          <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchStar" prefHeight="26.0" prefWidth="50.0" text="Find"/>
+          <Button fx:id="clearSearchButton" mnemonicParsing="false" onAction="#clearSearch" prefHeight="26.0" prefWidth="45.0" text="Clear"/>
+        </HBox>
+
+        <!-- Another flexible spacer -->
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Time Controls (Compact) -->
+        <VBox spacing="2.0" alignment="CENTER" prefWidth="120.0">
+          <HBox spacing="5.0" alignment="CENTER">
+            <Label fx:id="speedLabel" text="Speed: 60x" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
           </HBox>
-          <Region HBox.hgrow="ALWAYS" />
-          <VBox spacing="2.0" alignment="CENTER" prefWidth="150.0">
-            <HBox spacing="5.0" alignment="CENTER">
-              <Label fx:id="speedLabel" text="Speed: 60x" style="-fx-text-fill: white;" />
-            </HBox>
-            <Slider fx:id="speedSlider" min="1" max="1440" value="60" prefWidth="140.0"
-                    blockIncrement="10" majorTickUnit="100" minorTickCount="10" snapToTicks="false" />
-          </VBox>
-          <HBox spacing="5.0" alignment="CENTER_RIGHT">
-            <Button fx:id="setTimeButton" mnemonicParsing="false" onAction="#showDateTimePicker" prefHeight="26.0" prefWidth="80.0" text="Set Time..." />
-            <Button fx:id="playButton" mnemonicParsing="false" onAction="#toggleTimeAnimation" prefHeight="26.0" prefWidth="60.0" text="Play" />
-            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetTime" prefHeight="26.0" prefWidth="60.0" text="Reset" />
-          </HBox>
-          <Button id="exitBtnId" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="50.0" text="Exit" />
-        </items>
-      </ToolBar>
-   </children>
+          <Slider fx:id="speedSlider" min="1" max="1440" value="60" prefWidth="110.0"
+                  blockIncrement="10" majorTickUnit="100" minorTickCount="10" snapToTicks="false"/>
+        </VBox>
+
+        <!-- Animation Controls -->
+        <HBox spacing="3.0" alignment="CENTER_RIGHT" prefWidth="180.0">
+          <Button fx:id="setTimeButton" mnemonicParsing="false" onAction="#showDateTimePicker" prefHeight="26.0" prefWidth="70.0" text="Time..."/>
+          <Button fx:id="playButton" mnemonicParsing="false" onAction="#toggleTimeAnimation" prefHeight="26.0" prefWidth="50.0" text="Play"/>
+          <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetTime" prefHeight="26.0" prefWidth="50.0" text="Reset"/>
+        </HBox>
+
+        <!-- Exit Button -->
+        <Button id="exitBtnId" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="50.0" text="Exit"/>
+      </items>
+    </ToolBar>
+  </children>
 </AnchorPane>
