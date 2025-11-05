@@ -1642,9 +1642,13 @@ public class PlotController {
         // Show animation time if active (Phase 5)
         if (animationTime != null) {
             String timeStatus = timeAnimationRunning ? "▶" : "⏸";
+            // Format time safely to avoid StringIndexOutOfBoundsException
+            String timeStr = animationTime.toString();
+            // Use substring only if string is long enough, otherwise use full string
+            String displayTime = timeStr.length() >= 19 ? timeStr.substring(0, 19) : timeStr;
             gc.fillText(String.format("%s Time: %s (%.0fx)",
                 timeStatus,
-                animationTime.toString().substring(0, 19),
+                displayTime,
                 timeAnimationSpeed), 10, 50);
             gc.fillText(String.format("Center: RA %.2fh, Dec %.1f°", viewCenterRA, viewCenterDec), 10, 65);
             gc.fillText(String.format("FOV: %.1f°  Zoom: %.1fx", fieldOfView, zoomLevel), 10, 80);
