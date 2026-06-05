@@ -6,8 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -15,8 +17,10 @@ import java.util.stream.Collectors;
  */
 public class ConfigService {
 
+    private static final Logger log = Logger.getLogger(ConfigService.class.getName());
     private static ConfigService instance = null;
-    private static final String configFilename = "configs.json";  // Use gui directory file only
+    private static final String resourceName = "/data/configs.json";
+    private static final String fallbackFilename = "configs.json";
 
     private static final String defaultConfig = "default";
 
@@ -119,10 +123,20 @@ public class ConfigService {
 
     private Configs saveConfigs() {
         try {
-            om.writerFor(Configs.class).writeValue(new File(configFilename), configs);
+            // Try to save to gui subdirectory first if it exists
+            File guiDir = new File("gui");
+            File configFile;
+
+            if (guiDir.exists() && guiDir.isDirectory()) {
+                configFile = new File(guiDir, fallbackFilename);
+            } else {
+                configFile = new File(fallbackFilename);
+            }
+
+            om.writerFor(Configs.class).writeValue(configFile, configs);
+            log.info("Saved configs to: " + configFile.getAbsolutePath());
         } catch (IOException e) {
-            System.out.println("Error saving configs: " + e.getMessage());
-            // log.throwing(this.getClass().getName(), "saveConfigs", e);
+            log.warning("Error saving configs: " + e.getMessage());
         }
         return this.getConfigs();
     }
@@ -130,19 +144,74 @@ public class ConfigService {
     private Configs loadConfigs() {
         if (null == this.configs) {
             try {
-                // Load directly from gui directory file
-                this.configs = om.readerFor(Configs.class).readValue(new File(configFilename));
+                // Try loading from classpath resource first
+                try (InputStream is = getClass().getResourceAsStream(resourceName)) {
+                    if (is != null) {
+                        this.configs = om.readerFor(Configs.class).readValue(is);
+                        log.info("Loaded configs from classpath resource: " + resourceName);
+                        return this.configs;
+                    }
+                } catch (Exception e) {
+                    log.info("Could not load from resource: " + e.getMessage());
+                }
+
+                // Fall back to external file with multiple location attempts
+                File configFile = new File(fallbackFilename);
+
+                // If not found in current directory, try gui subdirectory
+                if (!configFile.exists()) {
+                    configFile = new File("gui/" + fallbackFilename);
+                    log.info("Trying alternate path: gui/" + fallbackFilename);
+                }
+
+                // If still not found, try parent directory
+                if (!configFile.exists()) {
+                    configFile = new File("../" + fallbackFilename);
+                    log.info("Trying alternate path: ../" + fallbackFilename);
+                }
+
+                if (configFile.exists()) {
+                    this.configs = om.readerFor(Configs.class).readValue(configFile);
+                    log.info("Loaded configs from: " + configFile.getAbsolutePath());
+                } else {
+                    log.warning("Config file not found in any location. Using empty config list.");
+                    this.configs = new Configs();
+                    this.configs.setConfigList(new java.util.ArrayList<>());
+                }
             } catch (IOException e) {
-                System.out.println("Error loading configs: " + e.getMessage());
-                // log.throwing(this.getClass().getName(), "loadConfigs", e);
+                log.warning("Error loading configs: " + e.getMessage());
+                this.configs = new Configs();
+                this.configs.setConfigList(new java.util.ArrayList<>());
             }
         }
         return this.configs;
     }
 
     private boolean defaultSetupExists() {
-        // Check if gui directory file exists
-        return new File(configFilename).exists();
+        // Check if resource exists in classpath
+        InputStream is = getClass().getResourceAsStream(resourceName);
+        if (is != null) {
+            try {
+                is.close();
+            } catch (IOException e) {
+                // Ignore close exception
+            }
+            return true;
+        }
+
+        // Check if file exists in multiple locations
+        File configFile = new File(fallbackFilename);
+        if (configFile.exists()) {
+            return true;
+        }
+
+        configFile = new File("gui/" + fallbackFilename);
+        if (configFile.exists()) {
+            return true;
+        }
+
+        configFile = new File("../" + fallbackFilename);
+        return configFile.exists();
     }
 
     private void deepCopy(Config from, Config to) {
