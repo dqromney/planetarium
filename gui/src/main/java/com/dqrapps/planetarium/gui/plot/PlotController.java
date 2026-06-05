@@ -2,6 +2,7 @@ package com.dqrapps.planetarium.gui.plot;
 
 import com.dqrapps.planetarium.gui.Main;
 import com.dqrapps.planetarium.gui.config.DisplayPreferences;
+import com.dqrapps.planetarium.gui.image.CelestialImageService;
 import com.dqrapps.planetarium.logic.model.Config;
 import com.dqrapps.planetarium.logic.model.Constellation;
 import com.dqrapps.planetarium.logic.model.ConstellationLine;
@@ -36,6 +37,7 @@ import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -138,6 +140,9 @@ public class PlotController {
     private List<Planet> planets;
     private SkyProjection projection;
 
+    // Celestial body image service for realistic rendering
+    private CelestialImageService imageService;
+
     // Display preferences (centralized in singleton)
     private DisplayPreferences displayPrefs;
 
@@ -211,6 +216,9 @@ public class PlotController {
         planetService = PlanetService.getInstance();
         astroService = new AstroService(null);
         displayPrefs = DisplayPreferences.getInstance();
+
+        // Initialize image service for realistic celestial body rendering
+        imageService = CelestialImageService.getInstance();
 
         // Initialize view center from config
         if (config != null && config.getLatitudeDegrees() != null) {
@@ -1303,13 +1311,12 @@ public class PlotController {
      * Enhanced planet rendering with realistic colors, sizes, hover effects, and type-specific features
      */
     private void drawPlanet(Planet planet, double x, double y) {
-        double size = planet.getDisplaySize();
-        Color color = Color.web(planet.getDisplayColor());
+        // Calculate size with hover enhancement
+        double baseMagnification = planet.isHovered() ? 1.3 : 1.0;
+        double distanceAU = planet.getDistance();
+        double size = imageService.calculateAutoSize(planet.getName().toLowerCase(), baseMagnification, distanceAU);
 
-        // Enhance size if hovered
-        if (planet.isHovered()) {
-            size *= 1.3; // Make hovered planets 30% larger
-        }
+        Color color = Color.web(planet.getDisplayColor());
 
         // Draw planet glow for bright planets or when hovered
         if (planet.getMagnitude() < 1.0 || planet.isHovered()) {
@@ -1326,18 +1333,46 @@ public class PlotController {
             gc.strokeOval(x - size * 0.7, y - size * 0.7, size * 1.4, size * 1.4);
         }
 
-        // Draw planet disk
-        gc.setFill(color);
-        gc.fillOval(x - size/2, y - size/2, size, size);
+        // Try to load planet image
+        Image planetImage = imageService.loadImage(planet.getName().toLowerCase());
 
-        // Add special rendering for Saturn (rings)
-        if (planet.getName().equalsIgnoreCase("Saturn")) {
-            drawSaturnRings(x, y, size, color);
-        }
+        if (planetImage != null) {
+            // Draw with realistic 3D image with circular clipping
+            gc.save();
+            gc.beginPath();
+            gc.arc(x, y, size/2, size/2, 0, 360);
+            gc.closePath();
+            gc.clip();
+            gc.drawImage(planetImage, x - size/2, y - size/2, size, size);
 
-        // Add special rendering for Jupiter (bands)
-        if (planet.getName().equalsIgnoreCase("Jupiter")) {
-            drawJupiterBands(x, y, size, color);
+            // Add 3D sphere shading based on planet characteristics
+            double brightness = planet.getMagnitude() < 0 ? 0.2 : 0.15; // Brighter for bright planets
+            javafx.scene.paint.RadialGradient sphereShading = new javafx.scene.paint.RadialGradient(
+                0, 0, 0.3, 0.3, 0.6, true,
+                javafx.scene.paint.CycleMethod.NO_CYCLE,
+                new javafx.scene.paint.Stop(0, Color.rgb(255, 255, 255, brightness)), // Highlight
+                new javafx.scene.paint.Stop(0.7, Color.rgb(150, 150, 150, 0)),        // Fade
+                new javafx.scene.paint.Stop(1.0, Color.rgb(0, 0, 0, 0.3))             // Subtle limb darkening
+            );
+            gc.setFill(sphereShading);
+            gc.fillOval(x - size/2, y - size/2, size, size);
+            gc.restore();
+
+            // Still draw Saturn rings on top of image
+            if (planet.getName().equalsIgnoreCase("Saturn")) {
+                drawSaturnRings(x, y, size, color);
+            }
+        } else {
+            // Fallback to original colored circle rendering
+            gc.setFill(color);
+            gc.fillOval(x - size/2, y - size/2, size, size);
+
+            // Draw special features
+            if (planet.getName().equalsIgnoreCase("Saturn")) {
+                drawSaturnRings(x, y, size, color);
+            } else if (planet.getName().equalsIgnoreCase("Jupiter")) {
+                drawJupiterBands(x, y, size, color);
+            }
         }
 
         // Enhanced labeling based on object type
@@ -1498,29 +1533,60 @@ public class PlotController {
         }
 
         if (currentSunPosition.isVisible()) {
-            // Sun is above horizon - draw bright yellow disk
             double[] coords = projection.raDecToScreen(currentSunPosition.getRa(), currentSunPosition.getDec());
             if (coords != null) {
                 double x = coords[0];
                 double y = coords[1];
-                double size = 16; // Larger than stars
+
+                // Auto-size based on zoom/distance
+                double size = imageService.calculateAutoSize("sun", 1.0, 1.0);
 
                 // Check if on screen
                 double width = starCanvas.getWidth();
                 double height = starCanvas.getHeight();
                 if (x >= -size && x <= width + size && y >= -size && y <= height + size) {
 
-                    // Draw bright glow effect
-                    gc.setFill(Color.rgb(255, 255, 150, 0.4));
-                    gc.fillOval(x - size * 1.5, y - size * 1.5, size * 3, size * 3);
+                    // Try to load sun image
+                    Image sunImage = imageService.loadImage("sun");
 
-                    // Draw sun disk
-                    gc.setFill(Color.rgb(255, 255, 100));
-                    gc.fillOval(x - size/2, y - size/2, size, size);
+                    if (sunImage != null) {
+                        // Draw with realistic 3D image
+                        // Glow effect
+                        gc.setFill(Color.rgb(255, 255, 150, 0.3));
+                        gc.fillOval(x - size * 1.5, y - size * 1.5, size * 3, size * 3);
 
-                    // Add corona effect
-                    gc.setFill(Color.rgb(255, 245, 200, 0.6));
-                    gc.fillOval(x - size/3, y - size/3, size/1.5, size/1.5);
+                        // Draw sun image with circular clipping and 3D shading
+                        gc.save();
+                        gc.beginPath();
+                        gc.arc(x, y, size/2, size/2, 0, 360);
+                        gc.closePath();
+                        gc.clip();
+                        gc.drawImage(sunImage, x - size/2, y - size/2, size, size);
+
+                        // Add 3D sphere shading with limb darkening
+                        javafx.scene.paint.RadialGradient sphereShading = new javafx.scene.paint.RadialGradient(
+                            0, 0, 0.3, 0.3, 0.6, true,
+                            javafx.scene.paint.CycleMethod.NO_CYCLE,
+                            new javafx.scene.paint.Stop(0, Color.rgb(255, 255, 255, 0.1)),  // Subtle bright center
+                            new javafx.scene.paint.Stop(0.7, Color.rgb(255, 200, 100, 0)),  // Fade
+                            new javafx.scene.paint.Stop(1.0, Color.rgb(100, 50, 0, 0.2))    // Light dark edge
+                        );
+                        gc.setFill(sphereShading);
+                        gc.fillOval(x - size/2, y - size/2, size, size);
+                        gc.restore();
+
+                        // Corona glow on top
+                        gc.setFill(Color.rgb(255, 245, 200, 0.2));
+                        gc.fillOval(x - size * 0.8, y - size * 0.8, size * 1.6, size * 1.6);
+                    } else {
+                        // Fallback to original rendering
+                        gc.setFill(Color.rgb(255, 255, 150, 0.4));
+                        gc.fillOval(x - size * 1.5, y - size * 1.5, size * 3, size * 3);
+                        gc.setFill(Color.rgb(255, 255, 100));
+                        gc.fillOval(x - size/2, y - size/2, size, size);
+                        gc.setFill(Color.rgb(255, 245, 200, 0.6));
+                        gc.fillOval(x - size/3, y - size/3, size/1.5, size/1.5);
+                    }
 
                     // Label
                     gc.setFill(Color.rgb(255, 255, 150));
@@ -1540,17 +1606,26 @@ public class PlotController {
      * Draw the Moon position, phase, and status (Phase 5 Enhancement).
      */
     private void drawMoon() {
+        log.info("DEBUG: drawMoon() called - showMoon=" + showMoon +
+                 ", moonPos=" + (currentMoonPosition != null ? "exists" : "null") +
+                 ", projection=" + (projection != null ? "exists" : "null"));
+
         if (!showMoon || currentMoonPosition == null || projection == null) {
             return;
         }
 
+        log.info("Moon visible? " + currentMoonPosition.isVisible() +
+                 ", altitude=" + currentMoonPosition.getAltitude());
+
         if (currentMoonPosition.isVisible()) {
-            // Moon is above horizon - draw with current phase
             double[] coords = projection.raDecToScreen(currentMoonPosition.getRa(), currentMoonPosition.getDec());
+            log.info("Moon coords: " + (coords != null ? (coords[0] + "," + coords[1]) : "null"));
             if (coords != null) {
                 double x = coords[0];
                 double y = coords[1];
-                double size = 12;
+
+                // Auto-size based on zoom/distance
+                double size = imageService.calculateAutoSize("moon", 1.0, 0.00257);
                 double illumination = currentMoonPosition.getIllumination();
 
                 // Check if on screen
@@ -1558,28 +1633,72 @@ public class PlotController {
                 double height = starCanvas.getHeight();
                 if (x >= -size && x <= width + size && y >= -size && y <= height + size) {
 
-                    // Draw moon disk (light gray)
-                    gc.setFill(Color.rgb(220, 220, 220, 0.9));
-                    gc.fillOval(x - size/2, y - size/2, size, size);
+                    // Try to load moon image
+                    Image moonImage = imageService.loadImage("moon");
 
-                    // Draw shadow for current phase
-                    if (illumination < 0.98) { // Not full moon
-                        gc.setFill(Color.rgb(50, 50, 80, 0.8));
+                    // Debug: Always draw moon position marker
+                    gc.setFill(Color.RED);
+                    gc.fillOval(x - 3, y - 3, 6, 6); // Red dot to show moon position
 
-                        if (illumination < 0.5) {
-                            // Crescent - shadow on right side
-                            double shadowWidth = size * (1 - illumination * 2);
-                            gc.fillOval(x - size/2 + size - shadowWidth, y - size/2, shadowWidth, size);
-                        } else {
-                            // Gibbous - shadow on left side
-                            double shadowWidth = size * (2 - illumination * 2);
-                            gc.fillOval(x - size/2, y - size/2, shadowWidth, size);
+                    if (moonImage != null) {
+                        // Draw with realistic 3D image
+                        // Subtle glow
+                        gc.setFill(Color.rgb(200, 200, 220, 0.2));
+                        gc.fillOval(x - size * 0.9, y - size * 0.9, size * 1.8, size * 1.8);
+
+                        // Draw moon image with circular clipping and 3D shading
+                        gc.save();
+                        gc.beginPath();
+                        gc.arc(x, y, size/2, size/2, 0, 360);
+                        gc.closePath();
+                        gc.clip();
+                        gc.drawImage(moonImage, x - size/2, y - size/2, size, size);
+
+                        // Add 3D sphere shading (subtle to preserve moon visibility)
+                        javafx.scene.paint.RadialGradient sphereShading = new javafx.scene.paint.RadialGradient(
+                            0, 0, 0.35, 0.35, 0.6, true,
+                            javafx.scene.paint.CycleMethod.NO_CYCLE,
+                            new javafx.scene.paint.Stop(0, Color.rgb(255, 255, 255, 0.15)), // Subtle bright spot
+                            new javafx.scene.paint.Stop(0.7, Color.rgb(200, 200, 200, 0)),  // Fade
+                            new javafx.scene.paint.Stop(1.0, Color.rgb(0, 0, 0, 0.25))      // Light limb darkening
+                        );
+                        gc.setFill(sphereShading);
+                        gc.fillOval(x - size/2, y - size/2, size, size);
+
+                        // Phase shadow overlay (still clipped to circle)
+                        if (illumination < 0.98) {
+                            gc.setFill(Color.rgb(10, 10, 35, 0.7));
+
+                            if (illumination < 0.5) {
+                                // Crescent - shadow on right
+                                double shadowWidth = size * (1 - illumination * 2);
+                                gc.fillOval(x - size/2 + size - shadowWidth, y - size/2, shadowWidth, size);
+                            } else {
+                                // Gibbous - shadow on left
+                                double shadowWidth = size * (2 - illumination * 2);
+                                gc.fillOval(x - size/2, y - size/2, shadowWidth, size);
+                            }
                         }
-                    }
+                        gc.restore();
+                    } else {
+                        // Fallback to original rendering
+                        gc.setFill(Color.rgb(220, 220, 220, 0.9));
+                        gc.fillOval(x - size/2, y - size/2, size, size);
 
-                    // Add subtle glow
-                    gc.setFill(Color.rgb(200, 200, 220, 0.3));
-                    gc.fillOval(x - size * 0.8, y - size * 0.8, size * 1.6, size * 1.6);
+                        if (illumination < 0.98) {
+                            gc.setFill(Color.rgb(50, 50, 80, 0.8));
+                            if (illumination < 0.5) {
+                                double shadowWidth = size * (1 - illumination * 2);
+                                gc.fillOval(x - size/2 + size - shadowWidth, y - size/2, shadowWidth, size);
+                            } else {
+                                double shadowWidth = size * (2 - illumination * 2);
+                                gc.fillOval(x - size/2, y - size/2, shadowWidth, size);
+                            }
+                        }
+
+                        gc.setFill(Color.rgb(200, 200, 220, 0.3));
+                        gc.fillOval(x - size * 0.8, y - size * 0.8, size * 1.6, size * 1.6);
+                    }
 
                     // Label with phase information
                     gc.setFill(Color.rgb(200, 200, 220));

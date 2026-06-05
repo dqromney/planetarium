@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" prefHeight="648.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dqrapps.planetarium.gui.plot.PlotController">
+  <children>
+    <Pane fx:id="canvasPane" layoutY="-2.0" prefHeight="600.0" prefWidth="882.0" style="-fx-background-color: rgb(0, 0, 35);" AnchorPane.bottomAnchor="48.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Canvas fx:id="starCanvas" height="600.0" width="882.0"/>
+      </children>
+    </Pane>
+    <ToolBar id="plotToolbar" layoutY="600.0" prefHeight="48.0" prefWidth="882.0" AnchorPane.bottomAnchor="0.0"
+             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <!-- Core Controls -->
+        <Button id="configBtnId" fx:id="configButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchToConfig"
+                text="⚙ Config">
+          <tooltip>
+            <Tooltip text="Configure observation location and settings" showDelay="500ms"/>
+          </tooltip>
+        </Button>
+
+        <Button id="catalogSelectBtnId" fx:id="catalogSelectButton" mnemonicParsing="false" onAction="#selectCatalog" prefHeight="26.0" prefWidth="90.0"
+                text="📚 Catalog">
+          <tooltip>
+            <Tooltip text="Switch between different star catalogs&#10;(166 bright stars → 120K stars)" showDelay="500ms"/>
+          </tooltip>
+        </Button>
+
+        <!-- Objects Menu (Consolidated celestial objects) -->
+        <MenuButton fx:id="objectsMenuButton" text="🔭 Objects" prefHeight="26.0" prefWidth="95.0">
+          <tooltip>
+            <Tooltip text="Show/hide celestial objects" showDelay="500ms"/>
+          </tooltip>
+          <items>
+            <CheckMenuItem fx:id="sunMenuItem" text="☀ Sun" selected="true" onAction="#toggleSun"/>
+            <CheckMenuItem fx:id="moonMenuItem" text="🌙 Moon" selected="true" onAction="#toggleMoon"/>
+            <CheckMenuItem fx:id="planetsMenuItem" text="🪐 Planets" selected="true" onAction="#togglePlanets"/>
+            <SeparatorMenuItem/>
+            <CheckMenuItem fx:id="constellationsMenuItem" text="⭐ Constellations" selected="false" onAction="#toggleConstellations"/>
+          </items>
+        </MenuButton>
+
+        <!-- View Menu (Hemisphere modes) -->
+        <MenuButton fx:id="viewMenuButton" text="👁 View" prefHeight="26.0" prefWidth="75.0">
+          <tooltip>
+            <Tooltip text="Choose sky projection mode" showDelay="500ms"/>
+          </tooltip>
+          <items>
+            <RadioMenuItem fx:id="singleHemisphereMenuItem" text="🌐 Single View" selected="true" onAction="#setSingleHemisphere" toggleGroup="$viewModeGroup"/>
+            <RadioMenuItem fx:id="dualHemisphereMenuItem" text="🌍🌏 Dual View" selected="false" onAction="#setDualHemisphere" toggleGroup="$viewModeGroup"/>
+            <RadioMenuItem fx:id="fullSkyMenuItem" text="🗺️ Full Sky" selected="false" onAction="#setFullSky" toggleGroup="$viewModeGroup"/>
+          </items>
+        </MenuButton>
+
+        <!-- Display Menu (Display options) -->
+        <MenuButton fx:id="displayMenuButton" text="🎨 Display" prefHeight="26.0" prefWidth="85.0">
+          <tooltip>
+            <Tooltip text="Display options and export" showDelay="500ms"/>
+          </tooltip>
+          <items>
+            <CheckMenuItem fx:id="gridMenuItem" text="📐 Grid" selected="false" onAction="#toggleGrid"/>
+            <CheckMenuItem fx:id="dsoMenuItem" text="🌌 DSO" selected="false" onAction="#toggleDeepSky"/>
+            <CheckMenuItem fx:id="orbitalPathsMenuItem" text="🛸 Orbits" selected="false" onAction="#toggleOrbitalPaths"/>
+            <SeparatorMenuItem/>
+            <MenuItem fx:id="exportMenuItem" text="📸 Export..." onAction="#exportScreenshot"/>
+          </items>
+        </MenuButton>
+
+        <!-- Flexible spacer -->
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Search Controls (Compact) -->
+        <HBox spacing="5.0" alignment="CENTER_LEFT" prefWidth="220.0">
+          <TextField fx:id="searchField" promptText="🔍 Search star..." prefWidth="130.0" onAction="#searchStar">
+            <tooltip>
+              <Tooltip text="Enter star name to search&#10;(e.g., Polaris, Sirius, Betelgeuse)" showDelay="500ms"/>
+            </tooltip>
+          </TextField>
+          <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchStar" prefHeight="26.0" prefWidth="50.0" text="Find">
+            <tooltip>
+              <Tooltip text="Find and highlight the star" showDelay="500ms"/>
+            </tooltip>
+          </Button>
+          <Button fx:id="clearSearchButton" mnemonicParsing="false" onAction="#clearSearch" prefHeight="26.0" prefWidth="45.0" text="Clear">
+            <tooltip>
+              <Tooltip text="Clear search results" showDelay="500ms"/>
+            </tooltip>
+          </Button>
+        </HBox>
+
+        <!-- Another flexible spacer -->
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Time Controls (Compact) -->
+        <VBox spacing="2.0" alignment="CENTER" prefWidth="130.0">
+          <HBox spacing="5.0" alignment="CENTER">
+            <Label fx:id="speedLabel" text="⏱ Speed: 60x" style="-fx-text-fill: white; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+          </HBox>
+          <Slider fx:id="speedSlider" min="1" max="1440" value="60" prefWidth="120.0"
+                  blockIncrement="10" majorTickUnit="100" minorTickCount="10" snapToTicks="false">
+            <tooltip>
+              <Tooltip text="Time animation speed&#10;(1x = real-time, 1440x = 1 day/min)" showDelay="500ms"/>
+            </tooltip>
+          </Slider>
+        </VBox>
+
+        <!-- Animation Controls -->
+        <HBox spacing="3.0" alignment="CENTER_RIGHT" prefWidth="200.0">
+          <Button fx:id="setTimeButton" mnemonicParsing="false" onAction="#showDateTimePicker" prefHeight="26.0" prefWidth="75.0" text="🕐 Time...">
+            <tooltip>
+              <Tooltip text="Set observation date and time" showDelay="500ms"/>
+            </tooltip>
+          </Button>
+          <Button fx:id="playButton" mnemonicParsing="false" onAction="#toggleTimeAnimation" prefHeight="26.0" prefWidth="55.0" text="▶ Play">
+            <tooltip>
+              <Tooltip text="Start/pause time animation" showDelay="500ms"/>
+            </tooltip>
+          </Button>
+          <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetTime" prefHeight="26.0" prefWidth="60.0" text="⟲ Reset">
+            <tooltip>
+              <Tooltip text="Reset time to current date/time" showDelay="500ms"/>
+            </tooltip>
+          </Button>
+        </HBox>
+
+        <!-- Exit Button -->
+        <Button id="exitBtnId" fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="60.0" text="✕ Exit">
+          <tooltip>
+            <Tooltip text="Exit application" showDelay="500ms"/>
+          </tooltip>
+        </Button>
+      </items>
+    </ToolBar>
+  </children>
+</AnchorPane>

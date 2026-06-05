@@ -72,3 +72,7 @@ mvn clean install
 # Run the application
 cd gui
 mvn javafx:run
+
+## References
+
+https://www.solarsystemscope.com/textures/
